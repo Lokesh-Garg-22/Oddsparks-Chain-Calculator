@@ -79,3 +79,11 @@ export function chooseDefault(game, item, pinned) {
   const [best, ...rest] = ranked;
   return { id: best.id, byIdOnly: rest.filter((r) => sameRank(r.key, best.key)).map((r) => r.id) };
 }
+
+/**
+ * Recipe ids in the order players meet them: earliest unlock tier first, then by name.
+ * @param {Record<string, any>} recipes @param {string[]} ids
+ */
+export function byUnlockOrder(recipes, ids) {
+  return ids.toSorted((a, b) => unlockTier(recipes[a]) - unlockTier(recipes[b]) || recipes[a].name.localeCompare(recipes[b].name));
+}

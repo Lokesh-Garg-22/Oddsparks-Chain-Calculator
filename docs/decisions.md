@@ -4,6 +4,24 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 6 (app shell) decisions:**
+  - **Preact 10.29.8 and htm 3.1.1 vendored** from npm, with integrity checked against the registry. Their bare imports (`preact`) are resolved by an import map in `index.html`; still no build step.
+  - **Fonts self-hosted** (Fredoka 600 and Inter variable, Latin subsets, OFL, 65 KB). The site makes no third-party requests.
+  - **Design:** follows the mockup, but drops the numbered "1 · 2 ·" headings and middle-dot strings as template chrome (frontend-design review). The "You need" tiles (big build counts beside each building's icon) are the one prominent element.
+  - **Icons:** the app reads `icons/sources.json` to know which icons exist, so a missing one (Tailor's Tent) shows initials without a failed request. This reverses step 3's "the app doesn't read it", for a clean console.
+  - **Search:** names that start with the search text come first ("tim" → Timber before Sawn Timber). Picking an item selects its default recipe's building and recipe.
+  - **Recipe cards** show time and unlock only on the selected card, so count and crew stay near the top.
+  - **Tiny rates** keep two significant digits ("0.0046") instead of showing 0.
+  - **After the reviews** (`code-review`: 2 fixes; `simplify`: 4 reviews):
+    - **State shaped like a saved tab:** one `calc` (`site/js/state/calc.js`, including `building`) is changed only through pure, tested updaters. That's ready for per-row edits, tabs and share links.
+    - **Prefs:** `prefs` (unit, decimals, default crew) feeds one formatter (`makeFormat`) through a context, so step 8's settings are a single change.
+    - **Shared vocabulary:** `recipeTags()` and `STOP_LABELS` live next to `openIssues` in `merge.js`.
+    - **Pre-sorted recipes:** each building's recipe list is sorted once in `applyOverrides`.
+    - **Summary in the engine:** `perBuilding()` moved there, so the Excel export can reuse it.
+    - **Icon list on `game`:** the list of existing icons is now `game.iconKeys`.
+    - **Icons downloaded at 64 px instead of 128 px** (2× their largest display size). Buildings went from 676 KB to 232 KB; this settles step 3's deferred compression question without a tool.
+    - **Faster first load:** the data JSON and the deeper modules are preloaded, so they download in parallel with `main.js` instead of after it.
+    - **CSS:** radius and small-text tokens, an on-amber colour token, and shared utilities replace repeated rules.
 - **Step 5 (calculation engine) decisions:**
   - **Approach:** a depth-first walk from the target fixes the dependency order and cuts loops on the path. Rates are then computed consumers-first, so demand from all branches is summed before a recipe runs (no double counting, one row per recipe).
   - **A recipe in the chain for several of its outputs** runs for the most demanding one; the rest are byproducts. Byproducts don't reduce other demand (v1, as decided).

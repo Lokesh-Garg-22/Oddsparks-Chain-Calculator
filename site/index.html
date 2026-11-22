@@ -5,10 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Oddsparks Chain Calculator</title>
   <meta name="description" content="Work out every building and resource you need to keep your Oddsparks production running.">
-  <!-- Fonts are self-hosted from step 6 (plan: no CDN at runtime). -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;family=Inter:wght@400;600&amp;display=swap">
+  <link rel="preload" href="./vendor/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./vendor/fonts/fredoka-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./css/styles.css">
+  <!-- Start the data and the deeper modules downloading now, instead of after main.js has loaded its imports. -->
+  <link rel="preload" href="./data/oddsparks.json" as="fetch" crossorigin>
+  <link rel="preload" href="./data/overrides.json" as="fetch" crossorigin>
+  <link rel="preload" href="./icons/sources.json" as="fetch" crossorigin>
+  <link rel="modulepreload" href="./vendor/preact/preact.module.js">
+  <link rel="modulepreload" href="./vendor/preact/hooks.module.js">
+  <link rel="modulepreload" href="./vendor/htm/htm.module.js">
+  <link rel="modulepreload" href="./js/ui/App.js">
+  <link rel="modulepreload" href="./js/engine/calc.js">
+  <link rel="modulepreload" href="./js/data/merge.js">
+  <script type="importmap">
+    {
+      "imports": {
+        "preact": "./vendor/preact/preact.module.js",
+        "preact/hooks": "./vendor/preact/hooks.module.js",
+        "htm": "./vendor/htm/htm.module.js"
+      }
+    }
+  </script>
+  <script type="module" src="./js/main.js"></script>
 </head>
 <body>
   <svg width="0" height="0" style="position: absolute" aria-hidden="true">
@@ -25,16 +44,14 @@
     </div>
   </header>
 
-  <main class="container placeholder">
-    <svg class="spark-mark" width="88" height="88" stroke-width="1.4" aria-hidden="true"><use href="#spark"/></svg>
-    <h2>The calculator is being built</h2>
-    <p>Pick a building, choose a recipe and say how many you want to run. The calculator will list every other building and raw resource needed to keep them supplied, with spark crews, saved tabs and Excel export.</p>
-    <p>Game data comes from the Oddsparks Wiki and is being checked against the game.</p>
-  </main>
+  <div id="app">
+    <p class="container loading muted">Loading game data…</p>
+    <noscript><p class="container notice">The calculator needs JavaScript. Turn it on and reload the page.</p></noscript>
+  </div>
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <span>Game data from the <a href="https://oddsparks.wiki.gg">Oddsparks Wiki</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Icons are game artwork © THQ Nordic AB, via the wiki.</span>
+      <span>Game data from the <a href="https://oddsparks.wiki.gg">Oddsparks Wiki</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Icons are game artwork © THQ Nordic AB, via the wiki (<a href="./icons/CREDITS.md">credits</a>).</span>
       <span>Oddsparks © THQ Nordic AB. Developed by Massive Miniteam, published by HandyGames. Oddsparks is a trademark of THQ Nordic AB. Fan-made site, not affiliated with or endorsed by them.</span>
       <span>Inspired by <a href="https://piratespark.github.io/">piratespark</a>.</span>
     </div>

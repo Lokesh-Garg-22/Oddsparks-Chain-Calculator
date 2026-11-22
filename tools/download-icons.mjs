@@ -1,13 +1,13 @@
 // @ts-check
 /**
- * Download item and building icons from the Oddsparks Wiki as 128 px copies.
+ * Download item and building icons from the Oddsparks Wiki as 64 px copies.
  *
  *   npm run icons     (after npm run extract)
  *
  * Reads:  site/data/oddsparks.json (names, and the image each page's infobox shows)
  * Writes: site/icons/items/<id>.png, site/icons/buildings/<id>.png, site/icons/CREDITS.md,
- *         site/icons/sources.json (download bookkeeping: width and each wiki file's checksum;
- *         the app doesn't read it, it loads icons/<kind>/<id>.png and shows the name if missing)
+ *         site/icons/sources.json (width and each wiki file's checksum: lets a re-run skip unchanged
+ *         files, and tells the app which icons exist so a missing one shows initials without a request)
  * Only icons whose wiki file changed (or that are missing locally) are downloaded again.
  */
 import { existsSync } from 'node:fs';
@@ -18,7 +18,8 @@ import { downloadImage, fetchImageInfo } from './wiki/api.mjs';
 import { candidateFiles, looksLikePng, renderCredits } from './wiki/icons.mjs';
 
 const SOURCES = join(ICONS_DIR, 'sources.json');
-const WIDTH = 128;
+// 2x the largest size icons are drawn at (28-44 px); a quarter of the bytes of 128 px.
+const WIDTH = 64;
 
 async function main() {
   if (!existsSync(DATA_FILE)) throw new Error('Run `npm run extract` first.');

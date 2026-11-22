@@ -237,3 +237,16 @@ export function chainTree(result) {
   };
   return node(result.rows[result.target], result.output.item, 1);
 }
+
+/**
+ * Machines per building (rounded up per recipe, then added), for the summary and the Excel Summary.
+ * @param {ReturnType<typeof calculate>} result
+ * @returns {{ building: string, build: number | null, recipes: string[] }[]} build is null when any row can't be calculated
+ */
+export function perBuilding(result) {
+  return [...Map.groupBy(Object.values(result.rows), (r) => r.building)].map(([building, rows]) => ({
+    building,
+    build: rows.some((r) => r.build == null) ? null : rows.reduce((sum, r) => sum + /** @type {number} */ (r.build), 0),
+    recipes: rows.map((r) => r.recipe),
+  }));
+}

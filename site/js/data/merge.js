@@ -4,7 +4,7 @@
  * everything the engine and UI look up repeatedly. Pure: used by the app at load time and by
  * tools/validate-data.mjs. Inputs are not modified.
  */
-import { chooseDefault } from '../engine/recipes.js';
+import { byUnlockOrder, chooseDefault } from '../engine/recipes.js';
 
 /** An id segment, as produced by the extractor's slug(). */
 export const SLUG = '[a-z0-9]+(?:-[a-z0-9]+)*';
@@ -52,7 +52,7 @@ function setPath(recipe, path, value) {
  *  - recipes gain `corrected` (path → { value, was, reason, source }), `confirmed` (path → source), `mergedFrom`
  *  - items gain `displayName`, `aliases`, `raw`, `producers`/`consumers` (recipe ids) and the resolved
  *    `defaultRecipe` (null when nothing makes it; `defaultTiedById` lists recipes it tied with on id only)
- *  - buildings gain `displayName`, `aliases`
+ *  - buildings gain `displayName`, `aliases` and `recipes` (ids, earliest unlock first)
  *  - crews are keyed by id; `crewOrder` keeps the table's order
  *  - renamedIds: { recipes, items, crews } old id → new id, for saved tabs (merged recipes included)
  * @param {any} data contents of oddsparks.json
@@ -91,7 +91,10 @@ export function applyOverrides(data, overrides) {
 
   const game = {
     meta: data.meta,
-    buildings: Object.fromEntries(Object.entries(data.buildings).map(([id, e]) => [id, named(e, overrides.buildings[id])])),
+    buildings: Object.fromEntries(Object.entries(data.buildings).map(([id, e]) => {
+      const ids = Object.keys(recipes).filter((r) => recipes[r].building === id);
+      return [id, { ...named(e, overrides.buildings[id]), recipes: byUnlockOrder(recipes, ids) }];
+    })),
     items,
     recipes,
     crews: Object.fromEntries(overrides.sparkCrews.map((/** @type {{ id: string }} */ c) => [c.id, c])),
@@ -144,4 +147,30 @@ export function openIssues(recipe) {
   const checked = Object.keys(recipe.confirmed).length + Object.keys(recipe.corrected).length > 0;
   if (recipe.sources.length === 1 && !checked) issues.push({ kind: 'single-page', text: `only on one wiki page (${recipe.sources[0].page})` });
   return issues;
+}
+
+/** How the UI names why a chain stops at an item. */
+export const STOP_LABELS = /** @type {const} */ ({
+  supplied: 'you supply it',
+  raw: 'raw resource',
+  'no-recipe': 'nothing makes it',
+  loop: 'needed inside its own chain',
+});
+
+/**
+ * Short tags a player should see on a recipe (cards, chain rows, the Excel Summary). The single place
+ * that decides which recipe facts become warnings.
+ * @param {any} recipe a recipe from applyOverrides
+ * @returns {{ code: 'fuel' | 'random' | 'cycles' | 'conflict' | 'missing', text: string }[]}
+ */
+export function recipeTags(recipe) {
+  /** @type {{ code: 'fuel' | 'random' | 'cycles' | 'conflict' | 'missing', text: string }[]} */
+  const tags = [];
+  if (recipe.usesFuel) tags.push({ code: 'fuel', text: 'needs fuel' });
+  if (recipe.randomised) tags.push({ code: 'random', text: 'random output' });
+  if (recipe.cycles) tags.push({ code: 'cycles', text: `${recipe.cycles} crafts per batch` });
+  const issues = openIssues(recipe);
+  if (issues.some((i) => i.kind === 'conflict')) tags.push({ code: 'conflict', text: 'sources disagree' });
+  if (issues.some((i) => i.kind === 'missing')) tags.push({ code: 'missing', text: 'value missing' });
+  return tags;
 }

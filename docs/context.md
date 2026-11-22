@@ -13,7 +13,13 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 5 (calculation engine): committed.**
+- **Step 6 (app shell): committed.**
+  - the calculator runs in the browser: building search (with in-game names), recipe cards, count, crew, "You need" tiles, raw inputs, loop note, build list, first-visit examples
+  - Preact and htm vendored, fonts self-hosted, no third-party requests
+  - checked in a real browser (light, dark, phone)
+  - 66 unit tests pass (new: calc state updaters, formatter)
+  - reviewed with `code-review` (2 fixes) and `simplify` (tab-shaped state, prefs and formatter, shared vocabulary, 64 px icons, preloading)
+- **Step 5 (calculation engine): committed** (`fae83c7`).
   - `site/js/engine/calc.js`: `calculate()` returns rows per recipe (each input with its source), raw, loops, byproducts and warnings; `chainTree()` derives the tree
   - `howMade()` in `recipes.js` holds the chain-stop rule
   - 61 tests pass: worked example, Logger check, the owner's 3 spreadsheets and readings, loops, byproducts, odds, cycles, crew per row, "I supply this"
@@ -63,10 +69,11 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Build **step 6: app shell with Preact** (vendored Preact + htm, self-hosted fonts, picker, recipe cards, count, crew, summary, build list). See [plan.md](plan.md#7-build-steps).
+Build **step 7: chain tree** (crew per row, recipe switch, "I supply this", badges and details, combined rows). See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 
 - None blocking.
+- Aether Shard default recipe: Pellet Refining (earliest unlock) pulls a looping Aether chain into beginner recipes; the owner may set a different default (asked 2026-11-22).
 - Site name: undecided (working title "Oddsparks Chain Calculator").
 - Optional step 13 (game-file extraction): decided at the end of the project.

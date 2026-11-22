@@ -182,7 +182,7 @@ Each step can be reviewed on its own. Docs are updated at the end of every step.
 5. **Engine + tests:** worked example, Logger cross-check, the owner's 3 spreadsheets, loops, byproducts, cycles, random outputs.
    - Put the "where does the chain stop" rule (no recipe, harvester, `raw`, "I supply this") next to the default rule in `site/js/engine/recipes.js`.
    - Move the readings tests onto the engine's own rate function.
-6. **App shell with Preact** (also: self-host Fredoka + Inter in `site/vendor/fonts/`, replacing Google Fonts): picker (search incl. aliases), recipe cards, count, crew, summary, build list.
+6. **App shell with Preact** (done 2026-11-22; fonts self-hosted in `site/vendor/fonts/`): picker (search incl. aliases), recipe cards, count, crew, summary, build list.
 7. **Chain tree:** crew per row, recipe switch, "I supply this", badges and details, combined rows. Define the badge vocabulary once, next to `openIssues`: issues plus fuel, random output, cycles, loop and unverified crew. The UI, the Excel Summary and `validate` all use it.
 8. **Columns menu, settings (unit, decimals, theme), share link, byproducts and warnings panels, empty state, phone layout, dark mode.** Visual pass with `frontend-design`.
 9. **Tabs + sessionStorage:** tab bar, new/close/rename, unsaved dot, confirm on close.
