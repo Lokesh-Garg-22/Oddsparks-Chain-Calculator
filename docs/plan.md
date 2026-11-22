@@ -145,10 +145,10 @@ Each step can be reviewed on its own. Docs are updated at the end of every step.
    - `site/` and other folders
    - README with credits, linking to ROADMAP.md and CONTRIBUTING.md
    - `CONTRIBUTING.md`, `LICENSE-DATA.md`, `.gitignore`, `package.json` scripts
-   - install the official skills into `.claude/skills/`, plus Python Playwright
+   - ~~install the official skills into `.claude/skills/`, plus Python Playwright~~ (done 2026-11-22, before step 1)
 2. **Wiki extractor:** generates `oddsparks.json` and the extraction report. *Review:* the report, spot checks against the wiki.
 3. **Icon download** + `CREDITS.md`. *Review:* licences.
-4. **`overrides.json` + `validate-data.mjs`:** crew table, in-game names (Timber), defaults, raw items.
+4. **`overrides.json` + `validate-data.mjs`:** crew table, in-game names (Timber), defaults, raw items. End with a first real test run of the `update-game-data` skill.
 5. **Engine + tests:** worked example, Logger cross-check, the owner's 3 spreadsheets, loops, byproducts, cycles, random outputs.
 6. **App shell with Preact:** picker (search incl. aliases), recipe cards, count, crew, summary, build list.
 7. **Chain tree:** crew per row, recipe switch, "I supply this", badges and details, combined rows.

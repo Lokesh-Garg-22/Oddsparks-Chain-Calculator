@@ -4,6 +4,12 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Skills installed in the project** (`.claude/skills/`):
+  - `webapp-testing` and `frontend-design`, copied unchanged from `anthropics/skills` at commit `e4bb5d9` (Apache-2.0, licences kept) and reviewed before committing
+  - our own `update-game-data`
+  - CLAUDE.md maps each build step to the skill that must be used
+  - Playwright 1.65.2 + Chromium live in a project `.venv/` (git-ignored)
+  - `update-game-data` gets its first real test run once the extractor exists (end of step 4)
 - **Site name:** undecided. "Oddsparks Chain Calculator" is a working title, kept in one place in the code so a rename is a one-line change. The repo name "Pirate-Spark-V2" may change before going public.
 - **Repo:** `github.com/Lokesh-Garg-22/Pirate-Spark-V2`, private until v1 is done, then public. Free GitHub Pages needs a public repo, so the deploy workflow is set up in step 12 and goes live when the repo is made public. Until then, preview locally.
 - **Git workflow:** one commit per build step, straight onto `main`, made only after the owner reviews and approves.

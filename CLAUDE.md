@@ -8,6 +8,22 @@ Oddsparks production chain calculator ("Pirate-Spark-V2"): a static site for Git
 2. [docs/plan.md](docs/plan.md): the approved plan.
 3. [docs/decisions.md](docs/decisions.md): what was decided, and why.
 
+## Skills (use them, every time they apply)
+
+The project skills live in `.claude/skills/`. Load the skill **before** doing the work it covers, not afterwards.
+
+| When | Skill |
+|---|---|
+| Any change to game data: extraction, overrides, in-game names, confirming values, icons (plan steps 2–4, and every later data update) | `update-game-data` (project) |
+| Building or reshaping any UI: layout, styling, components, theming (plan steps 6–11) | `frontend-design` (project, official) |
+| Checking the UI in a real browser: screenshots, clicks, console errors, phone width (end of every UI step, and step 12) | `webapp-testing` (project, official). Use `.venv/Scripts/python` (Playwright + Chromium are installed there) |
+| Launching the site locally to look at a change | `run` |
+| End of every build step, before asking the owner to review | `code-review`, then `simplify` |
+| Step 2 (extractor fetches external content) and step 12 (deploy workflow) | `security-review` |
+| Creating or changing a skill | `skill-creator` |
+
+The mockup (`docs/reference.md`) is the visual reference for `frontend-design` work. Its palette and type are already decided, so follow it rather than inventing a new look.
+
 ## Rules
 
 - **Planning gate:** write no application code and no scaffolding until the owner says **"execute the plan"**. Docs in `docs/` are allowed. If you're unsure whether something counts as execution, ask.

@@ -1,0 +1,17 @@
+# Python env for Playwright (webapp-testing skill)
+.venv/
+__pycache__/
+*.pyc
+
+# Node (no dependencies expected, but just in case)
+node_modules/
+
+# Test and skill-eval scratch output
+test-results/
+screenshots/
+*-workspace/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.claude/settings.local.json

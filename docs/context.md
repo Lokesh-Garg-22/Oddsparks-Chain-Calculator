@@ -19,6 +19,7 @@ You can keep several calculations open as tabs, save them into a library organis
   - owner's spreadsheet analysed
   - UI mockup made, then checked against every UI item in plan section 6 (7 screens)
   - docs created
+  - skills set up in `.claude/skills/` (webapp-testing, frontend-design, update-game-data), Playwright + Chromium in `.venv/`
 - Confirmed from the owner's in-game readings: base craft time = 1 Stumpy, 2 Stumpy = ×2, 2 Crafty = ×3, harvesters speed up with sparks.
 
 ## Next step
