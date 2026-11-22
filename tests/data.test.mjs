@@ -3,6 +3,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { applyOverrides, openIssues, resolveId } from '../site/js/data/merge.js';
+import { BADGE_KINDS, recipeBadges, rowBadges } from '../site/js/data/badges.js';
+import { calculate } from '../site/js/engine/calc.js';
 import { validate } from '../tools/data/validate.mjs';
 import { DATA_FILE, OVERRIDES_FILE } from '../tools/paths.mjs';
 
@@ -198,4 +200,51 @@ test('sensible defaults for early-game items', () => {
     'copper-ingot': 'furnace--copper-ingot--from-copper-ore',
   };
   for (const [item, id] of Object.entries(expected)) assert.equal(game.items[item].defaultRecipe, id, item);
+});
+
+// ---------- badges ----------
+
+test('badges explain conflicts with the pages and values, and the value used', () => {
+  const sponge = recipeBadges(game, 'loom--sponge').find((b) => b.code === 'conflict');
+  assert.ok(sponge, 'Sponge has a conflict badge');
+  assert.match(sponge.detail, /Loom page says 824 s/);
+  assert.match(sponge.detail, /Using 24 s/);
+  assert.equal(sponge.tone, 'warn');
+});
+
+test('badges: unconfirmed crews warn, in-game confirmations show as checked', () => {
+  const codes = (/** @type {string} */ id, /** @type {string} */ crew) => recipeBadges(game, id, crew).map((b) => b.code);
+  assert.ok(codes('sawbench--sawn-timber', '1-crafty').includes('crew-unverified'));
+  assert.ok(!codes('sawbench--sawn-timber', '2-crafty').includes('crew-unverified'));
+  assert.ok(codes('sawbench--sawn-timber', '2-crafty').includes('confirmed'));
+  assert.ok(codes('furnace--copper-ingot--from-copper-ore', '2-stumpy').includes('fuel'));
+  assert.ok(codes('greenhouse--leaf-knot', '2-stumpy').includes('cycles'));
+});
+
+test('badges show corrections with what changed and why', () => {
+  const fixed = applyOverrides(fixture(), { ...noOverrides(), corrections: [{ recipe: 'logger--log', path: 'duration', value: 3, reason: 'measured', source: 'owner' }] });
+  const badge = recipeBadges(fixed, 'logger--log').find((b) => b.code === 'corrected');
+  assert.equal(badge?.detail, 'The craft time was corrected from 2 s to 3 s: measured (owner).');
+});
+
+test('a checked-in-game badge gives each field its own source', () => {
+  const g = applyOverrides(fixture(), { ...noOverrides(), confirmed: [
+    { recipe: 'sawbench--plank', paths: ['duration'], source: 'reading A' },
+    { recipe: 'sawbench--plank', paths: ['inputs.log.amount'], source: 'reading B' },
+  ] });
+  const detail = recipeBadges(g, 'sawbench--plank').find((b) => b.code === 'confirmed')?.detail;
+  assert.equal(detail, 'Confirmed in-game: craft time (reading A); amount of Wooden Log (reading B).');
+});
+
+test('row badges add what only the chain knows: a loop names its input', () => {
+  const res = calculate(game, { recipe: 'sawbench--leaves', count: 1, recipeChoice: { leaves: 'sawbench--leaves' } });
+  const loop = rowBadges(game, res)['greenhouse--leaf-knot'].find((b) => b.code === 'loop');
+  assert.equal(loop?.text, 'loop: Leaves');
+  assert.equal(loop?.warning, true);
+});
+
+test('every badge kind says whether it is a warning', () => {
+  for (const [code, kind] of Object.entries(BADGE_KINDS)) assert.equal(typeof kind.warning, 'boolean', code);
+  assert.equal(BADGE_KINDS.fuel.warning, true, 'fuel is a warning: fuel buildings are not counted');
+  assert.equal(BADGE_KINDS.confirmed.warning, false);
 });

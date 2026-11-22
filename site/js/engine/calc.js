@@ -34,6 +34,7 @@ const EPS = 1e-9;
  * @property {number | null} perCraft expected amount per craft, after odds (null: unknown)
  * @property {number} perMinute
  * @property {number} used per minute the chain takes from this row (loops excluded)
+ * @property {{ consumer: string, perMinute: number }[]} demandBy that use, per consuming row (Excel "Parts Needed")
  * @property {number} surplus per minute left over (a byproduct); 0 for the target's product
  */
 /**
@@ -45,6 +46,7 @@ const EPS = 1e-9;
  * @property {boolean} isTarget
  * @property {string | null} runsFor the output that sets how much it runs
  * @property {number | null} craftsPerMinute null when a craft time or amount is missing
+ * @property {number | null} craftsPerMachine crafts per minute of one machine with this crew
  * @property {number | null} machines exact
  * @property {number | null} build machines rounded up
  * @property {Input[]} inputs
@@ -112,6 +114,8 @@ function walk(game, root, how) {
 function computeRows(game, calc, defaultCrew, plan, how) {
   /** @type {Map<string, number>} item → per minute the chain needs from its source recipe */
   const demand = new Map();
+  /** @type {Map<string, { consumer: string, perMinute: number }[]>} item → each consuming row's share */
+  const demandBy = new Map();
   /** @type {Record<string, Row>} in dependency order, target first */
   const rows = {};
   /** @type {Warning[]} */
@@ -151,19 +155,24 @@ function computeRows(game, calc, defaultCrew, plan, how) {
       const perCraft = l.amount == null ? null : l.amount / (r.cycles ?? 1);
       return { item: l.item, perCraft, perMinute: rate(perCraft), source: loop ? null : h.recipe, stop: loop ? 'loop' : h.stop };
     });
-    for (const i of inputs) if (i.source) demand.set(i.item, (demand.get(i.item) ?? 0) + i.perMinute);
+    for (const i of inputs) {
+      if (!i.source) continue;
+      demand.set(i.item, (demand.get(i.item) ?? 0) + i.perMinute);
+      demandBy.set(i.item, [...(demandBy.get(i.item) ?? []), { consumer: id, perMinute: i.perMinute }]);
+    }
 
     // Every consumer came earlier in the order, so the demand on this row's outputs is final.
     /** @type {Output[]} */
     const outputs = r.outputs.map((/** @type {any} */ l, /** @type {number} */ index) => {
       const perCraft = expectedAmount(l);
       const perMinute = rate(perCraft);
-      const used = how(l.item).recipe === id ? demand.get(l.item) ?? 0 : 0;
-      return { item: l.item, perCraft, perMinute, used, surplus: isTarget && index === 0 ? 0 : Math.max(0, perMinute - used) };
+      const suppliesIt = how(l.item).recipe === id;
+      const used = suppliesIt ? demand.get(l.item) ?? 0 : 0;
+      return { item: l.item, perCraft, perMinute, used, demandBy: suppliesIt ? demandBy.get(l.item) ?? [] : [], surplus: isTarget && index === 0 ? 0 : Math.max(0, perMinute - used) };
     });
 
     const machines = crafts == null || !perMachine ? null : crafts / perMachine;
-    rows[id] = { recipe: id, building: r.building, crew, multiplier, isTarget, runsFor, craftsPerMinute: crafts, machines, build: machinesToBuild(machines), inputs, outputs };
+    rows[id] = { recipe: id, building: r.building, crew, multiplier, isTarget, runsFor, craftsPerMinute: crafts, craftsPerMachine: perMachine, machines, build: machinesToBuild(machines), inputs, outputs };
   }
   return { rows, warnings };
 }
@@ -250,3 +259,5 @@ export function perBuilding(result) {
     recipes: rows.map((r) => r.recipe),
   }));
 }
+
+/** @typedef {ReturnType<typeof calculate>} Result */

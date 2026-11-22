@@ -4,6 +4,21 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 7 (chain tree) decisions:**
+  - **One badge vocabulary** in its own module, `site/js/data/badges.js`: `BADGE_KINDS` lists every badge type once, with its tone (warn / info / ok), its text and a `warning` flag (it belongs in warning lists). `recipeBadges(game, recipe, crew)` explains one recipe in plain language that names the wiki pages and values (e.g. "Loom page says 824 s … Using 24 s"). `rowBadges(game, result)` adds what only the chain knows (loops, unknown crew, missing values). The recipe cards, the chain rows, and later the warnings panel and Excel Summary all use it.
+  - **Badge types:** fuel, random output, cycles, sources disagree, value missing, loop, unknown crew, unconfirmed crew speed, one source, corrected and checked in-game.
+  - **After the `simplify` review:**
+    - name helpers moved to `site/js/data/names.js`, so data, engine and UI code share them
+    - the engine returns `craftsPerMachine` per row and `demandBy` per output, so the UI doesn't recompute them
+    - the Chain tree / Build list choice is stored in the tab's calc (`view`), so tabs and share links keep it
+    - one `CrewSelect` (showing each crew's multiplier) is used by the target panel and the chain rows
+    - badge tags reuse the `.tag` styles
+    - **deferred to step 8, as its first task:** a shared column registry, so the tree, the build list and the Excel export read one column definition
+  - **Badges are native `<details>` elements,** so they open in place with keyboard and touch, without extra code.
+  - **Edits are per row and per item:** the crew is set per recipe row; the recipe switch and "I supply this" are per item, so they apply to every branch needing that item.
+  - **The target row names its recipe without a switch,** since the target is chosen in the left panel. A loop row offers "Choose another recipe…".
+  - **Shared rows show "part of N/min" and "of N machines".** The build list (one row per recipe) is a switch away.
+  - **Phones:** rows become cards. They're tall with every control shown, so a more compact phone layout is noted for step 8.
 - **Step 6 (app shell) decisions:**
   - **Preact 10.29.8 and htm 3.1.1 vendored** from npm, with integrity checked against the registry. Their bare imports (`preact`) are resolved by an import map in `index.html`; still no build step.
   - **Fonts self-hosted** (Fredoka 600 and Inter variable, Latin subsets, OFL, 65 KB). The site makes no third-party requests.

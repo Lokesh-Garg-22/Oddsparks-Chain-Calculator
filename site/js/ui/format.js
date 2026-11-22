@@ -39,14 +39,8 @@ export function makeFormat({ unit, decimals }) {
 }
 /** @typedef {ReturnType<typeof makeFormat>} Format */
 
-/** @param {any} game @param {string} id */
-export const itemName = (game, id) => game.items[id]?.displayName ?? id;
-/** @param {any} game @param {string} id */
-export const buildingName = (game, id) => game.buildings[id]?.displayName ?? id;
-/** @param {any} game @param {string} id */
-export const recipeName = (game, id) => game.recipes[id]?.name ?? id;
-/** @param {any} game @param {string} id */
-export const crewName = (game, id) => game.crews[id]?.label ?? id;
+export { buildingName, crewName, itemName, recipeName } from '../data/names.js';
+import { itemName } from '../data/names.js';
 
 /** "2 Stumpy Spark + 2 Wooden Panel" @param {any} game @param {{ item: string, amount: number | null }[]} lines */
 export const lineList = (game, lines) => lines.map((l) => `${l.amount ?? '?'} ${itemName(game, l.item)}`).join(' + ');

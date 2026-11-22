@@ -13,7 +13,9 @@
  * @property {Record<string, string>} crews recipe id → crew id, per row (the target's too)
  * @property {Record<string, string>} recipeChoice item id → recipe id
  * @property {string[]} supplied item ids the user supplies
+ * @property {'tree' | 'list'} [view] how the chain is shown (default: tree)
  */
+/** @typedef {(fn: (calc: TabCalc) => TabCalc) => void} Update a way to change the calc */
 
 /** @returns {TabCalc} */
 export const emptyCalc = () => ({ building: null, recipe: '', count: 1, crews: {}, recipeChoice: {}, supplied: [] });
@@ -48,3 +50,6 @@ export const toggleSupplied = (calc, item) => ({
   ...calc,
   supplied: calc.supplied.includes(item) ? calc.supplied.filter((i) => i !== item) : [...calc.supplied, item],
 });
+
+/** @param {TabCalc} calc @param {'tree' | 'list'} view @returns {TabCalc} */
+export const setView = (calc, view) => ({ ...calc, view });

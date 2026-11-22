@@ -9,12 +9,13 @@ import { AppContext, useApp } from './context.js';
 import { Picker } from './Picker.js';
 import { RecipeCards } from './RecipeCards.js';
 import { Results } from './Results.js';
-import { crewName, makeFormat } from './format.js';
+import { CrewSelect } from './CrewSelect.js';
+import { makeFormat } from './format.js';
 import { calculate } from '../engine/calc.js';
-import { emptyCalc, fromRecipe, pickBuilding, setCount, setCrew, setRecipe } from '../state/calc.js';
+import { emptyCalc, fromRecipe, pickBuilding, setCount, setRecipe } from '../state/calc.js';
 
 /** @typedef {import('../state/calc.js').TabCalc} TabCalc */
-/** @typedef {(update: (calc: TabCalc) => TabCalc) => void} Update */
+/** @typedef {import('../state/calc.js').Update} Update */
 
 /** Starting points for a first visit (real recipes). */
 const EXAMPLES = [
@@ -25,7 +26,6 @@ const EXAMPLES = [
 
 /** @param {{ calc: TabCalc, update: Update, crew: string }} props */
 function TargetControls({ calc, update, crew }) {
-  const { game } = useApp();
   return html`
     <div class="target__controls">
       <label class="field">
@@ -39,9 +39,7 @@ function TargetControls({ calc, update, crew }) {
       </label>
       <label class="field">
         <span class="field__label">Spark crew</span>
-        <select class="input" value=${crew} onChange=${(/** @type {any} */ e) => update((c) => setCrew(c, c.recipe, e.currentTarget.value))}>
-          ${game.crewOrder.map((/** @type {string} */ id) => html`<option key=${id} value=${id}>${crewName(game, id)} (×${game.crews[id].multiplier})</option>`)}
-        </select>
+        <${CrewSelect} recipe=${calc.recipe} value=${crew} update=${update} />
       </label>
     </div>`;
 }
@@ -94,7 +92,7 @@ export function App({ game }) {
         <${TargetPanel} calc=${calc} update=${update} crew=${result?.rows[calc.recipe]?.crew ?? prefs.defaultCrew} />
         <div class="results">
           ${result
-            ? html`<${Results} result=${result} />`
+            ? html`<${Results} result=${result} calc=${calc} update=${update} />`
             : html`<${EmptyState} hasBuilding=${Boolean(calc.building)} onExample=${(/** @type {typeof EXAMPLES[number]} */ ex) => setCalc(fromRecipe(game, ex.recipe, { count: ex.count }))} />`}
         </div>
       </main>

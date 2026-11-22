@@ -148,29 +148,3 @@ export function openIssues(recipe) {
   if (recipe.sources.length === 1 && !checked) issues.push({ kind: 'single-page', text: `only on one wiki page (${recipe.sources[0].page})` });
   return issues;
 }
-
-/** How the UI names why a chain stops at an item. */
-export const STOP_LABELS = /** @type {const} */ ({
-  supplied: 'you supply it',
-  raw: 'raw resource',
-  'no-recipe': 'nothing makes it',
-  loop: 'needed inside its own chain',
-});
-
-/**
- * Short tags a player should see on a recipe (cards, chain rows, the Excel Summary). The single place
- * that decides which recipe facts become warnings.
- * @param {any} recipe a recipe from applyOverrides
- * @returns {{ code: 'fuel' | 'random' | 'cycles' | 'conflict' | 'missing', text: string }[]}
- */
-export function recipeTags(recipe) {
-  /** @type {{ code: 'fuel' | 'random' | 'cycles' | 'conflict' | 'missing', text: string }[]} */
-  const tags = [];
-  if (recipe.usesFuel) tags.push({ code: 'fuel', text: 'needs fuel' });
-  if (recipe.randomised) tags.push({ code: 'random', text: 'random output' });
-  if (recipe.cycles) tags.push({ code: 'cycles', text: `${recipe.cycles} crafts per batch` });
-  const issues = openIssues(recipe);
-  if (issues.some((i) => i.kind === 'conflict')) tags.push({ code: 'conflict', text: 'sources disagree' });
-  if (issues.some((i) => i.kind === 'missing')) tags.push({ code: 'missing', text: 'value missing' });
-  return tags;
-}

@@ -13,7 +13,11 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 6 (app shell): committed.**
+- **Step 7 (chain tree): done, awaiting the owner's review before commit.**
+  - expandable tree with crew per row, recipe switch, "I supply this", and badges that explain themselves; shared rows show their part; Chain tree / Build list switch; phone cards
+  - reviewed with `code-review` and `simplify` (fixes applied, see decisions)
+  - 73 tests pass; `validate` passes; checked in a real browser (desktop and phone), no console errors
+- **Step 6 (app shell): committed** (`217f3d0`).
   - the calculator runs in the browser: building search (with in-game names), recipe cards, count, crew, "You need" tiles, raw inputs, loop note, build list, first-visit examples
   - Preact and htm vendored, fonts self-hosted, no third-party requests
   - checked in a real browser (light, dark, phone)
@@ -69,7 +73,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Build **step 7: chain tree** (crew per row, recipe switch, "I supply this", badges and details, combined rows). See [plan.md](plan.md#7-build-steps).
+Owner reviews step 7 → commit → **step 8**: columns menu, settings (unit, decimals, default crew, theme), share link, byproducts and warnings panels, phone polish. See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

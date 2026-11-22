@@ -221,3 +221,58 @@ button, input, select { font: inherit; color: inherit; }
 .empty p { margin: 0; max-width: 52ch; }
 .empty__examples-label { font-weight: 600; font-size: 0.9rem; }
 .empty__examples { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
+/* ---- Switch (Chain tree / Build list) ---- */
+.switch { display: inline-flex; gap: 4px; background: var(--c-sunken); padding: 4px; border-radius: var(--radius-m); }
+.switch button { border: 0; background: transparent; border-radius: var(--radius-s); padding: 6px 14px; min-height: 36px; font-weight: 600; cursor: pointer; }
+.switch button[aria-pressed="true"] { background: var(--c-surface); box-shadow: 0 0 0 1px var(--c-border); }
+
+/* ---- Badges: a tag that opens its explanation in place ---- */
+.tag--info { background: var(--c-sunken); color: var(--c-muted); border-color: transparent; }
+.tag--ok { background: var(--c-selected); color: var(--c-action); border-color: transparent; }
+.badge { display: inline-block; vertical-align: middle; }
+.badge > summary { list-style: none; cursor: pointer; }
+.badge > summary::-webkit-details-marker { display: none; }
+.badge > p { margin: 6px 0 2px; font-size: var(--text-small); font-weight: 400; max-width: 60ch; color: var(--c-ink); }
+.badge[open] { display: block; }
+
+/* ---- Chain tree ---- */
+.chain { --chain-cols: minmax(0, 2.4fr) 96px minmax(0, 2fr) 156px 100px; }
+.chain__head, .chain__row { display: grid; grid-template-columns: var(--chain-cols); gap: 12px; align-items: center; }
+.chain__head { padding: 0 10px 8px; border-bottom: 1px solid var(--c-border); font-weight: 600; }
+.chain__head .num { text-align: right; }
+.chain__row { padding: 8px 10px; border-bottom: 1px solid var(--c-border); }
+.chain__row.is-target { background: var(--c-target); }
+.chain__row.is-stop .chain__name strong { font-weight: 500; color: var(--c-muted); }
+.chain__item { display: flex; align-items: flex-start; gap: 8px; padding-left: calc(var(--depth) * 20px); position: relative; min-width: 0; }
+/* The rail shows which branch a row belongs to. */
+.chain__item::before {
+  content: ""; position: absolute; top: -8px; bottom: -8px; left: calc(var(--depth) * 20px - 11px);
+  border-left: 1px solid var(--c-border);
+}
+.chain__row.is-target .chain__item::before { display: none; }
+.chain__toggle { flex: 0 0 24px; height: 24px; border: 0; background: transparent; color: var(--c-muted); padding: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; }
+.chain__name { display: flex; flex-direction: column; gap: 4px; min-width: 0; padding-top: 3px; }
+.chain__badges { display: flex; flex-wrap: wrap; gap: 4px; }
+.chain__rate, .chain__machines { display: flex; flex-direction: column; align-items: flex-end; }
+.chain__made { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.chain__supply { display: inline-flex; align-items: center; gap: 6px; color: var(--c-muted); cursor: pointer; }
+.chain__supply input { width: 16px; height: 16px; margin: 0; }
+.chain__label { display: none; }
+.input--compact { min-height: 36px; padding: 6px 8px; font-size: 0.88rem; }
+
+/* Phones: each row becomes a card. */
+@media (max-width: 720px) {
+  .chain__head { display: none; }
+  .chain__row {
+    grid-template-columns: 1fr 1fr; grid-template-areas: "item item" "rate machines" "made made" "crew crew";
+    margin-left: calc(var(--depth) * 12px); border: 1px solid var(--c-border); border-radius: var(--radius-m); margin-bottom: 8px;
+  }
+  .chain__item { grid-area: item; padding-left: 0; }
+  .chain__item::before { display: none; }
+  .chain__rate { grid-area: rate; align-items: flex-start; }
+  .chain__machines { grid-area: machines; }
+  .chain__made { grid-area: made; }
+  .chain__crew { grid-area: crew; }
+  .chain__label { display: block; font-size: var(--text-small); color: var(--c-muted); font-weight: 600; }
+}

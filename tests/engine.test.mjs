@@ -199,3 +199,11 @@ test('rounding up ignores floating-point dust', () => {
   assert.equal(machinesToBuild(0), 0);
   assert.equal(machinesToBuild(null), null);
 });
+
+test('outputs split their use by consuming row, and rows give crafts per machine', () => {
+  const res = calc(CRAFTY, 1, { supplied: ['aether-shard'] });
+  const logs = res.rows[LOGGER].outputs[0];
+  assert.deepEqual(logs.demandBy.map((d) => d.consumer).sort(), [SAWN, STUMPY].sort());
+  near(logs.demandBy.find((d) => d.consumer === STUMPY)?.perMinute, 12.5, 'Timber to Stumpy Spark');
+  near(res.rows[SAWN].craftsPerMachine, 3.75, 'Sawn Timber crafts per machine at 1 Stumpy');
+});
