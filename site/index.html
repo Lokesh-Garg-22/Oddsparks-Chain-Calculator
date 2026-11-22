@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oddsparks Chain Calculator</title>
+  <meta name="description" content="Work out every building and resource you need to keep your Oddsparks production running.">
+  <!-- Fonts are self-hosted from step 6 (plan: no CDN at runtime). -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;family=Inter:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+      <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M5 19l2.5-2.5M16.5 7.5L19 5"/>
+      <circle cx="12" cy="12" r="3"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <svg class="spark-mark" width="26" height="26" stroke-width="2" aria-hidden="true"><use href="#spark"/></svg>
+      <h1 class="site-header__title">Oddsparks Chain Calculator</h1>
+    </div>
+  </header>
+
+  <main class="container placeholder">
+    <svg class="spark-mark" width="88" height="88" stroke-width="1.4" aria-hidden="true"><use href="#spark"/></svg>
+    <h2>The calculator is being built</h2>
+    <p>Pick a building, choose a recipe and say how many you want to run. The calculator will list every other building and raw resource needed to keep them supplied, with spark crews, saved tabs and Excel export.</p>
+    <p>Game data comes from the Oddsparks Wiki and is being checked against the game.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>Game data and images from the <a href="https://oddsparks.wiki.gg">Oddsparks Wiki</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</span>
+      <span>Oddsparks © THQ Nordic AB. Developed by Massive Miniteam, published by HandyGames. Oddsparks is a trademark of THQ Nordic AB. Fan-made site, not affiliated with or endorsed by them.</span>
+      <span>Inspired by <a href="https://piratespark.github.io/">piratespark</a>.</span>
+    </div>
+  </footer>
+</body>
+</html>

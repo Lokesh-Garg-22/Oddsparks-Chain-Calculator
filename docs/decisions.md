@@ -4,6 +4,17 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 1 choices:**
+  - The local dev server is our own ~70-line Node script (`tools/serve.mjs`), not `npx serve` or Python, keeping the zero-dependency rule. It serves only `site/`, refuses paths that escape it, and doesn't cache.
+  - `package.json` only lists scripts that exist (`serve`, `test`); `extract`, `validate` and `icons` are added in the steps that create them.
+  - Tests are matched as `tests/**/*.test.mjs` so Node's test runner never scans `.venv/`.
+  - Line endings are normalised to LF via `.gitattributes`.
+  - After the `simplify` review:
+    - colours use CSS `light-dark()`, written once for both themes, with `data-theme` overriding the OS setting; this needs a 2024+ browser (Chrome 123, Firefox 120, Safari 17.5)
+    - the dev server maps URLs segment by segment instead of special-casing characters
+    - separate `jsconfig.json` for Node code (root) and browser code (`site/`), using NodeNext resolution so missing file extensions are flagged as browsers would
+  - **Deferred:** self-hosting the fonts (now Google Fonts) moves to step 6 to keep the "no CDN at runtime" rule; `404.html` and directory redirects move to step 12.
+- **webapp-testing on Windows:** the helper script needs an absolute Windows path for the Python command (`…\.venv\Scripts\python.exe`); forward-slash relative paths fail to launch.
 - **Skills installed in the project** (`.claude/skills/`):
   - `webapp-testing` and `frontend-design`, copied unchanged from `anthropics/skills` at commit `e4bb5d9` (Apache-2.0, licences kept) and reviewed before committing
   - our own `update-game-data`

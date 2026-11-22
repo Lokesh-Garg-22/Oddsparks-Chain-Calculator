@@ -1,0 +1,73 @@
+/* Design tokens — from the approved mockup (docs/reference.md).
+   Each colour is written once as light-dark(light, dark). The OS setting picks the theme;
+   data-theme="light" | "dark" on <html> overrides it. Needs a 2024+ browser (Baseline 2024). */
+:root {
+  color-scheme: light dark;
+
+  --c-page:         light-dark(#F3F5F0, #0F1612);
+  --c-surface:      light-dark(#FFFFFF, #18231D);
+  --c-ink:          light-dark(#1B2A22, #E6ECE6);
+  --c-muted:        light-dark(#4F5E55, #A9B7AD);
+  --c-border:       light-dark(#D9E0D8, #2C3A31);
+  --c-chrome:       light-dark(#1B2A22, #0A100D); /* header */
+  --c-chrome-ink:   light-dark(#F3F5F0, #E6ECE6);
+  --c-spark:        #F2A93B;                      /* amber accent, both themes */
+  --c-action:       light-dark(#22695C, #6FD0BC); /* links, primary actions */
+  --c-action-hover: light-dark(#174A41, #9BE3D3);
+  --c-focus:        var(--c-spark);
+
+  --font-display: "Fredoka", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --gutter: 16px;
+  --max-width: 1320px;
+}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
+
+@media (min-width: 600px) {
+  :root { --gutter: 24px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--c-page);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; }
+
+a { color: var(--c-action); }
+a:hover { color: var(--c-action-hover); }
+
+:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---- Layout ---- */
+.container { max-width: var(--max-width); margin-inline: auto; padding-inline: var(--gutter); }
+
+.spark-mark { color: var(--c-spark); flex-shrink: 0; }
+
+.site-header { background: var(--c-chrome); color: var(--c-chrome-ink); }
+.site-header__inner { display: flex; align-items: center; gap: 10px; padding-block: 14px; }
+.site-header__title { margin: 0; font-size: 1.35rem; }
+
+.site-footer { border-top: 1px solid var(--c-border); }
+.site-footer__inner { padding-block: 20px 32px; display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 0.85rem; color: var(--c-muted); }
+
+/* ---- Placeholder page (step 1). Removed when the app shell lands in step 6. ---- */
+.placeholder { padding-block: 72px 56px; }
+.placeholder h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin: 20px 0 12px; }
+.placeholder p { margin: 0 0 12px; color: var(--c-muted); max-width: 62ch; }

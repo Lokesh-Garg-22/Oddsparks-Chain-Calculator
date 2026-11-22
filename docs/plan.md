@@ -150,13 +150,13 @@ Each step can be reviewed on its own. Docs are updated at the end of every step.
 3. **Icon download** + `CREDITS.md`. *Review:* licences.
 4. **`overrides.json` + `validate-data.mjs`:** crew table, in-game names (Timber), defaults, raw items. End with a first real test run of the `update-game-data` skill.
 5. **Engine + tests:** worked example, Logger cross-check, the owner's 3 spreadsheets, loops, byproducts, cycles, random outputs.
-6. **App shell with Preact:** picker (search incl. aliases), recipe cards, count, crew, summary, build list.
+6. **App shell with Preact** (also: self-host Fredoka + Inter in `site/vendor/fonts/`, replacing Google Fonts): picker (search incl. aliases), recipe cards, count, crew, summary, build list.
 7. **Chain tree:** crew per row, recipe switch, "I supply this", badges and details, combined rows.
 8. **Columns menu, settings (unit, decimals, theme), share link, byproducts and warnings panels, empty state, phone layout, dark mode.** Visual pass with `frontend-design`.
 9. **Tabs + sessionStorage:** tab bar, new/close/rename, unsaved dot, confirm on close.
 10. **Saved library:** nested folders, drag and drop, ··· menus, Move to… dialog, search, back up/restore, old-data banner, storage-unavailable fallback. Plus storage tests.
 11. **Excel export:** tab, folder or library; the owner's layout with formulas; Summary sheet. Test that recreates the owner's Wooden Blade sheet.
-12. **Deploy:** Pages workflow, README section on updating data, `update-game-data` skill, browser tests with `webapp-testing`. The site goes live once the repo is made public (free Pages needs a public repo).
+12. **Deploy:** Pages workflow, `404.html`, README section on updating data, `update-game-data` skill, browser tests with `webapp-testing`. The site goes live once the repo is made public (free Pages needs a public repo).
 13. **(Optional) Game-file extraction:** a guide for the owner (UE4SS → `.usmap` → FModel), then a merge script that adds the extracted values as a second source.
 
 ## 8. Risks and open decisions

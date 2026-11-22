@@ -12,7 +12,15 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Status (2026-11-22)
 
-- **Phase: planning.** No application code exists yet.
+- **Phase: building.** Owner said "execute the plan" on 2026-11-22.
+- **Step 1 (repo setup): done, awaiting the owner's review before commit.** Added:
+  - README, CONTRIBUTING, `site/` skeleton with a placeholder page and design tokens (light + dark)
+  - data licence and icon credits
+  - `package.json` (scripts `serve` and `test` only, no dependencies) and a zero-dependency dev server (`tools/serve.mjs`)
+  - `.gitattributes` (LF), `.editorconfig`, `jsconfig.json`
+  - 5 tests (pass)
+  - checked in a real browser: light, dark and phone, no console errors
+  - reviewed with `code-review` (no findings) and `simplify` (fixes applied, see decisions)
 - Done:
   - wiki data check (132 pages, 479 recipe blocks, 28 buildings with recipes)
   - game archives checked: not encrypted
@@ -24,7 +32,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-The owner reviews the updated mockup and plan, then says **"execute the plan"**. Build step 1 is in [plan.md](plan.md#7-build-steps).
+Owner reviews step 1 → commit → **step 2: wiki extractor** (`tools/extract-wiki.mjs`, using the `update-game-data` and `security-review` skills). See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 
