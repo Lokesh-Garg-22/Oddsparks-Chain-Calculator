@@ -24,7 +24,7 @@ Status markers refer to [unverified.md](unverified.md).
 | 2 Handy | 5 | From the template (U2b) |
 | Player | 2 | From the template (U2b) |
 
-- The table lives in `overrides.json` (`sparkCrews`), so it can be fixed without touching code.
+- The table lives in `overrides.json` (`sparkCrews`, each with `status` and `source`), so it can be fixed without touching code. Default crew: `defaultCrew`.
 - Every row of the chain (building + recipe) has its own crew setting, defaulting to the global crew setting. The global default is **2 Stumpy (×2)**.
 - Harvesters speed up with sparks (U4, confirmed).
 
@@ -58,11 +58,16 @@ Each recipe's ideal temperature is stored, but the calculator applies ×1 everyw
 - the item's only recipes are harvester recipes with no inputs (the harvester is still counted)
 - the user ticked "I supply this", or `overrides.json` lists the item as raw
 
-**Default recipe when an item has several:**
+**Default recipe when an item has several** (`site/js/engine/recipes.js`):
 1. `overrides.json` `defaultRecipe` if set
 2. otherwise a recipe where the item is the main product (not a byproduct)
-3. not from a Shrine or non-standard building
-4. earliest unlock tier
+3. a standard building: on the wiki's Buildings page and not a Shrine
+4. earliest unlock tier (from the quest name, "… Tier N")
+5. fewer inputs (a harvester before a crafted route, e.g. Tree Bark from the Logger)
+6. the building's position on the Buildings page, which lists buildings in progression order (Spark Workbench before Workstation before Workshop)
+7. alphabetical id. `npm run validate` warns when it comes to this, so a `defaultRecipe` can settle it
+
+As of 2026-11-22, only Aether Seed, Aethric Converter, Subsurface Aether and Volcanic Soil are decided by id.
 
 The user can switch recipes for each item.
 

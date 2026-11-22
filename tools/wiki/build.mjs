@@ -206,6 +206,12 @@ function buildingInfo(content) {
 
 /** @param {Line[]} lines */
 const itemsKey = (lines) => lines.map((l) => l.item).sort().join('+');
+/**
+ * Building plus sorted input and output items: recipes with the same shape are copies or variants of
+ * each other. Used to group copies here and, by the validator, to check `mergeRecipes`.
+ * @param {{ building: string, inputs: { item: string }[], outputs: { item: string }[] }} r
+ */
+export const recipeShape = (r) => `${r.building}|${itemsKey(/** @type {Line[]} */ (r.inputs))}|${itemsKey(/** @type {Line[]} */ (r.outputs))}`;
 const isHome = (/** @type {Entry} */ e) => e.page === e.building;
 /** Sort comparator: the building's own page first. */
 const homeFirst = (/** @type {Entry} */ a, /** @type {Entry} */ b) => Number(isHome(b)) - Number(isHome(a));
@@ -358,9 +364,12 @@ function merge(entries) {
     unlock: primary.unlock ?? entries.find((e) => e.unlock)?.unlock ?? null,
   };
 
-  const problems = [];
-  if (merged.duration === null) problems.push('no page states a craft time');
-  for (const l of [...merged.inputs, ...merged.outputs]) if (l.amount === null) problems.push(`no page states the amount of ${l.item}`);
+  /** @type {Record<string, string>} field path → why it is null (same paths as conflicts, so overrides can settle it) */
+  const problems = {};
+  if (merged.duration === null) problems.duration = 'no page states a craft time';
+  for (const kind of /** @type {const} */ (['inputs', 'outputs'])) {
+    for (const l of merged[kind]) if (l.amount === null) problems[`${kind}.${l.item}.amount`] = `no page states the amount of ${l.item}`;
+  }
   return { merged, conflicts, valueFrom, problems };
 }
 
@@ -433,7 +442,7 @@ export function buildDataset(snapshot) {
   const entries = readEntries(readRecipeBlocks(pages, recipePageTitles), canon, report);
 
   // Copies of one recipe share building, input items and output items.
-  const groups = Map.groupBy(entries, (e) => slug(`${e.building}|${itemsKey(e.inputs)}|${itemsKey(e.outputs)}`));
+  const groups = Map.groupBy(entries, (e) => slug(recipeShape(e)));
   const drafts = [...groups.values()].flatMap((group, groupIndex) => clusterGroup(group).map((cluster) => {
     const primary = cluster.entries[0];
     const sources = [...new Map(cluster.entries.map((e) => [e.page, { page: e.page, revid: e.revid }])).values()];
@@ -475,13 +484,15 @@ export function buildDataset(snapshot) {
   }
   // Same building and name but different items: usually a copy-paste error on one page.
   for (const sameName of Map.groupBy(Object.keys(recipes), (id) => `${recipes[id].building}|${slug(recipes[id].name)}`).values()) {
-    if (new Set(sameName.map((id) => `${itemsKey(recipes[id].inputs)}|${itemsKey(recipes[id].outputs)}`)).size > 1) {
+    if (new Set(sameName.map((id) => recipeShape(recipes[id]))).size > 1) {
       report.sameNameDifferentItems.push({ building: recipes[sameName[0]].building, name: recipes[sameName[0]].name, ids: sameName });
     }
   }
 
   // Buildings and items.
   const groupOf = pages.Buildings ? buildingGroups(pages.Buildings.content) : new Map();
+  // Position on the Buildings page, which lists buildings in progression order (Workbench, Workstation, Workshop…).
+  const pageOrder = new Map([...groupOf.keys()].map((title, i) => [title, i]));
   /** @type {Record<string, any>} */
   const buildings = Object.create(null);
   /** @type {Record<string, any>} */
@@ -500,6 +511,7 @@ export function buildDataset(snapshot) {
         name: e.building,
         group: groupOf.get(e.building) ?? (info.categories.includes('Workstation Shrine') ? 'Shrines' : 'Other'),
         onBuildingsPage: groupOf.has(e.building),
+        pageOrder: pageOrder.get(e.building) ?? null,
         ...info,
         source: page ? { page: e.building, revid: page.revid } : null,
       };
@@ -531,7 +543,7 @@ export function buildDataset(snapshot) {
         buildings: Object.keys(buildings).length,
         items: Object.keys(items).length,
         recipesWithConflicts: all.filter((r) => Object.keys(r.conflicts).length).length,
-        recipesWithProblems: all.filter((r) => r.problems.length).length,
+        recipesWithProblems: all.filter((r) => Object.keys(r.problems).length).length,
         recipesFromOnePage: all.filter((r) => r.sources.length === 1).length,
       },
     },

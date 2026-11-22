@@ -67,7 +67,7 @@ Each recipe stores **facts only**. The app works out a status from them after ap
 - `sources[]`: `{ page, revid }`, with the building's own page first
 - `valueFrom`: field path → page, for values that didn't come from the first source
 - `conflicts`: field path → `[{ page, revid, value }]`, whenever pages disagree
-- `problems[]`: values no page states
+- `problems`: field path → why the value is null (no page states it)
 
 **Null means "no page states it"**, never "no".
 
@@ -85,7 +85,15 @@ Hand-edited file `site/data/overrides.json` (step 4):
 - corrections by field path (each with a reason and source)
 - `confirmed` flags
 - `mergeRecipes` (two extracted recipes that are really one)
-- `renamedIds` (old saved-tab ID → new ID)
+- `renamedIds`: one map per stored kind of ID (`recipes`, `items`, `crews`), old → new
+
+**What the app works with** is `applyOverrides(data, overrides)` (`site/js/data/merge.js`, step 4). It returns:
+- recipes with `corrected`, `confirmed` and `mergedFrom`
+- items with `displayName`, `aliases`, `raw`, `producers`, `consumers` and the resolved `defaultRecipe`
+- crews keyed by ID, plus `crewOrder`
+- `renamedIds`
+
+`openIssues(recipe)` lists the warnings still open: missing values, unsettled conflicts and single-page recipes.
 
 Example (real, from the 2026-11-22 extraction):
 
@@ -172,8 +180,10 @@ Each step can be reviewed on its own. Docs are updated at the end of every step.
 3. **Icon download** + `CREDITS.md`. *Review:* credits and missing icons. The app loads `icons/<items|buildings>/<id>.png` and shows the name if it fails to load.
 4. **`overrides.json` + `validate-data.mjs`:** crew table, in-game names (Timber), defaults, raw items. End with a first real test run of the `update-game-data` skill.
 5. **Engine + tests:** worked example, Logger cross-check, the owner's 3 spreadsheets, loops, byproducts, cycles, random outputs.
+   - Put the "where does the chain stop" rule (no recipe, harvester, `raw`, "I supply this") next to the default rule in `site/js/engine/recipes.js`.
+   - Move the readings tests onto the engine's own rate function.
 6. **App shell with Preact** (also: self-host Fredoka + Inter in `site/vendor/fonts/`, replacing Google Fonts): picker (search incl. aliases), recipe cards, count, crew, summary, build list.
-7. **Chain tree:** crew per row, recipe switch, "I supply this", badges and details, combined rows.
+7. **Chain tree:** crew per row, recipe switch, "I supply this", badges and details, combined rows. Define the badge vocabulary once, next to `openIssues`: issues plus fuel, random output, cycles, loop and unverified crew. The UI, the Excel Summary and `validate` all use it.
 8. **Columns menu, settings (unit, decimals, theme), share link, byproducts and warnings panels, empty state, phone layout, dark mode.** Visual pass with `frontend-design`.
 9. **Tabs + sessionStorage:** tab bar, new/close/rename, unsaved dot, confirm on close.
 10. **Saved library:** nested folders, drag and drop, ··· menus, Move to… dialog, search, back up/restore, old-data banner, storage-unavailable fallback. Plus storage tests.

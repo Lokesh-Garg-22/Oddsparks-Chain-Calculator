@@ -85,7 +85,7 @@ test('copies on different pages merge; a blank field is not a disagreement', () 
   assert.equal(r.insulated, false);
   assert.deepEqual(r.sources, [{ page: 'Sawbench', revid: 100 }, { page: 'Sawn Timber', revid: 101 }], "the building's own page first, with revisions");
   assert.deepEqual(r.conflicts, {});
-  assert.deepEqual(r.problems, []);
+  assert.deepEqual(r.problems, {});
   assert.deepEqual(r.valueFrom, {});
 });
 
@@ -172,7 +172,7 @@ test('a value no page states is null and listed in problems, never guessed', () 
   const { data, report } = buildDataset(snapshot({ Loom: [{ workstation: 'Loom', product: 'Rope', product_amount: 1, ingredient: 'Leaves', ingredient_amount: 4, cycles: 'lots' }] }));
   const r = data.recipes['loom--rope'];
   assert.equal(r.duration, null);
-  assert.deepEqual(r.problems, ['no page states a craft time']);
+  assert.deepEqual(r.problems, { duration: 'no page states a craft time' });
   assert.deepEqual(report.unreadable, [{ page: 'Loom', message: 'cycles "lots" unreadable' }], 'unreadable values are reported');
 });
 

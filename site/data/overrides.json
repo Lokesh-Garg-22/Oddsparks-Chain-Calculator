@@ -1,0 +1,62 @@
+{
+  "_about": "Hand-edited fixes and settings layered on top of oddsparks.json (which is generated: never edit it). Checked by `npm run validate`. Every entry needs a source; items, buildings, corrections and mergeRecipes also need a reason (sparkCrews and confirmed carry their evidence in the source). Field paths: duration, usesFuel, randomised, cycles, temperature, inputs.<item>.amount, outputs.<item>.amount, outputs.<item>.odds. Recipe, item and crew ids are stored in users' saved tabs: never change one without adding the old id to renamedIds. See docs/plan.md section 4 and the update-game-data skill.",
+
+  "sparkCrews": [
+    { "id": "1-stumpy", "label": "1 Stumpy", "multiplier": 1, "status": "confirmed", "source": "Owner's in-game readings, 2026-11-22: base craft time is the time with 1 Stumpy" },
+    { "id": "2-stumpy", "label": "2 Stumpy", "multiplier": 2, "status": "confirmed", "source": "Owner's in-game reading, 2026-11-22: Wooden Blade 2.5/min with 2 Stumpy (48 s base)" },
+    { "id": "1-crafty", "label": "1 Crafty", "multiplier": 1.5, "status": "unverified", "source": "Wiki Template:Recipe crew buttons" },
+    { "id": "2-crafty", "label": "2 Crafty", "multiplier": 3, "status": "confirmed", "source": "Owner's in-game readings, 2026-11-22: Logger 90/min, Sawn Timber 11.2/min, Wooden Panel 22.5/min with 2 Crafty" },
+    { "id": "1-stumpy-1-crafty", "label": "1 Stumpy + 1 Crafty", "multiplier": 2.5, "status": "unverified", "source": "Wiki Template:Recipe crew buttons" },
+    { "id": "1-handy", "label": "1 Handy", "multiplier": 2.5, "status": "unverified", "source": "Wiki Template:Recipe crew buttons" },
+    { "id": "2-handy", "label": "2 Handy", "multiplier": 5, "status": "unverified", "source": "Wiki Template:Recipe crew buttons" },
+    { "id": "player", "label": "Player", "multiplier": 2, "status": "unverified", "source": "Wiki Template:Recipe crew buttons" }
+  ],
+  "defaultCrew": "2-stumpy",
+
+  "items": {
+    "wooden-log": {
+      "displayName": "Timber",
+      "reason": "The game calls it Timber; the wiki calls it Wooden Log",
+      "source": "Owner, in-game, 2026-11-22"
+    }
+  },
+  "buildings": {},
+
+  "defaultRecipe": {},
+  "raw": [],
+
+  "corrections": [],
+
+  "confirmed": [
+    {
+      "recipe": "sawbench--sawn-timber",
+      "paths": ["duration", "inputs.wooden-log.amount", "outputs.sawn-timber.amount"],
+      "source": "Owner, in-game, 2026-11-22: 11.2/min per Sawbench with 2 Crafty (= 60 / 16 s × 3, shown rounded); amounts from the owner's spreadsheet"
+    },
+    {
+      "recipe": "sawbench--wooden-panel",
+      "paths": ["duration", "inputs.sawn-timber.amount", "outputs.wooden-panel.amount"],
+      "source": "Owner, in-game, 2026-11-22: 22.5/min per Sawbench with 2 Crafty (= 60 / 8 s × 3); amounts from the owner's spreadsheet"
+    },
+    {
+      "recipe": "logger--wooden-log--log-harvesting",
+      "paths": ["duration", "outputs.wooden-log.amount"],
+      "source": "Owner, in-game, 2026-11-22: 90 Timber/min per Logger with 2 Crafty (= 60 / 2 s × 3)"
+    },
+    {
+      "recipe": "wood-workshop--wooden-blade",
+      "paths": ["duration", "inputs.sawn-timber.amount", "inputs.wooden-panel.amount", "outputs.wooden-blade.amount"],
+      "source": "Owner, in-game, 2026-11-22: 2.5/min per Wood Workshop with 2 Stumpy (= 60 / 48 s × 2); amounts from the owner's spreadsheet"
+    }
+  ],
+
+  "mergeRecipes": [
+    {
+      "keep": "ancient-printer--fireshroom-cluster--fireshroome-cluster-printing",
+      "drop": "ancient-printer--fireshroom-cluster--fireshroom-printing",
+      "reason": "Same building, items and numbers; only the name differs (\"Fireshroome Cluster Printing\" on the Ancient Printer page, \"Fireshroom Printing\" on the Fireshroom Cluster page)",
+      "source": "Oddsparks Wiki: Ancient Printer and Fireshroom Cluster pages (revisions in oddsparks.json)"
+    }
+  ],
+  "renamedIds": { "recipes": {}, "items": {}, "crews": {} }
+}

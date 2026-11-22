@@ -31,8 +31,8 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
       "dataVersion": "wiki-2026-11-22",
       "calc": {
         "building": "wood-workshop", "recipe": "wood-workshop--wooden-blade", "count": 3,
-        "crews": { "wood-workshop--wooden-blade": "2stumpy", "sawbench--sawn-timber": "2crafty" },
-        "recipeChoice": { "wooden-log": "logger--log-harvesting" },
+        "crews": { "wood-workshop--wooden-blade": "2-stumpy", "sawbench--sawn-timber": "2-crafty" },
+        "recipeChoice": { "wooden-log": "logger--wooden-log--log-harvesting" },
         "supplied": [], "columns": ["inTotal"], "unit": "min"
       }
     }
@@ -46,7 +46,7 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 }
 
 // localStorage "oddsparks-calc:v1:prefs"
-{ "columns": ["inTotal"], "unit": "min", "decimals": 2, "defaultCrew": "1stumpy", "theme": "system" }
+{ "columns": ["inTotal"], "unit": "min", "decimals": 2, "defaultCrew": "2-stumpy", "theme": "system" }
 ```
 
 ### Rules
@@ -60,7 +60,8 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 - **Each tab's ··· menu:** Open, Rename, Duplicate, Move to…, Export to Excel, Delete.
 - **Each folder's ··· menu:** New subfolder, Rename, Move to…, Export folder to Excel, Delete.
 - **Saved with older data:** if `dataVersion` differs and a recipe or item ID no longer exists, the tab opens with a banner naming what's missing and offering a replacement. It's never silently dropped.
-  - `renamedIds` in overrides maps old IDs to new ones automatically.
+  - `renamedIds` in overrides has one map per kind of stored ID (`recipes`, `items`, `crews`). `resolveId()` in `site/js/data/merge.js` follows them, so old tabs keep working after a rename or merge.
+  - Crew IDs (`2-stumpy`, `1-stumpy-1-crafty`…) are stored too, so they only change via `renamedIds.crews`.
   - Recipe IDs depend only on recipe content, so reordering wiki pages never changes them.
   - Adding a recipe that collides with an existing one can lengthen that recipe's ID (e.g. `furnace--big-vial` → `furnace--big-vial--from-quartz`). That shows up as a missing ID and is handled the same way.
 - **Storage unavailable** (private browsing, blocked, quota full): every access is wrapped in try/catch. The calculator still works, saving is disabled with a message, and back up still works.

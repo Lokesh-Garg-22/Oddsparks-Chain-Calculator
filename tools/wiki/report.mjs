@@ -54,9 +54,9 @@ export function renderReport({ data, report }) {
       ...Object.entries(r.conflicts).map(([path, said]) => `  - ${describe(path)}: ${/** @type {any[]} */ (said).map((s) => `${link(s.page)} says ${value(path, s.value)}`).join(' · ')}`),
     ]), conflicted.length);
 
-  const missing = recipesWhere((r) => r.problems.length > 0);
+  const missing = recipesWhere((r) => Object.keys(r.problems).length > 0);
   section('Missing values', 'A needed value isn\'t stated (readably) on any page. Shown with a warning in the app until fixed.',
-    missing.flatMap(([id, r]) => [`- **${id}**`, ...r.problems.map((/** @type {string} */ p) => `  - ${esc(p)}`)]), missing.length);
+    missing.flatMap(([id, r]) => [`- **${id}**`, ...Object.entries(r.problems).map(([path, why]) => `  - ${describe(path)}: ${esc(why)}`)]), missing.length);
 
   section('Unreadable values', 'Written on a page but not understood. Harmless when another copy states the value; worth fixing on the wiki.',
     report.unreadable.map((u) => `- ${link(u.page)}: ${esc(u.message)}`));

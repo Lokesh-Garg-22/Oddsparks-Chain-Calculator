@@ -12,6 +12,7 @@
     "serve": "node tools/serve.mjs",
     "extract": "node tools/extract-wiki.mjs",
     "icons": "node tools/download-icons.mjs",
+    "validate": "node tools/validate-data.mjs",
     "test": "node --test \"tests/**/*.test.mjs\""
   }
 }

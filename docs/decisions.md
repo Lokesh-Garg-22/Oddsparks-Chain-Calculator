@@ -4,6 +4,24 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 4 (overrides and validation) decisions:**
+  - **Merge code shared.** `overrides.json` is applied by one pure module (`site/js/data/merge.js`), used both by the app at load time and by `npm run validate`, so the two can't disagree.
+  - **Each recipe tracks how its values were settled:**
+    - corrections record the old value (`corrected.<path>.was`) plus a reason and source
+    - in-game confirmations are recorded per field path (`confirmed`)
+    - a conflict stays a warning until it is corrected or confirmed
+  - **Default recipe rule extended** with "fewer inputs" and "Buildings-page order" before falling back to id. No hand-picked defaults were needed. Four late-game items are decided by id and flagged by `validate` for the owner.
+  - **Merged duplicate.** Fireshroom printing was written twice on the wiki with identical numbers. It is merged via `mergeRecipes`, and its old id is redirected for saved tabs.
+  - **Owner's readings recorded** as confirmations on Logger, Sawn Timber, Wooden Panel and Wooden Blade, and checked by tests against the data (the game rounds the shown rate down to 1 decimal).
+  - **The extractor records each building's position on the wiki's Buildings page** (`pageOrder`).
+  - **After the `simplify` review:**
+    - `applyOverrides` resolves per item once: `producers`, `consumers`, `raw` and the chosen `defaultRecipe`, with crews keyed by id. The engine and UI read properties instead of re-scanning recipes.
+    - `renamedIds` is split by stored kind (`recipes`, `items`, `crews`) with one `resolveId()` helper, because saved tabs store all three.
+    - `problems` are keyed by field path like `conflicts`, so a correction can settle a missing value.
+    - Crew ids use hyphens (`2-stumpy`) and are documented as stored (rename only via `renamedIds.crews`).
+    - The validator checks structure first, then data, then overrides. It also asserts that every conflict and problem path is addressable by overrides.
+    - One `recipeShape` rule is shared by the extractor's duplicate detection and the merge check.
+    - Deferred: the chain-stop rule and the rate function go to step 5 (engine); the badge vocabulary goes to step 7.
 - **Step 3 (icons) decisions:**
   - **Licence:** the wiki records no licence on its image files, and the site-wide CC BY-SA can't cover game art. Icons are therefore credited as "game artwork © THQ Nordic AB", with the wiki uploader listed per file, and kept apart from the MIT and CC BY-SA licences. They are used, as on the wiki, in a fan-made non-commercial tool. The site must work without them (it falls back to names), so removing them is a one-folder delete if ever asked. **Confirmed by the owner.**
   - **Size:** 128 px copies (2× for display up to 64 px) made by the wiki's own thumbnailer, about 14 KB each. Compressing them further would need a tool, which conflicts with the zero-dependency rule; deferred to step 6.

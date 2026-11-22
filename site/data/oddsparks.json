@@ -1,7 +1,7 @@
 {
   "meta": {
-    "dataVersion": "wiki-2026-11-22-86b88c06",
-    "extractedAt": "2026-11-22T08:08:19.536Z",
+    "dataVersion": "wiki-2026-11-22-4cb81ba8",
+    "extractedAt": "2026-11-22T08:27:53.927Z",
     "source": "https://oddsparks.wiki.gg",
     "license": "CC BY-SA 4.0. Derived from the Oddsparks Wiki; see data/LICENSE-DATA.md",
     "generator": "tools/extract-wiki.mjs (do not edit by hand; fixes go in overrides.json)",
@@ -19,6 +19,7 @@
       "name": "Aetheric Collider",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 7,
       "categories": [
         "Building",
         "Workstation",
@@ -36,6 +37,7 @@
       "name": "Aetheric Converter Feeder",
       "group": "Other",
       "onBuildingsPage": false,
+      "pageOrder": null,
       "categories": [],
       "sparkSlots": null,
       "caption": null,
@@ -46,6 +48,7 @@
       "name": "Aetheric Distiller",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 1,
       "categories": [
         "Building",
         "Workstation",
@@ -63,6 +66,7 @@
       "name": "Aetheric Distiller Shrine",
       "group": "Shrines",
       "onBuildingsPage": true,
+      "pageOrder": 76,
       "categories": [
         "Building",
         "Workstation Shrine",
@@ -80,6 +84,7 @@
       "name": "Alchemy Lab",
       "group": "Assemblers",
       "onBuildingsPage": true,
+      "pageOrder": 14,
       "categories": [
         "Building",
         "Workstation",
@@ -97,6 +102,7 @@
       "name": "Ancient Generator",
       "group": "Other",
       "onBuildingsPage": false,
+      "pageOrder": null,
       "categories": [],
       "sparkSlots": null,
       "caption": null,
@@ -107,6 +113,7 @@
       "name": "Ancient Greenhouse",
       "group": "Other",
       "onBuildingsPage": false,
+      "pageOrder": null,
       "categories": [],
       "sparkSlots": null,
       "caption": "A building to grow small plants.",
@@ -120,6 +127,7 @@
       "name": "Ancient Printer",
       "group": "Other",
       "onBuildingsPage": false,
+      "pageOrder": null,
       "categories": [],
       "sparkSlots": null,
       "caption": "A working remnant of ancient technology, capable of creating items",
@@ -133,6 +141,7 @@
       "name": "Arboretum",
       "group": "Botanicals",
       "onBuildingsPage": true,
+      "pageOrder": 20,
       "categories": [],
       "sparkSlots": null,
       "caption": "A building to grow large plants. Must be built on an Aetheric Fissure in the Glacial Plateau. Must be fed separately by one or more Arboretum Feeders.",
@@ -146,6 +155,7 @@
       "name": "Crafty Spark Shrine",
       "group": "Shrines",
       "onBuildingsPage": true,
+      "pageOrder": 77,
       "categories": [
         "Building",
         "Workstation Shrine",
@@ -163,6 +173,7 @@
       "name": "Cutter",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 2,
       "categories": [
         "Building",
         "Workstation",
@@ -180,6 +191,7 @@
       "name": "Drill",
       "group": "Harvesters",
       "onBuildingsPage": true,
+      "pageOrder": 16,
       "categories": [
         "Building",
         "Workstation",
@@ -197,6 +209,7 @@
       "name": "Furnace",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 4,
       "categories": [
         "Building",
         "Workstation",
@@ -214,6 +227,7 @@
       "name": "Geode Breaker",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 6,
       "categories": [
         "Building",
         "Workstation",
@@ -231,6 +245,7 @@
       "name": "Greenhouse",
       "group": "Botanicals",
       "onBuildingsPage": true,
+      "pageOrder": 19,
       "categories": [],
       "sparkSlots": null,
       "caption": "A building to grow small plants.",
@@ -244,6 +259,7 @@
       "name": "Logger",
       "group": "Harvesters",
       "onBuildingsPage": true,
+      "pageOrder": 15,
       "categories": [
         "Building",
         "Workstation",
@@ -261,6 +277,7 @@
       "name": "Loom",
       "group": "Assemblers",
       "onBuildingsPage": true,
+      "pageOrder": 12,
       "categories": [
         "Building",
         "Workstation",
@@ -278,6 +295,7 @@
       "name": "Miasma Collector",
       "group": "Harvesters",
       "onBuildingsPage": true,
+      "pageOrder": 18,
       "categories": [
         "Building",
         "Workstation",
@@ -295,6 +313,7 @@
       "name": "Ore Miner",
       "group": "Harvesters",
       "onBuildingsPage": true,
+      "pageOrder": 17,
       "categories": [
         "Building",
         "Workstation",
@@ -312,6 +331,7 @@
       "name": "Plant Extractor",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 5,
       "categories": [
         "Building",
         "Workstation",
@@ -329,6 +349,7 @@
       "name": "Sawbench",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 0,
       "categories": [
         "Building",
         "Workstation",
@@ -346,6 +367,7 @@
       "name": "Spark Workbench",
       "group": "Assemblers",
       "onBuildingsPage": true,
+      "pageOrder": 8,
       "categories": [
         "Building",
         "Workstation",
@@ -363,6 +385,7 @@
       "name": "Spark Workshop",
       "group": "Assemblers",
       "onBuildingsPage": true,
+      "pageOrder": 10,
       "categories": [
         "Building",
         "Workstation",
@@ -380,6 +403,7 @@
       "name": "Spark Workstation",
       "group": "Assemblers",
       "onBuildingsPage": true,
+      "pageOrder": 9,
       "categories": [
         "Building",
         "Workstation",
@@ -397,6 +421,7 @@
       "name": "Stone Workshop",
       "group": "Assemblers",
       "onBuildingsPage": true,
+      "pageOrder": 13,
       "categories": [
         "Building",
         "Workstation",
@@ -414,6 +439,7 @@
       "name": "Stonecutter",
       "group": "Refiners",
       "onBuildingsPage": true,
+      "pageOrder": 3,
       "categories": [
         "Building",
         "Workstation",
@@ -431,6 +457,7 @@
       "name": "Tailor's Tent",
       "group": "Other",
       "onBuildingsPage": false,
+      "pageOrder": null,
       "categories": [],
       "sparkSlots": null,
       "caption": null,
@@ -444,6 +471,7 @@
       "name": "Wood Workshop",
       "group": "Assemblers",
       "onBuildingsPage": true,
+      "pageOrder": 11,
       "categories": [
         "Building",
         "Workstation",
@@ -1010,7 +1038,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "aetheric-collider--raw-aether--from-aether-seed-grey-aether": {
       "name": "Grey Aether Purification",
@@ -1063,7 +1091,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "aetheric-collider--raw-aether--from-cleansing-fragment-corrupted-aether": {
       "name": "Corrupted Aether Cleansing",
@@ -1120,7 +1148,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "aetheric-collider--scrubby-spark": {
       "name": "Spark Token Cleansing",
@@ -1211,7 +1239,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "aetheric-converter-feeder--aethric-converter--from-cleansing-fragment": {
       "name": "Aethric Converter",
@@ -1247,7 +1275,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "aetheric-converter-feeder--aethric-converter--from-scrubby-spark": {
       "name": "Aethric Converter",
@@ -1283,7 +1311,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "aetheric-distiller--aether-shard--from-aetheric-pellet": {
       "name": "Pellet Refining",
@@ -1323,7 +1351,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "aetheric-distiller--aether-shard--from-raw-aether": {
       "name": "Raw Distillation",
@@ -1394,7 +1422,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "aetheric-distiller--aether-shard--from-refined-aether": {
       "name": "Refined Distillation",
@@ -1442,7 +1470,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "aetheric-distiller-shrine--aether-shard": {
       "name": "Pellet Refining",
@@ -1484,7 +1512,7 @@
         "temperature": "Aetheric Distiller"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--aether-crystal": {
       "name": "Aether Seed Crystallization",
@@ -1559,7 +1587,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--aetheric-clump--aether-clump-fusion": {
       "name": "Aether Clump Fusion",
@@ -1607,7 +1635,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--aetheric-clump--aether-pellet-fusion": {
       "name": "Aether Pellet Fusion",
@@ -1647,7 +1675,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--aetheric-pellet": {
       "name": "Aether Pellet Fusion",
@@ -1699,7 +1727,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--cleansing-fragment": {
       "name": "Cleansing Fragment Enrichment",
@@ -1747,7 +1775,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--liquid-fertiliser": {
       "name": "Liquid Fertiliser",
@@ -1799,7 +1827,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--raw-aether": {
       "name": "Miasma Transmutation",
@@ -1851,7 +1879,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--refined-aether": {
       "name": "Aether Refinement",
@@ -1919,7 +1947,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "alchemy-lab--stellar-fertiliser": {
       "name": "Stellar Fertiliser",
@@ -1971,7 +1999,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-generator--subsurface-aether--producing-1-subsurface-aether": {
       "name": "Producing 1 Subsurface Aether",
@@ -2007,7 +2035,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-generator--subsurface-aether--producing-2-subsurface-aether": {
       "name": "Producing 2 Subsurface Aether",
@@ -2043,7 +2071,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-generator--subsurface-aether--producing-3-subsurface-aether": {
       "name": "Producing 3 Subsurface Aether",
@@ -2079,7 +2107,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-greenhouse--cleansing-seed": {
       "name": "Cleansing Seed",
@@ -2120,7 +2148,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--aether-segment": {
       "name": "Aether Segment Printing",
@@ -2164,7 +2192,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--carry-spark": {
       "name": "Carry Spark Printing",
@@ -2204,7 +2232,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--copper-sap": {
       "name": "Copper Sap Printing",
@@ -2248,7 +2276,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--coral": {
       "name": "Coral Printing",
@@ -2292,7 +2320,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--fireshroom-cluster--fireshroom-printing": {
       "name": "Fireshroom Printing",
@@ -2328,7 +2356,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--fireshroom-cluster--fireshroome-cluster-printing": {
       "name": "Fireshroome Cluster Printing",
@@ -2368,7 +2396,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--geode-cluster": {
       "name": "Geode Cluster Printing",
@@ -2408,7 +2436,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--handy-spark": {
       "name": "Handy Spark Printing",
@@ -2452,7 +2480,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--hauling-spark": {
       "name": "Hauling Spark Printing",
@@ -2492,7 +2520,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--leaves": {
       "name": "Leaves Printing",
@@ -2536,7 +2564,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--rocky-spark": {
       "name": "Rocky Spark Printing",
@@ -2580,7 +2608,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--stellar-leaves": {
       "name": "Stellar Leaves Printing",
@@ -2624,7 +2652,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--stone": {
       "name": "Stone Printing",
@@ -2668,7 +2696,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--subsurface-aether--8f6684": {
       "name": "Producing Subsurface Aether (Cleansing Fragment as Fuel)",
@@ -2704,7 +2732,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--subsurface-aether--b7910a": {
       "name": "Producing Subsurface Aether (Cleansing Fragment as Fuel)",
@@ -2740,7 +2768,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--subsurface-aether--e0e0fc": {
       "name": "Producing Subsurface Aether (Cleansing Fragment as Fuel)",
@@ -2776,7 +2804,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ancient-printer--wooden-log": {
       "name": "Log Printing",
@@ -2820,7 +2848,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "arboretum--aether-apple": {
       "name": "Aether Tree",
@@ -2872,7 +2900,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "arboretum--copper-cutting": {
       "name": "Copper Bamboo",
@@ -2924,7 +2952,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "arboretum--geode-cluster": {
       "name": "Geode Reef",
@@ -2976,7 +3004,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "crafty-spark-shrine--crafty-spark": {
       "name": "Crafty Spark",
@@ -3013,7 +3041,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--aetheric-pellet": {
       "name": "Clump Dividing",
@@ -3057,7 +3085,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--black-paint": {
       "name": "Black Paint",
@@ -3101,7 +3129,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--blue-paint": {
       "name": "Blue Paint",
@@ -3145,7 +3173,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--fertiliser": {
       "name": "Fertiliser",
@@ -3189,7 +3217,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--red-paint": {
       "name": "Red Paint",
@@ -3233,7 +3261,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--turpentine": {
       "name": "Turpentine",
@@ -3277,7 +3305,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--white-paint": {
       "name": "White Paint",
@@ -3321,7 +3349,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "cutter--yellow-paint": {
       "name": "Yellow Paint",
@@ -3365,7 +3393,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "drill--limestone--limestone-harvesting": {
       "name": "Limestone Harvesting",
@@ -3400,7 +3428,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "drill--limestone--overclocked-limestone-harvesting": {
       "name": "Overclocked Limestone Harvesting",
@@ -3435,7 +3463,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "drill--quartz--overclocked-quartz-harvesting": {
       "name": "Overclocked Quartz Harvesting",
@@ -3483,7 +3511,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "drill--quartz--quartz-harvesting": {
       "name": "Quartz Harvesting",
@@ -3518,7 +3546,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "drill--stone--overclocked-stone-harvesting": {
       "name": "Overclocked Stone Harvesting",
@@ -3553,7 +3581,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "drill--stone--stone-harvesting": {
       "name": "Stone Harvesting",
@@ -3588,7 +3616,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--big-vial": {
       "name": "Big Vial",
@@ -3634,7 +3662,7 @@
         "usesFuel": "Big Vial"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--coal": {
       "name": "Coal",
@@ -3678,7 +3706,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--copper-ingot--from-copper-ore": {
       "name": "Copper Ore Smelting",
@@ -3724,7 +3752,7 @@
         "usesFuel": "Copper Ingot"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--copper-ingot--from-copper-sap": {
       "name": "Copper Sap Smelting",
@@ -3779,7 +3807,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "furnace--copper-ingot--from-copper-seed": {
       "name": "Copper Seed Smelting",
@@ -3825,7 +3853,7 @@
         "usesFuel": "Copper Ingot"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--copper-seed": {
       "name": "Copper Sap Beading",
@@ -3867,7 +3895,7 @@
         "usesFuel": "Copper Seed"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--drill-bit": {
       "name": "Drill Bit",
@@ -3913,7 +3941,7 @@
         "usesFuel": "Copper Ingot"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--quartz": {
       "name": "Quartz",
@@ -3959,7 +3987,7 @@
         "usesFuel": "Limestone"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "furnace--small-vial": {
       "name": "Small Vial",
@@ -4005,7 +4033,7 @@
         "usesFuel": "Quartz"
       },
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "geode-breaker--bumpy-geode": {
       "name": "Break Geode Cluster",
@@ -4067,7 +4095,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "geode-breaker--volcanic-soil--from-bumpy-geode": {
       "name": "Break Bumpy Geode",
@@ -4129,7 +4157,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "geode-breaker--volcanic-soil--from-cracked-geode": {
       "name": "Break Cracked Geode",
@@ -4191,7 +4219,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "geode-breaker--volcanic-soil--from-shiny-geode": {
       "name": "Break Shiny Geode",
@@ -4253,7 +4281,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "greenhouse--aether-flower": {
       "name": "Aetheric Flower",
@@ -4305,7 +4333,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "greenhouse--copper-seed": {
       "name": "Copper Seed Germination",
@@ -4357,7 +4385,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "greenhouse--coral-seed": {
       "name": "Coral Seed Germination",
@@ -4405,7 +4433,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "greenhouse--fireshroom-cluster": {
       "name": "Fireshroom Colony",
@@ -4482,7 +4510,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "greenhouse--fluted-coral": {
       "name": "Fluted Coral Reef",
@@ -4534,7 +4562,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "greenhouse--leaf-knot": {
       "name": "Leafy Growth",
@@ -4586,7 +4614,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "greenhouse--stellar-leaves": {
       "name": "Stellar Cactus",
@@ -4638,7 +4666,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "logger--leaves--leaves-harvesting": {
       "name": "Leaves Harvesting",
@@ -4673,7 +4701,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "logger--leaves--overclocked-leaves-harvesting": {
       "name": "Overclocked Leaves Harvesting",
@@ -4708,7 +4736,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "logger--tree-bark--bark-harvesting": {
       "name": "Bark Harvesting",
@@ -4743,7 +4771,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "logger--tree-bark--overclocked-bark-harvesting": {
       "name": "Overclocked Bark Harvesting",
@@ -4778,7 +4806,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "logger--wooden-log--log-harvesting": {
       "name": "Log Harvesting",
@@ -4813,7 +4841,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "logger--wooden-log--overclocked-log-harvesting": {
       "name": "Overclocked Log Harvesting",
@@ -4844,7 +4872,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "logger--wooden-log--overclocked-wood-harvesting": {
       "name": "Overclocked Wood Harvesting",
@@ -4875,7 +4903,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "loom--fabric": {
       "name": "Fabric",
@@ -4927,7 +4955,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "loom--rope": {
       "name": "Rope",
@@ -4979,7 +5007,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "loom--sponge": {
       "name": "Sponge",
@@ -5056,7 +5084,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "miasma-collector--miasma-vial": {
       "name": "Miasma Vial",
@@ -5108,7 +5136,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ore-miner--copper-ore--copper-ore-harvesting": {
       "name": "Copper Ore Harvesting",
@@ -5143,7 +5171,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "ore-miner--copper-ore--overclocked-copper-ore-harvesting": {
       "name": "Overclocked Copper Ore Harvesting",
@@ -5178,7 +5206,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--aether-seed--from-aether-apple": {
       "name": "Extract Aether Apple",
@@ -5227,7 +5255,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--aether-seed--from-aether-segment": {
       "name": "Extract Aether Segment",
@@ -5276,7 +5304,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--aether-seed--from-stellar-ice": {
       "name": "Extract Aether Segment",
@@ -5317,7 +5345,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--aetheric-clump": {
       "name": "Extract Aether Flower",
@@ -5370,7 +5398,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--copper-ore": {
       "name": "Extract Copper Seed",
@@ -5423,7 +5451,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--copper-sap": {
       "name": "Extract Copper Cuttings",
@@ -5476,7 +5504,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--glowshroom": {
       "name": "Extract Fireshroom Cluster",
@@ -5525,7 +5553,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--limestone": {
       "name": "Extract Coral Seed",
@@ -5578,7 +5606,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--stellar-seed": {
       "name": "Extract Stellar Leaves",
@@ -5631,7 +5659,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "plant-extractor--stone": {
       "name": "Extract Stellar Ice",
@@ -5676,7 +5704,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "sawbench--leaves": {
       "name": "Leaf Knot Cutting",
@@ -5720,7 +5748,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "sawbench--sawn-timber": {
       "name": "Sawn Timber",
@@ -5764,7 +5792,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "sawbench--stellar-ice": {
       "name": "Frozen Log Cutting",
@@ -5808,7 +5836,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "sawbench--tree-bark": {
       "name": "Bark",
@@ -5852,7 +5880,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "sawbench--wooden-log": {
       "name": "Leaf Knot Trimming",
@@ -5896,7 +5924,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "sawbench--wooden-panel": {
       "name": "Wooden Panel",
@@ -5940,7 +5968,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workbench--arty-spark": {
       "name": "Arty Spark",
@@ -5992,7 +6020,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workbench--carry-spark": {
       "name": "Carry Spark",
@@ -6044,7 +6072,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workbench--choppy-spark": {
       "name": "Choppy Spark",
@@ -6100,7 +6128,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workbench--crafty-spark": {
       "name": "Crafty Spark",
@@ -6156,7 +6184,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workbench--loamy-spark": {
       "name": "Loamy Spark",
@@ -6212,7 +6240,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workbench--slashy-spark": {
       "name": "Slashy Spark",
@@ -6256,7 +6284,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workbench--stumpy-spark": {
       "name": "Stumpy Spark",
@@ -6300,7 +6328,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workshop--burning-spark": {
       "name": "Burning Spark",
@@ -6360,7 +6388,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workshop--drilly-spark": {
       "name": "Drilly Spark",
@@ -6416,7 +6444,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workshop--freezing-spark": {
       "name": "Freezing Spark",
@@ -6476,7 +6504,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workshop--handy-spark": {
       "name": "Handy Spark",
@@ -6536,7 +6564,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workshop--scrubby-spark": {
       "name": "Scrubby Spark",
@@ -6580,7 +6608,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--boomy-spark": {
       "name": "Boomy Spark",
@@ -6636,7 +6664,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--crashy-spark": {
       "name": "Crashy Spark",
@@ -6692,7 +6720,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--drilly-spark": {
       "name": "Drilly Spark",
@@ -6736,7 +6764,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--hauling-spark": {
       "name": "Hauling Spark",
@@ -6792,7 +6820,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--puffy-spark": {
       "name": "Puffy Spark",
@@ -6848,7 +6876,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--rocky-spark": {
       "name": "Rocky Spark",
@@ -6904,7 +6932,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--scouty-spark": {
       "name": "Scouty Spark",
@@ -6960,7 +6988,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--scrubby-spark": {
       "name": "Scrubby Spark",
@@ -7016,7 +7044,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--slashy-spark": {
       "name": "Slashy Spark",
@@ -7064,7 +7092,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "spark-workstation--stumpy-spark": {
       "name": "Stumpy Spark",
@@ -7112,7 +7140,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--dowsing-stone": {
       "name": "Dowsing Stone",
@@ -7164,7 +7192,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--green-paint": {
       "name": "Green Paint",
@@ -7241,7 +7269,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--orange-paint": {
       "name": "Orange Paint",
@@ -7318,7 +7346,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--path-tile": {
       "name": "Path Tile",
@@ -7374,7 +7402,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--purple-paint": {
       "name": "Purple Paint",
@@ -7451,7 +7479,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--stone-block": {
       "name": "Stone Block",
@@ -7503,7 +7531,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--stone-spike": {
       "name": "Stone Spike",
@@ -7555,7 +7583,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stone-workshop--stone-wheel": {
       "name": "Stone Wheel",
@@ -7607,7 +7635,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--coral": {
       "name": "Coral",
@@ -7651,7 +7679,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--limestone": {
       "name": "Limestone",
@@ -7695,7 +7723,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--pebble": {
       "name": "Pebble",
@@ -7735,7 +7763,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--stellar-ice": {
       "name": "Frozen Stone Cutting",
@@ -7779,7 +7807,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--stone--from-limestone": {
       "name": "Stone",
@@ -7823,7 +7851,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--stone--from-stone-block": {
       "name": "Stone Block Breakdown",
@@ -7867,7 +7895,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--stone-plate": {
       "name": "Stone Plate",
@@ -7911,7 +7939,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--stone-spike--from-frozen-stone": {
       "name": "Stone Block Cutting",
@@ -7947,7 +7975,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "stonecutter--stone-spike--from-stone-block": {
       "name": "Stone Block Cutting",
@@ -7987,7 +8015,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "tailors-tent--stumpy-spark--from-hunter-hat-stumpy-spark": {
       "name": "Hatted Spark",
@@ -8024,7 +8052,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "tailors-tent--stumpy-spark--from-stumpy-spark--6b62a6": {
       "name": "Hat and Spark",
@@ -8062,7 +8090,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "tailors-tent--stumpy-spark--from-stumpy-spark--7fcea5": {
       "name": "Hat and Spark",
@@ -8100,7 +8128,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "tailors-tent--stumpy-spark--from-stumpy-spark-top-hat": {
       "name": "Hatted Spark",
@@ -8137,7 +8165,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "wood-workshop--explosives": {
       "name": "Explosives",
@@ -8189,7 +8217,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "wood-workshop--fertiliser": {
       "name": "Fertiliser Enrichment",
@@ -8257,7 +8285,7 @@
           }
         ]
       },
-      "problems": []
+      "problems": {}
     },
     "wood-workshop--ladder": {
       "name": "Ladder",
@@ -8309,7 +8337,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     },
     "wood-workshop--wooden-blade": {
       "name": "Wooden Blade",
@@ -8361,7 +8389,7 @@
       ],
       "valueFrom": {},
       "conflicts": {},
-      "problems": []
+      "problems": {}
     }
   }
 }

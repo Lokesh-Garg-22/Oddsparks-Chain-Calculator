@@ -13,7 +13,19 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 3 (icons): committed.** Icon use on this basis confirmed by the owner.
+- **Step 4 (overrides + validation): committed.**
+  - `site/data/overrides.json`:
+    - spark crew table with status and source; default crew 2 Stumpy
+    - Timber as the in-game name
+    - your 4 in-game readings recorded as confirmations
+    - one duplicate recipe merged (Fireshroom printing)
+  - `site/js/data/merge.js` applies overrides; it is shared by the app and the validator
+  - `site/js/engine/recipes.js` holds the default-recipe rule
+  - `npm run validate` (`tools/validate-data.mjs`)
+  - first full run of the `update-game-data` workflow against the live wiki: no recipe changes
+  - 43 tests pass, including the owner's readings
+  - reviewed with `code-review` (3 robustness fixes) and `simplify` (per-item resolution, renames per kind, problems by path)
+- **Step 3 (icons): committed** (`1d620aa`). Icon use on this basis confirmed by the owner.
   - `npm run icons`: 125 icons at 128 px (~1.7 MB); Tailor's Tent has none on the wiki
   - `site/icons/CREDITS.md` credits each file to its uploader, with © THQ Nordic
   - the extractor now also records each page's infobox image
@@ -46,7 +58,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 3 → commit → **step 4: `overrides.json` + `validate-data.mjs`**: crew table, in-game names (Timber), defaults, raw items, `mergeRecipes`/`renamedIds`. Ends with a first real run of the `update-game-data` skill. See [plan.md](plan.md#7-build-steps).
+Owner reviews step 4 → commit → **step 5: calculation engine + tests** (worked example, Logger cross-check, the owner's 3 spreadsheets, loops, byproducts, cycles, random outputs). See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

@@ -6,6 +6,8 @@ import { join } from 'node:path';
 export const SITE_ROOT = join(import.meta.dirname, '..', 'site');
 /** Generated game data (npm run extract). */
 export const DATA_FILE = join(SITE_ROOT, 'data', 'oddsparks.json');
+/** Hand-edited fixes and settings layered on the generated data. */
+export const OVERRIDES_FILE = join(SITE_ROOT, 'data', 'overrides.json');
 /** Extraction report for humans (npm run extract). */
 export const REPORT_FILE = join(SITE_ROOT, 'data', 'extraction-report.md');
 /** Raw wikitext snapshot, git-ignored, for offline rebuilds (npm run extract -- --offline). */
