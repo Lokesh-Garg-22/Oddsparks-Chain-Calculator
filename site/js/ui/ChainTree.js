@@ -3,6 +3,7 @@
  * The chain as a tree: each input under the row that needs it, at that branch's rate. Every row can
  * change its spark crew, switch recipe (when an item has several), or be marked "I supply this".
  * Rows shared by several branches show their part and the combined total.
+ * On phones each row is a compact card; its controls open with "Change".
  */
 import { useMemo, useState } from 'preact/hooks';
 import { html } from './html.js';
@@ -10,22 +11,22 @@ import { Icon } from './Icon.js';
 import { Badge } from './Badge.js';
 import { CrewSelect } from './CrewSelect.js';
 import { useApp } from './context.js';
-import { buildingName, itemName, recipeName } from './format.js';
+import { crewName, itemName, recipeLabel } from './format.js';
 import { chainTree } from '../engine/calc.js';
-import { STOP_LABELS, rowBadges } from '../data/badges.js';
+import { STOP_LABELS } from '../data/badges.js';
 import { chooseRecipe, toggleSupplied } from '../state/calc.js';
 
 /** @typedef {import('../engine/calc.js').TreeNode} TreeNode */
 /** @typedef {import('../engine/calc.js').Row} Row */
 /** @typedef {import('../state/calc.js').Update} Update */
+/** @typedef {import('../data/badges.js').Badge} BadgeData */
 
 /**
- * @param {{ result: import('../engine/calc.js').Result, supplied: string[], update: Update }} props
+ * @param {{ result: import('../engine/calc.js').Result, badges: Record<string, BadgeData[]>, supplied: string[], update: Update }} props
  */
-export function ChainTree({ result, supplied, update }) {
+export function ChainTree({ result, badges, supplied, update }) {
   const { game } = useApp();
   const tree = useMemo(() => chainTree(result), [result]);
-  const badges = useMemo(() => rowBadges(game, result), [game, result]);
   const [collapsed, setCollapsed] = useState(() => /** @type {Set<string>} */ (new Set()));
   const toggle = (/** @type {string} */ path) => setCollapsed((s) => {
     const next = new Set(s);
@@ -54,9 +55,6 @@ export function ChainTree({ result, supplied, update }) {
       <ul class="list-reset" aria-label=${`Production chain for ${itemName(game, tree.item)}`}>${branch(tree, 0, tree.item)}</ul>
     </div>`;
 }
-
-/** "Sawbench: Sawn Timber" @param {any} game @param {string} id */
-const recipeLabel = (game, id) => `${buildingName(game, game.recipes[id].building)}: ${recipeName(game, id)}`;
 
 /** Switch which recipe makes an item, everywhere in the chain. @param {{ item: string, current: string | null, update: Update }} props */
 function RecipeSelect({ item, current, update }) {
@@ -92,17 +90,22 @@ function MadeIn(/** @type {{ node: TreeNode, isTarget: boolean, supplied: boolea
 }
 
 /**
- * @param {{ node: TreeNode, depth: number, row: Row | null, badges: import('../data/badges.js').Badge[], supplied: boolean, update: Update, open: boolean, onToggle: () => void }} props
+ * @param {{ node: TreeNode, depth: number, row: Row | null, badges: BadgeData[], supplied: boolean, update: Update, open: boolean, onToggle: () => void }} props
  */
 function ChainRow({ node, depth, row, badges, supplied, update, open, onToggle }) {
   const { game, fmt } = useApp();
+  const [editing, setEditing] = useState(false);
   const name = itemName(game, node.item);
   const isTarget = depth === 0;
   const out = row?.outputs.find((o) => o.item === node.item);
   const shared = row && !isTarget && out && Math.abs(out.used - node.perMinute) > 1e-9;
+  // Phones show this one line instead of the controls, until "Change" is tapped.
+  const summary = row ? `${recipeLabel(game, row.recipe)}, ${crewName(game, row.crew)}` : node.stop ? STOP_LABELS[node.stop] : '';
+  const canChange = Boolean(row) || game.items[node.item].producers.length > 0;
+  const machines = fmt.machines(node.machines);
 
   return html`
-    <div class=${`chain__row${isTarget ? ' is-target' : ''}${node.stop ? ' is-stop' : ''}`} style=${`--depth:${depth}`}>
+    <div class=${`chain__row${isTarget ? ' is-target' : ''}${node.stop ? ' is-stop' : ''}${editing ? ' is-editing' : ''}`} style=${`--depth:${depth}`}>
       <div class="chain__item">
         ${node.children.length > 0
           ? html`<button class="chain__toggle" type="button" aria-expanded=${open} aria-label=${`${open ? 'Collapse' : 'Expand'} ${name}`} onClick=${onToggle}>
@@ -116,11 +119,15 @@ function ChainRow({ node, depth, row, badges, supplied, update, open, onToggle }
         </span>
       </div>
 
+      <span class="chain__summary small muted">${summary}</span>
+
       <div class="chain__rate num">
-        <span class="chain__label">Rate</span>
         <span><strong>${fmt.rate(node.perMinute)}</strong><span class="small muted"> ${fmt.perShort}</span></span>
         ${shared && out && html`<span class="small muted">part of ${fmt.rate(out.used)}${fmt.perShort}</span>`}
       </div>
+
+      ${canChange && html`
+        <button type="button" class="chain__edit button button--quiet" aria-expanded=${editing} onClick=${() => setEditing(!editing)}>${editing ? 'Done' : 'Change'}</button>`}
 
       <${MadeIn} node=${node} isTarget=${isTarget} supplied=${supplied} update=${update} />
 
@@ -130,9 +137,8 @@ function ChainRow({ node, depth, row, badges, supplied, update, open, onToggle }
       </div>
 
       <div class="chain__machines num">
-        <span class="chain__label">Machines</span>
         ${row && html`
-          <span>${fmt.machines(node.machines)}</span>
+          <span><strong>${machines}</strong> <span class="chain__unit small muted">${machines === '1' ? 'machine' : 'machines'}</span></span>
           <span class="small muted">${shared ? `of ${fmt.machines(row.machines)} ` : ''}→ ${row.build ?? '?'}</span>`}
       </div>
     </div>`;

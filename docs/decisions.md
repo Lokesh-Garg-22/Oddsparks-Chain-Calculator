@@ -4,6 +4,25 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 8 (columns, settings, share link, panels, phone) decisions:**
+  - **One column registry,** `site/js/engine/columns.js`. Each column reads one raw value from a calculated row, with a `kind` that says how to show it. The build list shows it now; the Excel export will write it (step 11). The demand column keeps which row each part comes from, so Excel can write `=K16+K13`.
+  - **The extra columns are the mockup's 9,** each named after the owner's spreadsheet header (shown in the menu as "Excel column …"). They are hidden by default, apply to the build list, and are remembered per browser. The tree stays at its 5 columns, since its rows are branches, not whole recipes.
+  - **Display settings are per browser, not per tab:** unit, decimals, default crew, theme and extra columns are in `oddsparks-calc:v1:prefs`. A tab stores only what it calculates, plus its view. storage-and-export.md is updated to match.
+  - **"1 decimal, like the game" rounds half to even** (Unreal's default), so 11.25 shows as 11.2, as the owner read in-game. The rule is unconfirmed beyond that one reading (U15 in unverified.md).
+  - **Share links:** the calc goes in the URL fragment. Old ids are followed through `renamedIds`, and missing ones are named in a banner. The fragment is removed after reading, so it never goes stale. Copy uses the clipboard, with a prompt as fallback.
+  - **Menus use the browser's popover** (Baseline 2024, the same bar as `light-dark()`), so Escape and clicking outside close them without extra code. A saved theme is applied by a tiny script in `index.html` before the first paint, so dark mode doesn't flash.
+  - **Byproducts and spare capacity, and Warnings, are panels below the chain.** Spare capacity is what rounding up to whole buildings leaves over. Warnings list every warning badge in the chain with its full explanation.
+  - **Phone rows are compact cards:** item, machines, a one-line "recipe, crew" summary and the rate. "Change" opens the recipe, crew and "I supply this" controls.
+  - **Data version and "Report a data error"** (a GitHub issue link) are in the footer.
+  - **Found while testing:** the import map came after the module preloads, so Chrome could try to resolve `preact` before the map existed (a race that had happened to work). It now comes first, and a test checks the order.
+  - **After the `simplify` review:**
+    - `mainOutput` lives once, in the engine
+    - share links build calcs with `fromRecipe`; reading the link moved out of App into `state/url.js`, so step 9 can decide what opening one means
+    - one safe-storage helper (`state/storage.js`) for prefs now, and tabs and the library later; a test ties the theme script's key to it
+    - shared `crewOption`, `ItemRate`, `chainWarnings` (also for the Excel Summary) and `dataVersionLabel`
+    - the settings choices reuse the `.switch` style
+    - switching tree/list no longer recalculates
+    - skipped as negligible: memoising small lists, merging the amount and machine formatters
 - **Step 7 (chain tree) decisions:**
   - **One badge vocabulary** in its own module, `site/js/data/badges.js`: `BADGE_KINDS` lists every badge type once, with its tone (warn / info / ok), its text and a `warning` flag (it belongs in warning lists). `recipeBadges(game, recipe, crew)` explains one recipe in plain language that names the wiki pages and values (e.g. "Loom page says 824 s … Using 24 s"). `rowBadges(game, result)` adds what only the chain knows (loops, unknown crew, missing values). The recipe cards, the chain rows, and later the warnings panel and Excel Summary all use it.
   - **Badge types:** fuel, random output, cycles, sources disagree, value missing, loop, unknown crew, unconfirmed crew speed, one source, corrected and checked in-game.

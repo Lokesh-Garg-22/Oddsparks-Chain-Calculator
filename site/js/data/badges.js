@@ -117,3 +117,11 @@ export function rowBadges(game, result) {
   }
   return byRow;
 }
+
+/**
+ * The warnings list for a chain (warnings panel, Excel Summary): every warning badge, with its row.
+ * @param {Record<string, Badge[]>} badges from rowBadges
+ * @returns {{ recipe: string, badge: Badge }[]}
+ */
+export const chainWarnings = (badges) =>
+  Object.entries(badges).flatMap(([recipe, list]) => list.filter((b) => b.warning).map((badge) => ({ recipe, badge })));

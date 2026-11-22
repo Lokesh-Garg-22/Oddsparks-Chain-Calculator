@@ -101,6 +101,17 @@ button, input, select { font: inherit; color: inherit; }
 .site-header { background: var(--c-chrome); color: var(--c-chrome-ink); }
 .site-header__inner { display: flex; align-items: center; gap: 10px; padding-block: 14px; }
 .site-header__title { font-size: 1.35rem; }
+.site-header__tools { margin-left: auto; display: flex; gap: 8px; }
+.button--chrome {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px;
+  background: transparent; color: var(--c-chrome-ink); border: 1px solid color-mix(in srgb, var(--c-chrome-ink) 30%, transparent);
+}
+.button--chrome:hover { border-color: var(--c-spark); }
+@media (max-width: 560px) {
+  .site-header__title { font-size: 1.1rem; }
+  .button--chrome { padding-inline: 10px; }
+  .button--chrome span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
 
 .site-footer { border-top: 1px solid var(--c-border); margin-top: 24px; }
 .site-footer__inner { padding-block: 20px 32px; display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 0.85rem; color: var(--c-muted); }
@@ -109,6 +120,7 @@ button, input, select { font: inherit; color: inherit; }
 .target { flex: 1 1 340px; max-width: 440px; }
 .results { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 
+.layout__banner { flex: 1 1 100%; }
 .loading { padding-block: 48px; }
 
 /* ---- Panels ---- */
@@ -122,6 +134,8 @@ button, input, select { font: inherit; color: inherit; }
   gap: 16px;
 }
 .panel__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; }
+.panel__tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.panel p { margin: 0; }
 
 /* ---- Fields and buttons ---- */
 .field { display: flex; flex-direction: column; gap: 6px; }
@@ -224,8 +238,41 @@ button, input, select { font: inherit; color: inherit; }
 
 /* ---- Switch (Chain tree / Build list) ---- */
 .switch { display: inline-flex; gap: 4px; background: var(--c-sunken); padding: 4px; border-radius: var(--radius-m); }
-.switch button { border: 0; background: transparent; border-radius: var(--radius-s); padding: 6px 14px; min-height: 36px; font-weight: 600; cursor: pointer; }
-.switch button[aria-pressed="true"] { background: var(--c-surface); box-shadow: 0 0 0 1px var(--c-border); }
+.switch button, .switch__option > span { border: 0; background: transparent; border-radius: var(--radius-s); padding: 6px 14px; min-height: 36px; font-weight: 600; cursor: pointer; }
+.switch button[aria-pressed="true"], .switch__option input:checked + span { background: var(--c-surface); box-shadow: 0 0 0 1px var(--c-border); }
+/* The same switch as radio buttons (settings): the input covers its label, the span draws it. */
+.switch__option { flex: 1 1 auto; position: relative; }
+.switch__option input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.switch__option > span { display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 0.9rem; }
+.switch__option input:focus-visible + span { outline: 3px solid var(--c-focus); outline-offset: 1px; }
+.switch__option .muted { font-weight: 400; }
+
+/* ---- Menus (popover panels) ---- */
+.menu {
+  inset: auto; margin: 0; position: fixed;
+  width: min(340px, calc(100vw - 16px)); max-height: calc(100vh - 80px); overflow-y: auto;
+  background: var(--c-surface); color: var(--c-ink);
+  border: 1px solid var(--c-border); border-radius: var(--radius-l); padding: 16px;
+  box-shadow: 0 12px 32px color-mix(in srgb, #0F1612 22%, transparent);
+}
+.settings, .columns-menu { display: flex; flex-direction: column; gap: 14px; }
+.settings__title { font-size: 1.05rem; }
+.menu p { margin: 0; }
+.choice { border: 0; margin: 0; padding: 0; min-width: 0; }
+.choice > legend { margin-bottom: 6px; }
+.choice .switch { display: flex; flex-wrap: wrap; }
+.columns-menu ul { display: flex; flex-direction: column; gap: 2px; }
+.columns-menu__option { display: flex; align-items: flex-start; gap: 10px; padding: 6px 4px; cursor: pointer; border-radius: var(--radius-s); }
+.columns-menu__option:hover { background: var(--c-selected); }
+.columns-menu__option input { width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0; }
+.columns-menu__option > span { display: flex; flex-direction: column; }
+
+/* ---- Byproducts and warnings ---- */
+.side-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+.side-panels h3 { margin-top: 4px; }
+.warnings { display: flex; flex-direction: column; gap: 12px; }
+.warnings li { display: flex; flex-direction: column; gap: 4px; }
+.warnings__head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 
 /* ---- Badges: a tag that opens its explanation in place ---- */
 .tag--info { background: var(--c-sunken); color: var(--c-muted); border-color: transparent; }
@@ -258,21 +305,27 @@ button, input, select { font: inherit; color: inherit; }
 .chain__made { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .chain__supply { display: inline-flex; align-items: center; gap: 6px; color: var(--c-muted); cursor: pointer; }
 .chain__supply input { width: 16px; height: 16px; margin: 0; }
-.chain__label { display: none; }
+.chain__label, .chain__summary, .chain__edit, .chain__unit { display: none; }
 .input--compact { min-height: 36px; padding: 6px 8px; font-size: 0.88rem; }
 
-/* Phones: each row becomes a card. */
+/* Phones: each row becomes a compact card. Its recipe and crew show as one line; "Change" opens the controls. */
 @media (max-width: 720px) {
   .chain__head { display: none; }
   .chain__row {
-    grid-template-columns: 1fr 1fr; grid-template-areas: "item item" "rate machines" "made made" "crew crew";
-    margin-left: calc(var(--depth) * 12px); border: 1px solid var(--c-border); border-radius: var(--radius-m); margin-bottom: 8px;
+    grid-template-columns: 1fr auto; grid-template-areas: "item machines" "summary summary" "rate edit" "made made" "crew crew";
+    gap: 6px 12px; margin-left: calc(var(--depth) * 10px);
+    border: 1px solid var(--c-border); border-radius: var(--radius-m); margin-bottom: 8px;
   }
   .chain__item { grid-area: item; padding-left: 0; }
   .chain__item::before { display: none; }
-  .chain__rate { grid-area: rate; align-items: flex-start; }
+  .chain__summary { display: block; grid-area: summary; padding-left: 32px; }
+  .chain__rate { grid-area: rate; flex-direction: row; align-items: baseline; gap: 8px; padding-left: 32px; }
   .chain__machines { grid-area: machines; }
+  .chain__unit { display: inline; }
+  .chain__edit { display: inline-flex; grid-area: edit; justify-self: end; min-height: 36px; padding: 4px 12px; font-size: 0.88rem; }
   .chain__made { grid-area: made; }
   .chain__crew { grid-area: crew; }
+  .chain__row:not(.is-editing) .chain__made, .chain__row:not(.is-editing) .chain__crew { display: none; }
+  .chain__row.is-editing .chain__summary { display: none; }
   .chain__label { display: block; font-size: var(--text-small); color: var(--c-muted); font-weight: 600; }
 }

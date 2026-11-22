@@ -1,45 +1,27 @@
 // @ts-check
-/** What the chain needs: machines per building, the output, inputs from outside, and the chain itself. */
+/** What the chain needs: machines per building, the output, inputs from outside, the chain itself, and what's left over. */
+import { useMemo } from 'preact/hooks';
 import { html } from './html.js';
 import { Icon } from './Icon.js';
+import { ItemRate } from './ItemRate.js';
 import { ChainTree } from './ChainTree.js';
+import { BuildList, ColumnsMenu } from './BuildList.js';
+import { SidePanels } from './SidePanels.js';
 import { useApp } from './context.js';
-import { buildingName, crewName, itemName, recipeName } from './format.js';
+import { buildingName, itemName, recipeName } from './format.js';
 import { perBuilding } from '../engine/calc.js';
-import { STOP_LABELS } from '../data/badges.js';
+import { STOP_LABELS, rowBadges } from '../data/badges.js';
 import { setView } from '../state/calc.js';
 
 /** @typedef {import('../engine/calc.js').Result} Result */
 /** @typedef {import('../state/calc.js').TabCalc} TabCalc */
-
-/** One row per recipe, all branches combined: what to build. @param {{ result: Result }} props */
-function BuildList({ result }) {
-  const { game, fmt } = useApp();
-  return html`
-    <div class="table-scroll">
-      <table class="table">
-        <thead>
-          <tr><th scope="col">Building</th><th scope="col">Recipe</th><th scope="col">Spark crew</th><th scope="col" class="num">Exact</th><th scope="col" class="num">Build</th></tr>
-        </thead>
-        <tbody>
-          ${Object.values(result.rows).map((r) => html`
-            <tr key=${r.recipe} class=${r.isTarget ? 'is-target' : ''}>
-              <td><span class="cell-with-icon"><${Icon} kind="buildings" id=${r.building} name=${buildingName(game, r.building)} size=${24} />${buildingName(game, r.building)}</span></td>
-              <td>${recipeName(game, r.recipe)}${r.isTarget ? html` <span class="tag tag--target">your target</span>` : ''}</td>
-              <td>${crewName(game, r.crew)}</td>
-              <td class="num">${fmt.machines(r.machines)}</td>
-              <td class="num"><strong>${r.build ?? '?'}</strong></td>
-            </tr>`)}
-        </tbody>
-      </table>
-    </div>`;
-}
 
 /**
  * @param {{ result: Result, calc: TabCalc, update: import('../state/calc.js').Update }} props
  */
 export function Results({ result, calc, update }) {
   const { game, fmt } = useApp();
+  const badges = useMemo(() => rowBadges(game, result), [game, result]);
   const view = calc.view ?? 'tree';
   const show = (/** @type {'tree' | 'list'} */ v) => update((c) => setView(c, v));
   const loops = result.loops;
@@ -64,10 +46,7 @@ export function Results({ result, calc, update }) {
         <div class="stack-s">
           <h3>From outside the chain</h3>
           <ul class="plain-list list-reset">
-            ${result.raw.map((r) => html`<li key=${r.item}>
-              <${Icon} kind="items" id=${r.item} name=${itemName(game, r.item)} size=${22} />
-              <span><strong>${fmt.rate(r.perMinute)}</strong> ${itemName(game, r.item)} ${fmt.per} <span class="muted">(${r.stop ? STOP_LABELS[r.stop] : ''})</span></span>
-            </li>`)}
+            ${result.raw.map((r) => html`<${ItemRate} key=${r.item} item=${r.item} perMinute=${r.perMinute} note=${r.stop ? STOP_LABELS[r.stop] : ''} />`)}
           </ul>
         </div>`}
       ${loops.length > 0 && html`
@@ -81,13 +60,18 @@ export function Results({ result, calc, update }) {
     <section class="panel" aria-labelledby="chain-h">
       <div class="panel__head">
         <h2 id="chain-h">Production chain</h2>
-        <div class="switch" role="group" aria-label="Show the chain as">
-          <button type="button" aria-pressed=${view === 'tree'} onClick=${() => show('tree')}>Chain tree</button>
-          <button type="button" aria-pressed=${view === 'list'} onClick=${() => show('list')}>Build list</button>
+        <div class="panel__tools">
+          ${view === 'list' && html`<${ColumnsMenu} />`}
+          <div class="switch" role="group" aria-label="Show the chain as">
+            <button type="button" aria-pressed=${view === 'tree'} onClick=${() => show('tree')}>Chain tree</button>
+            <button type="button" aria-pressed=${view === 'list'} onClick=${() => show('list')}>Build list</button>
+          </div>
         </div>
       </div>
       ${view === 'tree'
-        ? html`<${ChainTree} result=${result} supplied=${calc.supplied} update=${update} />`
-        : html`<${BuildList} result=${result} />`}
-    </section>`;
+        ? html`<${ChainTree} result=${result} badges=${badges} supplied=${calc.supplied} update=${update} />`
+        : html`<${BuildList} result=${result} update=${update} />`}
+    </section>
+
+    <${SidePanels} result=${result} badges=${badges} />`;
 }

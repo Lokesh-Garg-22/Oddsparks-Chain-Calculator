@@ -2,7 +2,7 @@
 
 ## Concepts
 
-- **Tab:** one calculation. Stores building, recipe, count, crew per row, recipe choice per item, items marked "I supply this", and visible columns.
+- **Tab:** one calculation. Stores building, recipe, count, crew per row, recipe choice per item, items marked "I supply this", and the Chain tree / Build list view. Display settings (unit, decimals, default crew, theme, extra columns) are per browser, not per tab (decision of 2026-11-22, step 8).
 - **Open tabs** live in **sessionStorage**. They're gone when the browser tab closes. A tab with unsaved changes shows a dot, and closing the browser tab with unsaved work asks first.
 - **Saved library** lives in **localStorage**. It holds saved tabs, organised in **nested folders**.
 - Only inputs are stored, never results. Results are recalculated from the current data, so saved tabs stay small and work after a data update.
@@ -33,7 +33,7 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
         "building": "wood-workshop", "recipe": "wood-workshop--wooden-blade", "count": 3,
         "crews": { "wood-workshop--wooden-blade": "2-stumpy", "sawbench--sawn-timber": "2-crafty" },
         "recipeChoice": { "wooden-log": "logger--wooden-log--log-harvesting" },
-        "supplied": [], "columns": ["inTotal"], "unit": "min"
+        "supplied": [], "view": "list"
       }
     }
   },
@@ -46,7 +46,7 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 }
 
 // localStorage "oddsparks-calc:v1:prefs"
-{ "columns": ["inTotal"], "unit": "min", "decimals": 2, "defaultCrew": "2-stumpy", "theme": "system" }
+{ "unit": "min", "decimals": 2, "defaultCrew": "2-stumpy", "theme": "system", "columns": [] }   // columns: keys from site/js/engine/columns.js
 ```
 
 ### Rules
@@ -67,6 +67,16 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 - **Storage unavailable** (private browsing, blocked, quota full): every access is wrapped in try/catch. The calculator still works, saving is disabled with a message, and back up still works.
 - **Back up / Restore:** download or upload the library as `.json`. On restore, choose to merge (new IDs where they clash) or replace.
 - Size: about 1 KB per tab, against a roughly 5 MB browser limit.
+
+## Share links
+
+`site/js/state/url.js`. The URL fragment holds a tab's calc, so it never reaches a server:
+
+`#r=<recipe>&n=<count>&c=<recipe>:<crew>,…&p=<item>:<recipe>,…&s=<item>,…&v=list`
+
+- Ids are slugs, so `:` and `,` need no escaping.
+- On the way in, every id goes through `resolveId`, so renamed ids still work. Ids that no longer exist are dropped and named in a banner. If the target recipe itself is gone, the page says so and opens empty.
+- After it's read, the fragment is removed from the address bar. A link pasted into an open page replaces the current calc; from step 9 it will open a new tab.
 
 ## Excel export (ExcelJS, loaded on demand)
 

@@ -8,6 +8,24 @@
   <link rel="preload" href="./vendor/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./vendor/fonts/fredoka-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./css/styles.css">
+  <!-- Apply a saved light/dark choice before the first paint (the app keeps it in sync after that).
+       The key is KEY_PREFIX + PREFS_NAME from site/js/state/storage.js and prefs.js; tests/repo.test.mjs checks they match. -->
+  <script>
+    try {
+      const theme = JSON.parse(localStorage.getItem('oddsparks-calc:v1:prefs') || '{}').theme;
+      if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+    } catch {}
+  </script>
+  <!-- The import map must come before any module preload, or "preact" may be resolved without it. -->
+  <script type="importmap">
+    {
+      "imports": {
+        "preact": "./vendor/preact/preact.module.js",
+        "preact/hooks": "./vendor/preact/hooks.module.js",
+        "htm": "./vendor/htm/htm.module.js"
+      }
+    }
+  </script>
   <!-- Start the data and the deeper modules downloading now, instead of after main.js has loaded its imports. -->
   <link rel="preload" href="./data/oddsparks.json" as="fetch" crossorigin>
   <link rel="preload" href="./data/overrides.json" as="fetch" crossorigin>
@@ -18,15 +36,6 @@
   <link rel="modulepreload" href="./js/ui/App.js">
   <link rel="modulepreload" href="./js/engine/calc.js">
   <link rel="modulepreload" href="./js/data/merge.js">
-  <script type="importmap">
-    {
-      "imports": {
-        "preact": "./vendor/preact/preact.module.js",
-        "preact/hooks": "./vendor/preact/hooks.module.js",
-        "htm": "./vendor/htm/htm.module.js"
-      }
-    }
-  </script>
   <script type="module" src="./js/main.js"></script>
 </head>
 <body>
@@ -37,14 +46,14 @@
     </symbol>
   </svg>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <svg class="spark-mark" width="26" height="26" stroke-width="2" aria-hidden="true"><use href="#spark"/></svg>
-      <h1 class="site-header__title">Oddsparks Chain Calculator</h1>
-    </div>
-  </header>
-
   <div id="app">
+    <!-- Shown while loading; the app replaces it with the same header plus its tools. -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <svg class="spark-mark" width="26" height="26" stroke-width="2" aria-hidden="true"><use href="#spark"/></svg>
+        <h1 class="site-header__title">Oddsparks Chain Calculator</h1>
+      </div>
+    </header>
     <p class="container loading muted">Loading game data…</p>
     <noscript><p class="container notice">The calculator needs JavaScript. Turn it on and reload the page.</p></noscript>
   </div>
@@ -54,6 +63,7 @@
       <span>Game data from the <a href="https://oddsparks.wiki.gg">Oddsparks Wiki</a>, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Icons are game artwork © THQ Nordic AB, via the wiki (<a href="./icons/CREDITS.md">credits</a>).</span>
       <span>Oddsparks © THQ Nordic AB. Developed by Massive Miniteam, published by HandyGames. Oddsparks is a trademark of THQ Nordic AB. Fan-made site, not affiliated with or endorsed by them.</span>
       <span>Inspired by <a href="https://piratespark.github.io/">piratespark</a>.</span>
+      <span><span id="data-version"></span> Found a wrong number? <a href="https://github.com/Lokesh-Garg-22/Pirate-Spark-V2/issues/new">Report a data error</a>.</span>
     </div>
   </footer>
 </body>

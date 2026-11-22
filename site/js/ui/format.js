@@ -1,12 +1,19 @@
 // @ts-check
 /** Display helpers. Rates go through the formatter built from the user's prefs, never formatted inline. */
 
+/** @typedef {import('../state/prefs.js').Prefs} Prefs */
+
 /**
- * @typedef {object} Prefs the user's display settings (saved per browser from step 8)
- * @property {'min' | 'sec'} unit rate unit
- * @property {number} decimals
- * @property {string} defaultCrew crew for rows without their own
+ * Round half to even, like the game (Unreal's default number formatting): 11.25 → 11.2 at 1 decimal,
+ * as the owner read in-game. Other values round as usual. (docs/unverified.md: display rounding)
  */
+function roundHalfEven(/** @type {number} */ v, /** @type {number} */ decimals) {
+  const f = 10 ** decimals;
+  const x = v * f;
+  const floor = Math.floor(x);
+  if (Math.abs(x - floor - 0.5) < 1e-9) return (floor % 2 === 0 ? floor : floor + 1) / f;
+  return Math.round(x) / f;
+}
 
 /**
  * A number with up to `decimals` places, no trailing zeros ("1.25", "4", "0.33").
@@ -15,7 +22,7 @@
 export function num(/** @type {number | null | undefined} */ v, decimals = 2) {
   if (v == null || Number.isNaN(v)) return '?';
   if (v !== 0 && Math.abs(v) < 10 ** -decimals) return Number(v.toPrecision(2)).toString();
-  return Number(v.toFixed(decimals)).toString();
+  return Number(roundHalfEven(v, decimals).toFixed(decimals)).toString();
 }
 
 /**
@@ -31,6 +38,8 @@ export function makeFormat({ unit, decimals }) {
     per: unit === 'sec' ? 'per second' : 'per minute',
     /** the unit short: "/min" */
     perShort: unit === 'sec' ? '/s' : '/min',
+    /** a plain amount (pieces per craft) */
+    amount: (/** @type {number | null} */ v) => num(v, decimals),
     /** an exact machine count */
     machines: (/** @type {number | null} */ v) => num(v, decimals),
     /** a craft time in seconds (doesn't follow the rate unit) */
@@ -39,7 +48,7 @@ export function makeFormat({ unit, decimals }) {
 }
 /** @typedef {ReturnType<typeof makeFormat>} Format */
 
-export { buildingName, crewName, itemName, recipeName } from '../data/names.js';
+export { buildingName, crewName, crewOption, itemName, recipeLabel, recipeName } from '../data/names.js';
 import { itemName } from '../data/names.js';
 
 /** "2 Stumpy Spark + 2 Wooden Panel" @param {any} game @param {{ item: string, amount: number | null }[]} lines */

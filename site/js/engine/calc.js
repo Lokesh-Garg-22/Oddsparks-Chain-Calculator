@@ -260,4 +260,22 @@ export function perBuilding(result) {
   }));
 }
 
+/** The output a row runs for (its main product). @param {Row} row @returns {Output} */
+export const mainOutput = (row) => /** @type {Output} */ (row.outputs.find((o) => o.item === row.runsFor) ?? row.outputs[0]);
+
+/**
+ * Spare capacity: what the machines could still make because their count was rounded up to whole
+ * buildings (the mockup's "Logger 7.5 logs/min"). Only the output each row runs for.
+ * @param {ReturnType<typeof calculate>} result
+ * @returns {{ recipe: string, item: string, perMinute: number }[]}
+ */
+export function spareCapacity(result) {
+  return Object.values(result.rows).flatMap((row) => {
+    if (!row.runsFor || row.machines == null || row.build == null || row.machines <= EPS) return [];
+    const out = mainOutput(row);
+    const perMinute = out.perMinute * (row.build / row.machines - 1);
+    return perMinute > EPS ? [{ recipe: row.recipe, item: out.item, perMinute }] : [];
+  });
+}
+
 /** @typedef {ReturnType<typeof calculate>} Result */

@@ -3,7 +3,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { applyOverrides } from '../site/js/data/merge.js';
-import { calculate, chainTree, machinesToBuild, outputPerMachine } from '../site/js/engine/calc.js';
+import { calculate, chainTree, machinesToBuild, outputPerMachine, spareCapacity } from '../site/js/engine/calc.js';
+import { COLUMNS, OPTIONAL_KEYS, visibleColumns } from '../site/js/engine/columns.js';
 import { DATA_FILE, OVERRIDES_FILE } from '../tools/paths.mjs';
 
 const game = applyOverrides(JSON.parse(readFileSync(DATA_FILE, 'utf8')), JSON.parse(readFileSync(OVERRIDES_FILE, 'utf8')));
@@ -206,4 +207,39 @@ test('outputs split their use by consuming row, and rows give crafts per machine
   assert.deepEqual(logs.demandBy.map((d) => d.consumer).sort(), [SAWN, STUMPY].sort());
   near(logs.demandBy.find((d) => d.consumer === STUMPY)?.perMinute, 12.5, 'Timber to Stumpy Spark');
   near(res.rows[SAWN].craftsPerMachine, 3.75, 'Sawn Timber crafts per machine at 1 Stumpy');
+});
+
+test("columns give the owner's spreadsheet values (Wooden Blade sheet)", () => {
+  const BLADE = 'wood-workshop--wooden-blade';
+  const res = calc(BLADE, 3, { defaultCrew: '2-crafty', crews: { [BLADE]: '2-stumpy' } });
+  const col = Object.fromEntries(COLUMNS.map((c) => [c.key, (/** @type {string} */ id) => c.value(res.rows[id], game)]));
+  near(/** @type {number} */ (col.outPM(PANEL)), 22.5, 'Production p/m, Wooden Panel');
+  near(/** @type {number} */ (col.outPM(SAWN)), 11.25, 'Production p/m, Sawn Timber (exact, the game shows 11.2)');
+  near(/** @type {number} */ (col.crafts(LOGGER)), 90, 'Production Cycles Per Minute, Logger');
+  assert.equal(col.pieces(SAWN), 1);
+  assert.equal(col.demand(BLADE), null, 'the target has no Parts Needed');
+  const parts = /** @type {{ recipe: string, perMinute: number }[]} */ (col.demand(SAWN));
+  assert.deepEqual(parts.map((d) => [d.recipe, Math.round(d.perMinute * 100) / 100]).sort(), [[PANEL, 30], [BLADE, 7.5]],
+    'Parts Needed: one part per consuming row, with that row (for =K16+K13)');
+  assert.deepEqual(col.inCraft(PANEL), [{ item: 'sawn-timber', value: 2 }]);
+  near(/** @type {any} */ (col.inMachine(PANEL))[0].value, 45, 'Base Item p/m, Wooden Panel');
+  near(/** @type {any} */ (col.inTotal(SAWN))[0].value, 75, 'Item Pieces Needed, Sawn Timber');
+  assert.deepEqual(col.machines(SAWN), { exact: res.rows[SAWN].machines, build: 4 });
+});
+
+test('optional columns are hidden until chosen, and keep table order', () => {
+  assert.deepEqual(visibleColumns([]).map((c) => c.key), ['item', 'rate', 'made', 'crew', 'machines']);
+  assert.deepEqual(visibleColumns(['inTotal', 'outPM']).map((c) => c.key).slice(5), ['outPM', 'inTotal']);
+  assert.equal(new Set(COLUMNS.map((c) => c.key)).size, COLUMNS.length, 'keys are unique (they are stored in prefs)');
+  assert.ok(OPTIONAL_KEYS.length >= 9);
+});
+
+test('spare capacity: what rounding up to whole buildings leaves over', () => {
+  // Sawn Timber ×2 on 2 Crafty needs 45 Timber/min: half of a 90/min Logger, rounded up to 1.
+  const res = calc(SAWN, 2, { defaultCrew: '2-crafty' });
+  const spare = spareCapacity(res);
+  assert.equal(spare.length, 1);
+  assert.equal(spare[0].recipe, LOGGER);
+  near(spare[0].perMinute, 90 - 45, 'spare Timber');
+  assert.deepEqual(spareCapacity(calc(LOGGER, 1)), [], 'a whole number of machines leaves nothing spare');
 });
