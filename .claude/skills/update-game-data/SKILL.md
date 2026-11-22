@@ -40,7 +40,7 @@ If `tools/extract-wiki.mjs`, `tools/validate-data.mjs` or `site/data/` don't exi
    - add a mapping in `overrides.json` (`renamedIds`) when the replacement is clear
    - otherwise list it, so the app's "saved with older data" banner can offer a replacement
    - bump the `dataVersion`
-6. If new items or buildings appeared, run the icon download and check `site/icons/CREDITS.md` for each new file's licence. An icon with a restrictive licence falls back to text.
+6. If new items or buildings appeared, run `npm run icons`. Only new or changed files are downloaded. It regenerates `site/icons/CREDITS.md`; check its "No icon on the wiki" list. The wiki records no per-file licence: icons are game artwork © THQ Nordic, credited to the wiki uploaders, and the app shows names wherever an icon is missing.
 7. Update the docs:
    - `docs/data-sources.md`: snapshot date and counts
    - `docs/unverified.md`: new open items, newly confirmed ones

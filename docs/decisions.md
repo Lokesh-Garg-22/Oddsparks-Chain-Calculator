@@ -4,6 +4,11 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 3 (icons) decisions:**
+  - **Licence:** the wiki records no licence on its image files, and the site-wide CC BY-SA can't cover game art. Icons are therefore credited as "game artwork © THQ Nordic AB", with the wiki uploader listed per file, and kept apart from the MIT and CC BY-SA licences. They are used, as on the wiki, in a fan-made non-commercial tool. The site must work without them (it falls back to names), so removing them is a one-folder delete if ever asked. **Confirmed by the owner.**
+  - **Size:** 128 px copies (2× for display up to 64 px) made by the wiki's own thumbnailer, about 14 KB each. Compressing them further would need a tool, which conflicts with the zero-dependency rule; deferred to step 6.
+  - **Which file:** the infobox image is now recorded on items and buildings by the extractor, so the icon tool reads only `oddsparks.json`.
+  - **Bookkeeping:** `site/icons/sources.json` (width + checksum per icon) lets a re-run download only what changed. The app doesn't read it; it loads `icons/<kind>/<id>.png` and falls back to the name.
 - **Step 2 (wiki extractor) decisions:**
   - **Merge rules:**
     - only values a page states are compared

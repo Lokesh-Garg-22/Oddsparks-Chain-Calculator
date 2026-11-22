@@ -7,8 +7,7 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, sep } from 'node:path';
-
-export const SITE_ROOT = join(import.meta.dirname, '..', 'site');
+import { SITE_ROOT } from './paths.mjs';
 
 /** @type {Record<string, string>} */
 const MIME = {

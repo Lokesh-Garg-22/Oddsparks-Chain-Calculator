@@ -2,7 +2,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { join } from 'node:path';
-import { resolveSafePath, SITE_ROOT } from '../tools/serve.mjs';
+import { resolveSafePath } from '../tools/serve.mjs';
+import { SITE_ROOT } from '../tools/paths.mjs';
 
 test('maps URLs to files inside site/', () => {
   assert.equal(resolveSafePath(SITE_ROOT, '/'), join(SITE_ROOT, 'index.html'));

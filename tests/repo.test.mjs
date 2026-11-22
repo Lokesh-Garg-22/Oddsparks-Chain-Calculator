@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE_ROOT } from '../tools/serve.mjs';
+import { SITE_ROOT } from '../tools/paths.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 

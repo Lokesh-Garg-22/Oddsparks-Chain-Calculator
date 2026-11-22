@@ -52,6 +52,7 @@ Contributions are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and pic
 ## Credits and licences
 
 - **Code:** [MIT](LICENSE).
-- **Game data and icons:** derived from the [Oddsparks Wiki](https://oddsparks.wiki.gg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See [site/data/LICENSE-DATA.md](site/data/LICENSE-DATA.md) and [site/icons/CREDITS.md](site/icons/CREDITS.md).
+- **Game data:** derived from the [Oddsparks Wiki](https://oddsparks.wiki.gg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See [site/data/LICENSE-DATA.md](site/data/LICENSE-DATA.md).
+- **Icons:** game artwork © THQ Nordic AB, as uploaded to the Oddsparks Wiki. Not covered by the MIT or CC BY-SA licences. See [site/icons/CREDITS.md](site/icons/CREDITS.md).
 - **Game:** Oddsparks © THQ Nordic AB. Developed by Massive Miniteam, published by HandyGames. Oddsparks is a trademark of THQ Nordic AB. This is a fan-made project, not affiliated with or endorsed by them.
 - **Inspiration:** [piratespark](https://piratespark.github.io/), an earlier Oddsparks calculator. This project is independent and not affiliated with it.

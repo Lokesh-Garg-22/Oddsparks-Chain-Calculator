@@ -13,7 +13,14 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 2 (wiki extractor): done, awaiting the owner's review before commit.**
+- **Step 3 (icons): committed.** Icon use on this basis confirmed by the owner.
+  - `npm run icons`: 125 icons at 128 px (~1.7 MB); Tailor's Tent has none on the wiki
+  - `site/icons/CREDITS.md` credits each file to its uploader, with © THQ Nordic
+  - the extractor now also records each page's infobox image
+  - shared `tools/paths.mjs`
+  - 30 tests pass
+  - reviewed with `code-review` (3 fixes) and `simplify` (licence policy made consistent, simpler bookkeeping)
+- **Step 2 (wiki extractor): committed** (`8d6c681`).
   - `npm run extract` (live) and `-- --offline` (from the cached snapshot)
   - first data: 154 recipes, 28 buildings, 98 items, data version `wiki-2026-11-22-aedf0458`
   - 12 recipes where pages disagree, 0 with missing values
@@ -39,7 +46,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 2 → commit → **step 3: icon download** (`tools/download-icons.mjs` + `site/icons/CREDITS.md` with each file's licence). See [plan.md](plan.md#7-build-steps).
+Owner reviews step 3 → commit → **step 4: `overrides.json` + `validate-data.mjs`**: crew table, in-game names (Timber), defaults, raw items, `mergeRecipes`/`renamedIds`. Ends with a first real run of the `update-game-data` skill. See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

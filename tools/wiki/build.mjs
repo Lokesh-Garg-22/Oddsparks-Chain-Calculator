@@ -174,15 +174,33 @@ function buildingGroups(content) {
   return groups;
 }
 
+/**
+ * The image a page's infobox shows ({{Infobox building}}, {{Infobox item}}, …), as a file title.
+ * @param {string | undefined} content
+ * @returns {string | null} e.g. "File:Arty spark large.png"
+ */
+export function infoboxImage(content) {
+  if (content === undefined) return null;
+  const names = new Set([...stripComments(content).matchAll(/\{\{\s*(Infobox[^|}\n]*)/gi)].map((m) => m[1].trim()));
+  for (const name of names) {
+    for (const params of findTemplates(content, name)) {
+      const image = cleanValue(params.image).replace(/^(file|image)\s*:/i, '');
+      if (/\.(png|webp|jpe?g)$/i.test(image)) return `File:${normalizeTitle(image)}`;
+    }
+  }
+  return null;
+}
+
 /** @param {string | undefined} content a building's page, if it has one */
 function buildingInfo(content) {
-  if (content === undefined) return { categories: [], sparkSlots: null, caption: null };
+  if (content === undefined) return { categories: [], sparkSlots: null, caption: null, image: null };
   const box = findTemplates(content, 'Infobox building')[0];
   const slots = box ? cleanValue(box.storageslots).match(/(\d+)\s*x\s*\d+\s*Spark/i) : null;
   return {
     categories: categoriesOf(content),
     sparkSlots: slots ? Number(slots[1]) : null,
     caption: box ? cleanValue(box.caption) || null : null,
+    image: infoboxImage(content),
   };
 }
 
@@ -486,7 +504,9 @@ export function buildDataset(snapshot) {
         source: page ? { page: e.building, revid: page.revid } : null,
       };
     });
-    for (const { item } of [...e.inputs, ...e.outputs]) add(items, item, () => ({ name: item, wikiPage: existingSet.has(item) ? item : null }));
+    for (const { item } of [...e.inputs, ...e.outputs]) {
+      add(items, item, () => ({ name: item, wikiPage: existingSet.has(item) ? item : null, image: infoboxImage(pages[item]?.content) }));
+    }
   }
   for (const [from, r] of Object.entries(titles)) {
     const to = caseFixes.get(from) ?? r.title;

@@ -169,7 +169,7 @@ Each step can be reviewed on its own. Docs are updated at the end of every step.
    - `CONTRIBUTING.md`, `LICENSE-DATA.md`, `.gitignore`, `package.json` scripts
    - ~~install the official skills into `.claude/skills/`, plus Python Playwright~~ (done 2026-11-22, before step 1)
 2. **Wiki extractor:** generates `oddsparks.json` and the extraction report. *Review:* the report, spot checks against the wiki.
-3. **Icon download** + `CREDITS.md`. *Review:* licences.
+3. **Icon download** + `CREDITS.md`. *Review:* credits and missing icons. The app loads `icons/<items|buildings>/<id>.png` and shows the name if it fails to load.
 4. **`overrides.json` + `validate-data.mjs`:** crew table, in-game names (Timber), defaults, raw items. End with a first real test run of the `update-game-data` skill.
 5. **Engine + tests:** worked example, Logger cross-check, the owner's 3 spreadsheets, loops, byproducts, cycles, random outputs.
 6. **App shell with Preact** (also: self-host Fredoka + Inter in `site/vendor/fonts/`, replacing Google Fonts): picker (search incl. aliases), recipe cards, count, crew, summary, build list.
@@ -186,7 +186,7 @@ Each step can be reviewed on its own. Docs are updated at the end of every step.
 - **Byproducts and loops make simple tree expansion inexact.** v1 uses tree expansion (decided); a proper solver is a possible v2.
 - **Wiki errors, staleness and wrong names:** handled with the extraction report, badges and overrides. Game files would fix this properly.
 - **Assumptions U5 (cycles) and U6 (random outputs) change results.** They're shown openly in the UI.
-- **Icon licences:** recorded for each file; icons with a restrictive licence fall back to text.
+- **Icon rights:** the wiki has no per-file licences; icons are game artwork © THQ Nordic, credited and used as on the wiki. If the rights holder objects, delete `site/icons/`: the app falls back to names. Optional: compress the PNGs (~1.7 MB → ~0.5 MB) if the page loads many at once (decide in step 6).
 - **Browser storage:** it's per browser and can be cleared, so back up/restore is a first-class feature. Old data is handled by `dataVersion`.
 - **ExcelJS unmaintained since 2023.** Fallback: SheetJS (without styling).
 - **Game-file extraction:** the game's licence question is the owner's to decide.

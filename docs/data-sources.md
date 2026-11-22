@@ -71,7 +71,14 @@ The original extraction plan:
 
 ## Icons
 
-Downloaded from the wiki's `File:<Name>.png` pages into `site/icons/`. Each file page's licence and author is recorded in `site/icons/CREDITS.md`. Any icon with a restrictive licence falls back to text. Icons are never hotlinked.
+`npm run icons` (built in step 3) works like this:
+
+- **Which file:** each item's or building's infobox image (recorded by the extractor), else the naming convention `Ucfirst(lowercase name).png`.
+- **Size:** downloads a **128 px** copy from the wiki's own host only, checks it really is a PNG, and saves it as `site/icons/<items|buildings>/<id>.png`.
+- **Re-runs:** only new or changed files (by the wiki file's checksum) are downloaded again.
+- **First run (2026-11-22):** 125 icons, about 1.7 MB. Tailor's Tent has no image on the wiki.
+- **Licence:** the wiki records **no per-file licence** for images. The site-wide CC BY-SA covers what the wiki's editors write, not game art, so icons are credited as **game artwork © THQ Nordic AB, uploaded by** the listed wiki user (`site/icons/CREDITS.md`).
+- **Without icons:** the app works without them and shows names instead. Icons are never hotlinked.
 
 ## Secondary: piratespark
 
@@ -88,7 +95,8 @@ Downloaded from the wiki's `File:<Name>.png` pages into `site/icons/`. Each file
 ## Licensing
 
 - Code: MIT (`LICENSE`).
-- `site/data/` and wiki icons: CC BY-SA 4.0, credited to the Oddsparks Wiki, with details in `site/data/LICENSE-DATA.md` and `site/icons/CREDITS.md`.
+- `site/data/`: CC BY-SA 4.0, credited to the Oddsparks Wiki (`site/data/LICENSE-DATA.md`).
+- `site/icons/`: game artwork © THQ Nordic AB via the wiki, credited per file (`site/icons/CREDITS.md`). Not CC BY-SA; removable without breaking the app.
 - Site footer:
   - wiki credit
   - "Oddsparks © THQ Nordic AB. Developed by Massive Miniteam, published by HandyGames. Oddsparks is a trademark of THQ Nordic AB."

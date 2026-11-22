@@ -92,6 +92,72 @@ export async function fetchPages(/** @type {string[]} */ titles, opts = {}) {
 }
 
 /**
+ * @typedef {object} ImageInfo
+ * @property {string} file file page title, e.g. "File:Sawbench.png" (after redirects)
+ * @property {string} sha1 of the original file
+ * @property {string} mime
+ * @property {string} thumbUrl scaled copy, `width` px wide
+ * @property {string} pageUrl the file's description page
+ * @property {string} uploader user who uploaded the current version
+ */
+
+/**
+ * How a query response resolved each requested title: case normalisation, then redirects.
+ * @param {any} query the `query` part of an API response made with `redirects: 1`
+ * @returns {(asked: string) => { title: string, redirectedFrom: string | null }}
+ */
+function resolver(query) {
+  /** @type {Map<string, string>} */
+  const normalized = new Map((query.normalized ?? []).map((/** @type {any} */ n) => [n.from, n.to]));
+  /** @type {Map<string, string>} */
+  const redirects = new Map((query.redirects ?? []).map((/** @type {any} */ r) => [r.from, r.to]));
+  return (asked) => {
+    const norm = normalized.get(asked) ?? asked;
+    const target = redirects.get(norm);
+    return { title: target ?? norm, redirectedFrom: target ? norm : null };
+  };
+}
+
+/**
+ * Image details for file titles that exist. Keyed by the title asked for.
+ * @param {string[]} files e.g. ["File:Sawbench.png"]
+ * @param {number} width thumbnail width
+ * @returns {Promise<Record<string, ImageInfo>>}
+ */
+export async function fetchImageInfo(files, width, opts = {}) {
+  /** @type {Record<string, ImageInfo>} */
+  const out = {};
+  for (const chunk of chunks(files)) {
+    const body = await apiGet({ action: 'query', prop: 'imageinfo', iiprop: 'url|sha1|mime|user', iiurlwidth: width, redirects: 1, titles: chunk.join('|') }, opts);
+    const resolve = resolver(body.query);
+    const byTitle = new Map(body.query.pages.map((/** @type {any} */ p) => [p.title, p]));
+    for (const asked of chunk) {
+      const file = resolve(asked).title;
+      const ii = byTitle.get(file)?.imageinfo?.[0];
+      if (ii) out[asked] = { file, sha1: ii.sha1, mime: ii.mime, thumbUrl: ii.thumburl ?? ii.url, pageUrl: ii.descriptionurl, uploader: ii.user };
+    }
+  }
+  return out;
+}
+
+const MAX_IMAGE_BYTES = 300_000;
+
+/**
+ * Download one image from the wiki's own host. Refuses other hosts, non-images and oversized files.
+ * @param {string} url
+ * @returns {Promise<Uint8Array>}
+ */
+export async function downloadImage(url) {
+  if (new URL(url).hostname !== new URL(API_URL).hostname) throw new FatalError(`Refusing to download from another host: ${url}`);
+  await sleep(PAUSE_MS);
+  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  const bytes = new Uint8Array(await res.arrayBuffer());
+  if (bytes.length > MAX_IMAGE_BYTES) throw new Error(`Too large (${bytes.length} bytes): ${url}`);
+  return bytes;
+}
+
+/**
  * Resolve names to wiki page titles the way the wiki does: case normalisation, then redirects.
  * @returns {Promise<Record<string, Resolved>>}
  */
@@ -100,16 +166,11 @@ export async function resolveTitles(/** @type {string[]} */ names, opts = {}) {
   const out = {};
   for (const chunk of chunks(names)) {
     const body = await apiGet({ action: 'query', redirects: 1, titles: chunk.join('|') }, opts);
-    /** @type {Map<string, string>} */
-    const normalized = new Map((body.query.normalized ?? []).map((/** @type {any} */ n) => [n.from, n.to]));
-    /** @type {Map<string, string>} */
-    const redirects = new Map((body.query.redirects ?? []).map((/** @type {any} */ r) => [r.from, r.to]));
+    const resolve = resolver(body.query);
     const missing = new Set(body.query.pages.filter((/** @type {any} */ p) => p.missing).map((/** @type {any} */ p) => p.title));
     for (const name of chunk) {
-      const norm = normalized.get(name) ?? name;
-      const target = redirects.get(norm);
-      const title = target ?? norm;
-      out[name] = { title, exists: !missing.has(title), redirectedFrom: target ? norm : null };
+      const { title, redirectedFrom } = resolve(name);
+      out[name] = { title, exists: !missing.has(title), redirectedFrom };
     }
   }
   return out;

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "dataVersion": "wiki-2026-11-22-aedf0458",
+    "dataVersion": "wiki-2026-11-22-86b88c06",
     "extractedAt": "2026-11-22T08:08:19.536Z",
     "source": "https://oddsparks.wiki.gg",
     "license": "CC BY-SA 4.0. Derived from the Oddsparks Wiki; see data/LICENSE-DATA.md",
@@ -26,6 +26,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to cleanse corrupted items.",
+      "image": "File:Aetheric collider.png",
       "source": {
         "page": "Aetheric Collider",
         "revid": 2673
@@ -38,6 +39,7 @@
       "categories": [],
       "sparkSlots": null,
       "caption": null,
+      "image": null,
       "source": null
     },
     "aetheric-distiller": {
@@ -51,6 +53,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to break down Aetheric items into more functional forms.",
+      "image": "File:Aetheric distiller.png",
       "source": {
         "page": "Aetheric Distiller",
         "revid": 2665
@@ -67,6 +70,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to break down Aetheric items into more functional forms.",
+      "image": "File:Aetheric distiller shrine.png",
       "source": {
         "page": "Aetheric Distiller Shrine",
         "revid": 976
@@ -83,6 +87,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building used to craft alchemical items.",
+      "image": "File:Alchemy lab.png",
       "source": {
         "page": "Alchemy Lab",
         "revid": 2681
@@ -95,6 +100,7 @@
       "categories": [],
       "sparkSlots": null,
       "caption": null,
+      "image": null,
       "source": null
     },
     "ancient-greenhouse": {
@@ -104,6 +110,7 @@
       "categories": [],
       "sparkSlots": null,
       "caption": "A building to grow small plants.",
+      "image": "File:Ancient greenhouse.png",
       "source": {
         "page": "Ancient Greenhouse",
         "revid": 2661
@@ -116,6 +123,7 @@
       "categories": [],
       "sparkSlots": null,
       "caption": "A working remnant of ancient technology, capable of creating items",
+      "image": "File:Ancient printer.png",
       "source": {
         "page": "Ancient Printer",
         "revid": 2662
@@ -128,6 +136,7 @@
       "categories": [],
       "sparkSlots": null,
       "caption": "A building to grow large plants. Must be built on an Aetheric Fissure in the Glacial Plateau. Must be fed separately by one or more Arboretum Feeders.",
+      "image": "File:Arboretum.png",
       "source": {
         "page": "Arboretum",
         "revid": 2692
@@ -144,6 +153,7 @@
       ],
       "sparkSlots": null,
       "caption": "''Before activation:'' A currently unknown remnant of ancient technology''After activation:'' A working remnant of ancient technology.",
+      "image": "File:Crafty spark shrine.png",
       "source": {
         "page": "Crafty Spark Shrine",
         "revid": 967
@@ -160,6 +170,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to process basic organic material.",
+      "image": "File:Cutter.png",
       "source": {
         "page": "Cutter",
         "revid": 2666
@@ -176,6 +187,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to infinitely harvest Stone and more from. Place on a Giant Rock deposit.",
+      "image": "File:Drill.png",
       "source": {
         "page": "Drill",
         "revid": 2683
@@ -192,6 +204,7 @@
       ],
       "sparkSlots": 2,
       "caption": "A building for crafting items that require heat.",
+      "image": "File:Furnace.png",
       "source": {
         "page": "Furnace",
         "revid": 2668
@@ -208,6 +221,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to break open Geodes and reveal one of three random item inside.",
+      "image": "File:Geode breaker.png",
       "source": {
         "page": "Geode Breaker",
         "revid": 2688
@@ -220,6 +234,7 @@
       "categories": [],
       "sparkSlots": null,
       "caption": "A building to grow small plants.",
+      "image": "File:Greenhouse.png",
       "source": {
         "page": "Greenhouse",
         "revid": 2687
@@ -236,6 +251,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to infinitely harvest Logs and more from. Place on a Giant Tree.",
+      "image": "File:Logger.png",
       "source": {
         "page": "Logger",
         "revid": 2682
@@ -252,6 +268,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to craft fibercraft items.",
+      "image": "File:Loom.png",
       "source": {
         "page": "Loom",
         "revid": 2679
@@ -268,6 +285,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to infinitely harvest Miasma from. Place on a Noxious Coral.",
+      "image": "File:Miasma collector.png",
       "source": {
         "page": "Miasma Collector",
         "revid": 2686
@@ -284,6 +302,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building that allows for infinite harvesting of Copper Ore with a slowly decreasing harvest rate.Must be built on a Giant Ore Deposit.",
+      "image": "File:Ore miner.png",
       "source": {
         "page": "Ore Miner",
         "revid": 2685
@@ -300,6 +319,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to extract multiple items from a single organic material.",
+      "image": "File:Plant extractor.png",
       "source": {
         "page": "Plant Extractor",
         "revid": 2670
@@ -316,6 +336,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to refine basic wood items.",
+      "image": "File:Sawbench.png",
       "source": {
         "page": "Sawbench",
         "revid": 2664
@@ -332,6 +353,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to craft Sparks out of wood. Must be built on an Ancient Base.",
+      "image": "File:Spark workbench.png",
       "source": {
         "page": "Spark Workbench",
         "revid": 2676
@@ -348,6 +370,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to craft Sparks out of stone. Must be built on an Ancient Foundation or Ancient Foundations Replica.",
+      "image": "File:Spark workshop.png",
       "source": {
         "page": "Spark Workshop",
         "revid": 2677
@@ -364,6 +387,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to craft Sparks out of stone. Must be built on an Ancient Support.",
+      "image": "File:Spark workstation.png",
       "source": {
         "page": "Spark Workstation",
         "revid": 2675
@@ -380,6 +404,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to assemble complex stone items.",
+      "image": "File:Stone workshop.png",
       "source": {
         "page": "Stone Workshop",
         "revid": 2680
@@ -396,6 +421,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to craft basic stone items.",
+      "image": "File:Stonecutter.png",
       "source": {
         "page": "Stonecutter",
         "revid": 2669
@@ -408,6 +434,7 @@
       "categories": [],
       "sparkSlots": null,
       "caption": null,
+      "image": "File:Tailor's tent.png",
       "source": {
         "page": "Tailor's Tent",
         "revid": 2747
@@ -424,6 +451,7 @@
       ],
       "sparkSlots": null,
       "caption": "A building to assemble complex wooden items.",
+      "image": "File:Wood workshop.png",
       "source": {
         "page": "Wood Workshop",
         "revid": 2678
@@ -433,395 +461,493 @@
   "items": {
     "aether-apple": {
       "name": "Aether Apple",
-      "wikiPage": "Aether Apple"
+      "wikiPage": "Aether Apple",
+      "image": "File:Aether apple.png"
     },
     "aether-crystal": {
       "name": "Aether Crystal",
-      "wikiPage": "Aether Crystal"
+      "wikiPage": "Aether Crystal",
+      "image": "File:Aether crystal.png"
     },
     "aether-flower": {
       "name": "Aether Flower",
-      "wikiPage": "Aether Flower"
+      "wikiPage": "Aether Flower",
+      "image": "File:Aether flower.png"
     },
     "aether-seed": {
       "name": "Aether Seed",
-      "wikiPage": "Aether Seed"
+      "wikiPage": "Aether Seed",
+      "image": "File:Aether seed.png"
     },
     "aether-segment": {
       "name": "Aether Segment",
-      "wikiPage": "Aether Segment"
+      "wikiPage": "Aether Segment",
+      "image": "File:Aether segment.png"
     },
     "aether-shard": {
       "name": "Aether Shard",
-      "wikiPage": "Aether Shard"
+      "wikiPage": "Aether Shard",
+      "image": "File:Aether shard.png"
     },
     "aetheric-clump": {
       "name": "Aetheric Clump",
-      "wikiPage": "Aetheric Clump"
+      "wikiPage": "Aetheric Clump",
+      "image": "File:Aetheric clump.png"
     },
     "aetheric-pellet": {
       "name": "Aetheric Pellet",
-      "wikiPage": "Aetheric Pellet"
+      "wikiPage": "Aetheric Pellet",
+      "image": "File:Aetheric pellet.png"
     },
     "aethric-converter": {
       "name": "Aethric Converter",
-      "wikiPage": null
+      "wikiPage": null,
+      "image": null
     },
     "arty-spark": {
       "name": "Arty Spark",
-      "wikiPage": "Arty Spark"
+      "wikiPage": "Arty Spark",
+      "image": "File:Arty spark large.png"
     },
     "big-vial": {
       "name": "Big Vial",
-      "wikiPage": "Big Vial"
+      "wikiPage": "Big Vial",
+      "image": "File:Big vial.png"
     },
     "black-paint": {
       "name": "Black Paint",
-      "wikiPage": "Black Paint"
+      "wikiPage": "Black Paint",
+      "image": "File:Black paint.png"
     },
     "blue-paint": {
       "name": "Blue Paint",
-      "wikiPage": "Blue Paint"
+      "wikiPage": "Blue Paint",
+      "image": "File:Blue paint.png"
     },
     "boomy-spark": {
       "name": "Boomy Spark",
-      "wikiPage": "Boomy Spark"
+      "wikiPage": "Boomy Spark",
+      "image": "File:Boomy spark large.png"
     },
     "bumpy-geode": {
       "name": "Bumpy Geode",
-      "wikiPage": "Bumpy Geode"
+      "wikiPage": "Bumpy Geode",
+      "image": "File:Bumpy geode.png"
     },
     "burning-spark": {
       "name": "Burning Spark",
-      "wikiPage": "Burning Spark"
+      "wikiPage": "Burning Spark",
+      "image": "File:Burning spark.png"
     },
     "carry-spark": {
       "name": "Carry Spark",
-      "wikiPage": "Carry Spark"
+      "wikiPage": "Carry Spark",
+      "image": "File:Carry spark large.png"
     },
     "choppy-spark": {
       "name": "Choppy Spark",
-      "wikiPage": "Choppy Spark"
+      "wikiPage": "Choppy Spark",
+      "image": "File:Choppy spark large.png"
     },
     "cleansing-fragment": {
       "name": "Cleansing Fragment",
-      "wikiPage": "Cleansing Fragment"
+      "wikiPage": "Cleansing Fragment",
+      "image": "File:Cleansing fragment.png"
     },
     "cleansing-seed": {
       "name": "Cleansing Seed",
-      "wikiPage": null
+      "wikiPage": null,
+      "image": null
     },
     "coal": {
       "name": "Coal",
-      "wikiPage": "Coal"
+      "wikiPage": "Coal",
+      "image": "File:Coal.png"
     },
     "copper-cutting": {
       "name": "Copper Cutting",
-      "wikiPage": "Copper Cutting"
+      "wikiPage": "Copper Cutting",
+      "image": "File:Copper cutting.png"
     },
     "copper-ingot": {
       "name": "Copper Ingot",
-      "wikiPage": "Copper Ingot"
+      "wikiPage": "Copper Ingot",
+      "image": "File:Copper ingot.png"
     },
     "copper-ore": {
       "name": "Copper Ore",
-      "wikiPage": "Copper Ore"
+      "wikiPage": "Copper Ore",
+      "image": "File:Copper ore.png"
     },
     "copper-sap": {
       "name": "Copper Sap",
-      "wikiPage": "Copper Sap"
+      "wikiPage": "Copper Sap",
+      "image": "File:Copper sap.png"
     },
     "copper-seed": {
       "name": "Copper Seed",
-      "wikiPage": "Copper Seed"
+      "wikiPage": "Copper Seed",
+      "image": "File:Copper seed.png"
     },
     "coral": {
       "name": "Coral",
-      "wikiPage": "Coral"
+      "wikiPage": "Coral",
+      "image": "File:Coral.png"
     },
     "coral-seed": {
       "name": "Coral Seed",
-      "wikiPage": "Coral Seed"
+      "wikiPage": "Coral Seed",
+      "image": "File:Coral seed.png"
     },
     "corrupted-aether": {
       "name": "Corrupted Aether",
-      "wikiPage": "Corrupted Aether"
+      "wikiPage": "Corrupted Aether",
+      "image": "File:Corrupted aether.png"
     },
     "corrupted-spark-token": {
       "name": "Corrupted Spark Token",
-      "wikiPage": "Corrupted Spark Token"
+      "wikiPage": "Corrupted Spark Token",
+      "image": "File:Corrupted spark token.png"
     },
     "cracked-geode": {
       "name": "Cracked Geode",
-      "wikiPage": "Cracked Geode"
+      "wikiPage": "Cracked Geode",
+      "image": "File:Cracked geode.png"
     },
     "crafty-spark": {
       "name": "Crafty Spark",
-      "wikiPage": "Crafty Spark"
+      "wikiPage": "Crafty Spark",
+      "image": "File:Crafty spark large.png"
     },
     "crashy-spark": {
       "name": "Crashy Spark",
-      "wikiPage": "Crashy Spark"
+      "wikiPage": "Crashy Spark",
+      "image": "File:Crashy spark large.png"
     },
     "dowsing-stone": {
       "name": "Dowsing Stone",
-      "wikiPage": "Dowsing Stone"
+      "wikiPage": "Dowsing Stone",
+      "image": "File:Dowsing stone.png"
     },
     "drill-bit": {
       "name": "Drill Bit",
-      "wikiPage": "Drill Bit"
+      "wikiPage": "Drill Bit",
+      "image": "File:Drill bit.png"
     },
     "drilly-spark": {
       "name": "Drilly Spark",
-      "wikiPage": "Drilly Spark"
+      "wikiPage": "Drilly Spark",
+      "image": "File:Drilly spark large.png"
     },
     "explosives": {
       "name": "Explosives",
-      "wikiPage": "Explosives"
+      "wikiPage": "Explosives",
+      "image": "File:Explosives.png"
     },
     "fabric": {
       "name": "Fabric",
-      "wikiPage": "Fabric"
+      "wikiPage": "Fabric",
+      "image": "File:Fabric.png"
     },
     "fertiliser": {
       "name": "Fertiliser",
-      "wikiPage": "Fertiliser"
+      "wikiPage": "Fertiliser",
+      "image": "File:Fertiliser.png"
     },
     "fireshroom-cluster": {
       "name": "Fireshroom Cluster",
-      "wikiPage": "Fireshroom Cluster"
+      "wikiPage": "Fireshroom Cluster",
+      "image": "File:Fireshroom cluster.png"
     },
     "fluted-coral": {
       "name": "Fluted Coral",
-      "wikiPage": "Fluted Coral"
+      "wikiPage": "Fluted Coral",
+      "image": "File:Fluted coral.png"
     },
     "freezing-spark": {
       "name": "Freezing Spark",
-      "wikiPage": "Freezing Spark"
+      "wikiPage": "Freezing Spark",
+      "image": "File:Freezing spark.png"
     },
     "frozen-log": {
       "name": "Frozen Log",
-      "wikiPage": "Frozen Log"
+      "wikiPage": "Frozen Log",
+      "image": "File:Frozen log.png"
     },
     "frozen-stone": {
       "name": "Frozen Stone",
-      "wikiPage": "Frozen Stone"
+      "wikiPage": "Frozen Stone",
+      "image": "File:Frozen stone.png"
     },
     "geode-cluster": {
       "name": "Geode Cluster",
-      "wikiPage": "Geode Cluster"
+      "wikiPage": "Geode Cluster",
+      "image": "File:Geode cluster.png"
     },
     "glowshroom": {
       "name": "Glowshroom",
-      "wikiPage": "Glowshroom"
+      "wikiPage": "Glowshroom",
+      "image": "File:Glowshroom.png"
     },
     "green-paint": {
       "name": "Green Paint",
-      "wikiPage": "Green Paint"
+      "wikiPage": "Green Paint",
+      "image": "File:Green paint.png"
     },
     "grey-aether": {
       "name": "Grey Aether",
-      "wikiPage": "Grey Aether"
+      "wikiPage": "Grey Aether",
+      "image": "File:Grey aether.png"
     },
     "handy-spark": {
       "name": "Handy Spark",
-      "wikiPage": "Handy Spark"
+      "wikiPage": "Handy Spark",
+      "image": "File:Handy spark large.png"
     },
     "hauling-spark": {
       "name": "Hauling Spark",
-      "wikiPage": "Hauling Spark"
+      "wikiPage": "Hauling Spark",
+      "image": "File:Hauling spark large.png"
     },
     "hunter-hat": {
       "name": "Hunter Hat",
-      "wikiPage": null
+      "wikiPage": null,
+      "image": null
     },
     "ladder": {
       "name": "Ladder",
-      "wikiPage": "Ladder"
+      "wikiPage": "Ladder",
+      "image": "File:Ladder.png"
     },
     "lava-cap": {
       "name": "Lava Cap",
-      "wikiPage": "Lava Cap"
+      "wikiPage": "Lava Cap",
+      "image": "File:Lava cap.png"
     },
     "leaf-knot": {
       "name": "Leaf Knot",
-      "wikiPage": "Leaf Knot"
+      "wikiPage": "Leaf Knot",
+      "image": "File:Leaf knot.png"
     },
     "leaves": {
       "name": "Leaves",
-      "wikiPage": "Leaves"
+      "wikiPage": "Leaves",
+      "image": "File:Leaves.png"
     },
     "limestone": {
       "name": "Limestone",
-      "wikiPage": "Limestone"
+      "wikiPage": "Limestone",
+      "image": "File:Limestone.png"
     },
     "liquid-fertiliser": {
       "name": "Liquid Fertiliser",
-      "wikiPage": "Liquid Fertiliser"
+      "wikiPage": "Liquid Fertiliser",
+      "image": "File:Liquid fertiliser.png"
     },
     "loamy-spark": {
       "name": "Loamy Spark",
-      "wikiPage": "Loamy Spark"
+      "wikiPage": "Loamy Spark",
+      "image": "File:Loamy spark large.png"
     },
     "miasma": {
       "name": "Miasma",
-      "wikiPage": "Miasma"
+      "wikiPage": "Miasma",
+      "image": "File:Miasma.png"
     },
     "miasma-vial": {
       "name": "Miasma Vial",
-      "wikiPage": "Miasma Vial"
+      "wikiPage": "Miasma Vial",
+      "image": "File:Miasma vial.png"
     },
     "orange-paint": {
       "name": "Orange Paint",
-      "wikiPage": "Orange Paint"
+      "wikiPage": "Orange Paint",
+      "image": "File:Orange paint.png"
     },
     "path-tile": {
       "name": "Path Tile",
-      "wikiPage": "Path Tile"
+      "wikiPage": "Path Tile",
+      "image": "File:Path tile.png"
     },
     "pebble": {
       "name": "Pebble",
-      "wikiPage": "Pebble"
+      "wikiPage": "Pebble",
+      "image": "File:Pebble.png"
     },
     "puffy-spark": {
       "name": "Puffy Spark",
-      "wikiPage": "Puffy Spark"
+      "wikiPage": "Puffy Spark",
+      "image": "File:Puffy spark large.png"
     },
     "purple-paint": {
       "name": "Purple Paint",
-      "wikiPage": "Purple Paint"
+      "wikiPage": "Purple Paint",
+      "image": "File:Purple paint.png"
     },
     "quartz": {
       "name": "Quartz",
-      "wikiPage": "Quartz"
+      "wikiPage": "Quartz",
+      "image": "File:Quartz.png"
     },
     "raw-aether": {
       "name": "Raw Aether",
-      "wikiPage": "Raw Aether"
+      "wikiPage": "Raw Aether",
+      "image": "File:Raw aether.png"
     },
     "red-paint": {
       "name": "Red Paint",
-      "wikiPage": "Red Paint"
+      "wikiPage": "Red Paint",
+      "image": "File:Red paint.png"
     },
     "refined-aether": {
       "name": "Refined Aether",
-      "wikiPage": "Refined Aether"
+      "wikiPage": "Refined Aether",
+      "image": "File:Refined aether.png"
     },
     "rocky-spark": {
       "name": "Rocky Spark",
-      "wikiPage": "Rocky Spark"
+      "wikiPage": "Rocky Spark",
+      "image": "File:Rocky spark large.png"
     },
     "rope": {
       "name": "Rope",
-      "wikiPage": "Rope"
+      "wikiPage": "Rope",
+      "image": "File:Rope.png"
     },
     "sawn-timber": {
       "name": "Sawn Timber",
-      "wikiPage": "Sawn Timber"
+      "wikiPage": "Sawn Timber",
+      "image": "File:Sawn timber.png"
     },
     "scouty-spark": {
       "name": "Scouty Spark",
-      "wikiPage": "Scouty Spark"
+      "wikiPage": "Scouty Spark",
+      "image": "File:Scouty spark large.png"
     },
     "scrubby-spark": {
       "name": "Scrubby Spark",
-      "wikiPage": "Scrubby Spark"
+      "wikiPage": "Scrubby Spark",
+      "image": "File:Scrubby spark large.png"
     },
     "shiny-geode": {
       "name": "Shiny Geode",
-      "wikiPage": "Shiny Geode"
+      "wikiPage": "Shiny Geode",
+      "image": "File:Shiny geode.png"
     },
     "slashy-spark": {
       "name": "Slashy Spark",
-      "wikiPage": "Slashy Spark"
+      "wikiPage": "Slashy Spark",
+      "image": "File:Slashy spark large.png"
     },
     "small-vial": {
       "name": "Small Vial",
-      "wikiPage": "Small Vial"
+      "wikiPage": "Small Vial",
+      "image": "File:Small vial.png"
     },
     "sponge": {
       "name": "Sponge",
-      "wikiPage": "Sponge"
+      "wikiPage": "Sponge",
+      "image": "File:Sponge.png"
     },
     "stellar-fertiliser": {
       "name": "Stellar Fertiliser",
-      "wikiPage": "Stellar Fertiliser"
+      "wikiPage": "Stellar Fertiliser",
+      "image": "File:Stellar fertiliser.png"
     },
     "stellar-ice": {
       "name": "Stellar Ice",
-      "wikiPage": "Stellar Ice"
+      "wikiPage": "Stellar Ice",
+      "image": "File:Stellar ice.png"
     },
     "stellar-leaves": {
       "name": "Stellar Leaves",
-      "wikiPage": "Stellar Leaves"
+      "wikiPage": "Stellar Leaves",
+      "image": "File:Stellar leaves.png"
     },
     "stellar-seed": {
       "name": "Stellar Seed",
-      "wikiPage": "Stellar Seed"
+      "wikiPage": "Stellar Seed",
+      "image": "File:Stellar seed.png"
     },
     "stone": {
       "name": "Stone",
-      "wikiPage": "Stone"
+      "wikiPage": "Stone",
+      "image": "File:Stone.png"
     },
     "stone-block": {
       "name": "Stone Block",
-      "wikiPage": "Stone Block"
+      "wikiPage": "Stone Block",
+      "image": "File:Stone block.png"
     },
     "stone-plate": {
       "name": "Stone Plate",
-      "wikiPage": "Stone Plate"
+      "wikiPage": "Stone Plate",
+      "image": "File:Stone plate.png"
     },
     "stone-spike": {
       "name": "Stone Spike",
-      "wikiPage": "Stone Spike"
+      "wikiPage": "Stone Spike",
+      "image": "File:Stone spike.png"
     },
     "stone-wheel": {
       "name": "Stone Wheel",
-      "wikiPage": "Stone Wheel"
+      "wikiPage": "Stone Wheel",
+      "image": "File:Stone wheel.png"
     },
     "stumpy-spark": {
       "name": "Stumpy Spark",
-      "wikiPage": "Stumpy Spark"
+      "wikiPage": "Stumpy Spark",
+      "image": "File:Stumpy spark large.png"
     },
     "subsurface-aether": {
       "name": "Subsurface Aether",
-      "wikiPage": "Subsurface Aether"
+      "wikiPage": "Subsurface Aether",
+      "image": "File:Subsurface aether.png"
     },
     "top-hat": {
       "name": "Top Hat",
-      "wikiPage": null
+      "wikiPage": null,
+      "image": null
     },
     "tree-bark": {
       "name": "Tree Bark",
-      "wikiPage": "Tree Bark"
+      "wikiPage": "Tree Bark",
+      "image": "File:Tree bark.png"
     },
     "turpentine": {
       "name": "Turpentine",
-      "wikiPage": "Turpentine"
+      "wikiPage": "Turpentine",
+      "image": "File:Turpentine.png"
     },
     "volcanic-soil": {
       "name": "Volcanic Soil",
-      "wikiPage": "Volcanic Soil"
+      "wikiPage": "Volcanic Soil",
+      "image": "File:Volcanic soil.png"
     },
     "white-paint": {
       "name": "White Paint",
-      "wikiPage": "White Paint"
+      "wikiPage": "White Paint",
+      "image": "File:White paint.png"
     },
     "wooden-blade": {
       "name": "Wooden Blade",
-      "wikiPage": "Wooden Blade"
+      "wikiPage": "Wooden Blade",
+      "image": "File:Wooden blade.png"
     },
     "wooden-log": {
       "name": "Wooden Log",
-      "wikiPage": "Wooden Log"
+      "wikiPage": "Wooden Log",
+      "image": "File:Wooden log.png"
     },
     "wooden-panel": {
       "name": "Wooden Panel",
-      "wikiPage": "Wooden Panel"
+      "wikiPage": "Wooden Panel",
+      "image": "File:Wooden panel.png"
     },
     "yellow-paint": {
       "name": "Yellow Paint",
-      "wikiPage": "Yellow Paint"
+      "wikiPage": "Yellow Paint",
+      "image": "File:Yellow paint.png"
     }
   },
   "recipes": {

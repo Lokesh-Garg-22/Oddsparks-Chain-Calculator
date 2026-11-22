@@ -11,15 +11,11 @@
  *   tools/.cache/wiki-raw.json        raw wikitext snapshot (git-ignored), for offline rebuilds
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { SITE_ROOT } from './serve.mjs';
+import { dirname } from 'node:path';
+import { DATA_FILE, RAW_SNAPSHOT, REPORT_FILE } from './paths.mjs';
 import { fetchPages, listEmbeddedIn, resolveTitles } from './wiki/api.mjs';
 import { buildDataset, namesToResolve } from './wiki/build.mjs';
 import { renderReport } from './wiki/report.mjs';
-
-const RAW = join(import.meta.dirname, '.cache', 'wiki-raw.json');
-const OUT_DATA = join(SITE_ROOT, 'data', 'oddsparks.json');
-const OUT_REPORT = join(SITE_ROOT, 'data', 'extraction-report.md');
 
 const log = (/** @type {string} */ msg) => console.log(msg);
 
@@ -47,17 +43,17 @@ async function main() {
   /** @type {import('./wiki/build.mjs').Snapshot} */
   let snapshot;
   if (process.argv.includes('--offline')) {
-    snapshot = JSON.parse(await readFile(RAW, 'utf8'));
+    snapshot = JSON.parse(await readFile(RAW_SNAPSHOT, 'utf8'));
     log(`Offline: using snapshot from ${snapshot.fetchedAt}`);
   } else {
     snapshot = await readWiki();
-    await mkdir(dirname(RAW), { recursive: true });
-    await writeFile(RAW, JSON.stringify(snapshot));
+    await mkdir(dirname(RAW_SNAPSHOT), { recursive: true });
+    await writeFile(RAW_SNAPSHOT, JSON.stringify(snapshot));
   }
 
   const result = buildDataset(snapshot);
-  await writeFile(OUT_DATA, JSON.stringify(result.data, null, 2) + '\n');
-  await writeFile(OUT_REPORT, renderReport(result) + '\n');
+  await writeFile(DATA_FILE, JSON.stringify(result.data, null, 2) + '\n');
+  await writeFile(REPORT_FILE, renderReport(result) + '\n');
 
   const c = result.data.meta.counts;
   log(`\nWrote ${c.recipes} recipes (${c.recipesWithConflicts} with conflicts, ${c.recipesWithProblems} missing values), ${c.buildings} buildings, ${c.items} items.`);
