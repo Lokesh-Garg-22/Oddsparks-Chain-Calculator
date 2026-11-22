@@ -4,6 +4,18 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 5 (calculation engine) decisions:**
+  - **Approach:** a depth-first walk from the target fixes the dependency order and cuts loops on the path. Rates are then computed consumers-first, so demand from all branches is summed before a recipe runs (no double counting, one row per recipe).
+  - **A recipe in the chain for several of its outputs** runs for the most demanding one; the rest are byproducts. Byproducts don't reduce other demand (v1, as decided).
+  - **Missing values don't crash:** a recipe with no craft time gives `machines: null` and a warning. Today's data has none.
+  - **Saved recipe ids are resolved before the engine** (`resolveId`). An unknown recipe pick, or one that doesn't make the item, falls back to the default.
+  - **After the `simplify` review, the result is a graph:**
+    - every input names its source row or why the chain stops; every output says how much is used and what's left
+    - per-craft amounts are included, so Excel formulas share the engine's cycles and odds rules
+    - the tree is derived from the rows, and the rate formulas exist once
+    - warnings are objects, and the engine takes a tab's stored `calc` as is
+    - measured: the largest real chain (28 rows) takes about 0.1 ms
+  - **Checks:** the owner's 3 spreadsheets, their in-game readings and the Logger cross-check are tests against the engine itself. Sheet "Wooden Panel" gives exactly 4 Sawn Timber Sawbenches, where the sheet had 4.02 from using the rounded 11.2.
 - **Step 4 (overrides and validation) decisions:**
   - **Merge code shared.** `overrides.json` is applied by one pure module (`site/js/data/merge.js`), used both by the app at load time and by `npm run validate`, so the two can't disagree.
   - **Each recipe tracks how its values were settled:**

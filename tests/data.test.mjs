@@ -183,25 +183,9 @@ test('the real data and overrides are valid', () => {
 });
 
 const game = applyOverrides(realData, realOverrides);
-// Until the engine exists (step 5), the rate formula from docs/game-mechanics.md is written here.
-const perMinute = (/** @type {string} */ id, /** @type {string} */ crewId) => {
-  const r = game.recipes[id];
-  return (60 / r.duration) * game.crews[crewId].multiplier * r.outputs[0].amount;
-};
-/** The game shows rates rounded down to 1 decimal (11.25 shows as 11.2). */
-const shownInGame = (/** @type {number} */ v) => Math.floor(v * 10 + 1e-9) / 10;
 
-test("the owner's in-game readings (2026-11-22) match the data", () => {
-  assert.equal(shownInGame(perMinute('logger--wooden-log--log-harvesting', '2-crafty')), 90);
-  assert.equal(shownInGame(perMinute('sawbench--sawn-timber', '2-crafty')), 11.2);
-  assert.equal(shownInGame(perMinute('sawbench--wooden-panel', '2-crafty')), 22.5);
-  assert.equal(shownInGame(perMinute('wood-workshop--wooden-blade', '2-stumpy')), 2.5);
+test("Timber is shown under its in-game name", () => {
   assert.equal(game.items['wooden-log'].displayName, 'Timber');
-});
-
-test('the Logger page cross-check: one Logger feeds four Sawbenches making Sawn Timber', () => {
-  const logsPerSawbench = (60 / game.recipes['sawbench--sawn-timber'].duration) * 2;
-  assert.equal(perMinute('logger--wooden-log--log-harvesting', '1-stumpy'), 4 * logsPerSawbench);
 });
 
 test('sensible defaults for early-game items', () => {

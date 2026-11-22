@@ -13,7 +13,12 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 4 (overrides + validation): committed.**
+- **Step 5 (calculation engine): committed.**
+  - `site/js/engine/calc.js`: `calculate()` returns rows per recipe (each input with its source), raw, loops, byproducts and warnings; `chainTree()` derives the tree
+  - `howMade()` in `recipes.js` holds the chain-stop rule
+  - 61 tests pass: worked example, Logger check, the owner's 3 spreadsheets and readings, loops, byproducts, odds, cycles, crew per row, "I supply this"
+  - reviewed with `code-review` (2 robustness fixes) and `simplify` (graph-shaped result, single rate formulas)
+- **Step 4 (overrides + validation): committed** (`4c90416`).
   - `site/data/overrides.json`:
     - spark crew table with status and source; default crew 2 Stumpy
     - Timber as the in-game name
@@ -58,7 +63,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 4 → commit → **step 5: calculation engine + tests** (worked example, Logger cross-check, the owner's 3 spreadsheets, loops, byproducts, cycles, random outputs). See [plan.md](plan.md#7-build-steps).
+Build **step 6: app shell with Preact** (vendored Preact + htm, self-hosted fonts, picker, recipe cards, count, crew, summary, build list). See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

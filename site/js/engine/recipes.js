@@ -36,6 +36,31 @@ function rank(game, item, id) {
 const sameRank = (a, b) => a.every((v, i) => v === b[i]);
 
 /**
+ * How an item is obtained in a chain: from a recipe, or not at all (the chain stops there).
+ *  - 'supplied':  the user ticked "I supply this"
+ *  - 'raw':       overrides.json lists the item as raw
+ *  - 'no-recipe': nothing in the data makes it
+ * A harvester (a recipe with no inputs) is still a recipe: its machines are counted and the chain
+ * simply has nothing further to expand.
+ * @param {any} game from applyOverrides
+ * @param {string} item
+ * @param {{ supplied?: Set<string>, recipeChoice?: Record<string, string> }} [choices]
+ *   the user's per-item recipe picks; a pick that doesn't exist or doesn't make the item is ignored
+ *   (resolve saved ids with resolveId first, so renamed recipes keep the user's pick)
+ * @returns {{ stop: 'supplied' | 'raw' | 'no-recipe' | null, recipe: string | null }}
+ */
+export function howMade(game, item, { supplied = new Set(), recipeChoice = {} } = {}) {
+  if (supplied.has(item)) return { stop: 'supplied', recipe: null };
+  const entry = game.items[item];
+  if (!entry) return { stop: 'no-recipe', recipe: null };
+  if (entry.raw) return { stop: 'raw', recipe: null };
+  // A pick only counts if that recipe really makes the item (a stale or wrong pick falls back to the default).
+  const picked = recipeChoice[item];
+  const recipe = picked && game.recipes[picked]?.outputs.some((/** @type {{ item: string }} */ o) => o.item === item) ? picked : entry.defaultRecipe;
+  return recipe ? { stop: null, recipe } : { stop: 'no-recipe', recipe: null };
+}
+
+/**
  * @param {any} game needs recipes, buildings and items[item].producers
  * @param {string} item
  * @param {string | undefined} pinned overrides.defaultRecipe[item], which always wins

@@ -49,14 +49,32 @@ Each recipe's ideal temperature is stored, but the calculator applies ×1 everyw
 
 ## Chain expansion
 
-1. Target: building, recipe, count, crew. Work out crafts per minute and the inputs needed.
-2. For each needed item: if it stops the chain, record it as raw demand. Otherwise choose its recipe and add the demand to that recipe's running total.
-3. Expand recipes in dependency order so demand from every branch is summed before expanding further (e.g. Timber needed by two branches is calculated once, in total).
+Implemented in `site/js/engine/calc.js`, built in step 5. `calculate(game, calc, { defaultCrew })` takes a tab's stored `calc` directly (`recipe`, `count`, `crews` per row including the target's, `recipeChoice`, `supplied`).
 
-**Where the chain stops:**
-- the item has no recipe
-- the item's only recipes are harvester recipes with no inputs (the harvester is still counted)
-- the user ticked "I supply this", or `overrides.json` lists the item as raw
+1. **Target:** recipe, count, crew. Crafts per minute = count × 60 / duration × multiplier.
+2. **Walk the inputs** from the target, depth first. For each input item, `howMade` (in `recipes.js`) gives its recipe, or a reason the chain stops there. An input whose recipe is already being expanded higher up the same path closes a **loop**: that edge is cut.
+3. **Compute rates in dependency order**, every consumer before the recipes that feed it. Each recipe then sees the summed demand of every branch (e.g. Timber needed by two branches is one Logger row of 22.5/min).
+   - A recipe's crafts per minute = demand ÷ expected amount per craft.
+   - If the same recipe is in the chain for several of its outputs, it runs enough crafts for the most demanding one, and the rest are byproducts.
+   - Inputs per minute = crafts × amount ÷ `cycles` (cycles default to 1).
+4. **Results:** `rows`, one per recipe, in dependency order with the target first. Each row has:
+   - `building`, `crew`, `multiplier`, `runsFor`
+   - exact `machines` and the rounded-up `build`
+   - `inputs`: `perCraft` (after cycles), `perMinute`, and where each comes from (`source` recipe, or `stop`: `supplied`, `raw`, `no-recipe` or `loop`)
+   - `outputs`: `perCraft` (after odds), `perMinute`, `used`, `surplus`
+
+   Grouped from the rows:
+   - `raw`, `loops` (each with the consumer rows) and `byproducts`
+   - `warnings` as `{ code, recipe }` objects
+
+   `chainTree(result)` derives the UI tree: each branch's share of its combined row, so the two always agree. Excel's "Parts Needed" is the sum of the inputs whose `source` is that row.
+5. **Build count:** `machinesToBuild` rounds the exact machines up, ignoring floating-point dust.
+
+**Where the chain stops** (`howMade` in `site/js/engine/recipes.js`):
+- the user ticked "I supply this" (`supplied`)
+- `overrides.json` lists the item as raw (`raw`)
+- nothing makes it (`no-recipe`)
+- a harvester (a recipe with no inputs) is still a recipe: its machines are counted, and there is simply nothing further to expand
 
 **Default recipe when an item has several** (`site/js/engine/recipes.js`):
 1. `overrides.json` `defaultRecipe` if set
@@ -74,11 +92,12 @@ The user can switch recipes for each item.
 **Byproducts:** shown in a "Byproducts & surplus" panel. In v1 they don't reduce other demand.
 
 **Loops** (real example: Leaves → Greenhouse "Leafy Growth" → Leaf Knot → Sawbench "Leaf Knot Cutting" → Leaves):
-- Detected when an item appears as its own ancestor.
-- Expansion stops there, and the item is listed as "supplied externally (loop)" with a warning.
+- Detected when an input's recipe is already being expanded higher up the same path.
+- That edge is cut, and its demand is listed as "supplied externally (loop)" with a warning.
 - The user is offered another recipe for it (e.g. Logger "Leaves Harvesting").
+- Real example (tested): 1 Sawbench "Leaf Knot Cutting" with Leaves made by that same recipe needs 0.30 Leaves/min from outside: 0.15 into the Greenhouse plus 0.15 into the Cutter for Fertiliser.
 
-## Reference checks (become tests)
+## Reference checks (tests in `tests/engine.test.mjs`)
 
 - Logger page text: "a logger will feed four Sawbenches with logs for Sawn Timber exactly". 4 × 7.5 = 30 = 1 Logger. ✓
 - Worked example: 1 Spark Workbench making Crafty Spark, 1 Stumpy everywhere:
