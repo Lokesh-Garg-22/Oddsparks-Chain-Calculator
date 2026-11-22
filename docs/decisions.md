@@ -4,6 +4,7 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Names:** the site stays **Oddsparks Chain Calculator**. It's descriptive, it's what players search for, and it doesn't look official. The owner renamed the repo from `Pirate-Spark-V2` to **`Lokesh-Garg-22/Oddsparks-Chain-Calculator`** before going public, because the old name read as a second version of piratespark, which this project isn't related to. The site will be at `https://lokesh-garg-22.github.io/Oddsparks-Chain-Calculator/`; the path is case-sensitive. The git remote and the footer's "Report a data error" link are updated.
 - **Step 12 (deploy) decisions:**
   - **One GitHub Actions workflow** (`.github/workflows/pages.yml`): every push and pull request runs `npm test` and `npm run validate`, and pushes to `main` then publish `site/`, and only `site/`, to Pages.
     - Actions are pinned to full commit SHAs, each of a release more than two weeks old.
@@ -197,7 +198,7 @@ Newest first. Each entry: date, decision, reason.
   - CLAUDE.md maps each build step to the skill that must be used
   - Playwright 1.65.2 + Chromium live in a project `.venv/` (git-ignored)
   - `update-game-data` gets its first real test run once the extractor exists (end of step 4)
-- **Site name:** undecided. "Oddsparks Chain Calculator" is a working title, kept in one place in the code so a rename is a one-line change. The repo name "Pirate-Spark-V2" may change before going public.
+- **Site name:** undecided at the time (settled later the same day: see "Names" above). "Oddsparks Chain Calculator" is a working title, kept in one place in the code so a rename is a one-line change. The repo name "Pirate-Spark-V2" may change before going public.
 - **Repo:** `github.com/Lokesh-Garg-22/Pirate-Spark-V2`, private until v1 is done, then public. Free GitHub Pages needs a public repo, so the deploy workflow is set up in step 12 and goes live when the repo is made public. Until then, preview locally.
 - **Git workflow:** one commit per build step, straight onto `main`, made only after the owner reviews and approves.
 - **Skills** are installed in the project (`.claude/skills/`, committed). Python Playwright plus browser download approved for `webapp-testing`.

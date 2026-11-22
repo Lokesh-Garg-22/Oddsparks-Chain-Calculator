@@ -13,13 +13,13 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 12 (deploy): done, awaiting the owner's review before commit.**
+- **Step 12 (deploy): committed** (`4454ff6`). Repo renamed to `Oddsparks-Chain-Calculator`.
   - `.github/workflows/pages.yml`: tests on every push and pull request; pushes to `main` publish `site/` to Pages (actions pinned to commit SHAs, least privilege)
   - `site/404.html`; the dev server serves it for missing paths
   - browser checks in the repo (`tests/browser/`, 6 checks, `run.py`); README sections on deployment and updating the data
   - reviewed with `security-review` (no findings), `code-review` (1 fix) and `simplify` (shared browser-check helpers)
   - 107 tests and 6 browser checks pass; `validate` passes
-  - **to go live:** push, make the repository public, and set Settings › Pages › Source to GitHub Actions
+  - **to go live:** push, make the repository public, and set Settings › Pages › Source to GitHub Actions. Address: `https://lokesh-garg-22.github.io/Oddsparks-Chain-Calculator/`
 - **Step 11 (Excel export): committed** (`e7bfe96`).
   - Export to Excel from the toolbar (this tab), a saved tab's or folder's ··· menu, or the whole library
   - the owner's layout A–W with live formulas and their values, 3 input slots, frozen header, then a Summary sheet with credits
@@ -98,7 +98,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 12 → commit. Then the owner decides on **step 13** (optional game-file extraction), pushes, makes the repo public and turns on Pages (Source: GitHub Actions). Still open: the Aether Shard default (see open questions).
+The owner decides on **step 13** (optional game-file extraction), pushes, makes the repo public and turns on Pages (Source: GitHub Actions). Still open: the Aether Shard default (see open questions).
 
 ## Open questions for the owner
 

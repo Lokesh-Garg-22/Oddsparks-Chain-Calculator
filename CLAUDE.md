@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Oddsparks production chain calculator ("Pirate-Spark-V2"): a static site for GitHub Pages.
+Oddsparks Chain Calculator (repo `Lokesh-Garg-22/Oddsparks-Chain-Calculator`): a static site for GitHub Pages.
 
 ## Read first
 
