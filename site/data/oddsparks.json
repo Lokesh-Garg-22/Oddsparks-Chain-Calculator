@@ -1,0 +1,8241 @@
+{
+  "meta": {
+    "dataVersion": "wiki-2026-11-22-aedf0458",
+    "extractedAt": "2026-11-22T08:08:19.536Z",
+    "source": "https://oddsparks.wiki.gg",
+    "license": "CC BY-SA 4.0. Derived from the Oddsparks Wiki; see data/LICENSE-DATA.md",
+    "generator": "tools/extract-wiki.mjs (do not edit by hand; fixes go in overrides.json)",
+    "counts": {
+      "recipes": 154,
+      "buildings": 28,
+      "items": 98,
+      "recipesWithConflicts": 12,
+      "recipesWithProblems": 0,
+      "recipesFromOnePage": 21
+    }
+  },
+  "buildings": {
+    "aetheric-collider": {
+      "name": "Aetheric Collider",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to cleanse corrupted items.",
+      "source": {
+        "page": "Aetheric Collider",
+        "revid": 2673
+      }
+    },
+    "aetheric-converter-feeder": {
+      "name": "Aetheric Converter Feeder",
+      "group": "Other",
+      "onBuildingsPage": false,
+      "categories": [],
+      "sparkSlots": null,
+      "caption": null,
+      "source": null
+    },
+    "aetheric-distiller": {
+      "name": "Aetheric Distiller",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to break down Aetheric items into more functional forms.",
+      "source": {
+        "page": "Aetheric Distiller",
+        "revid": 2665
+      }
+    },
+    "aetheric-distiller-shrine": {
+      "name": "Aetheric Distiller Shrine",
+      "group": "Shrines",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation Shrine",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to break down Aetheric items into more functional forms.",
+      "source": {
+        "page": "Aetheric Distiller Shrine",
+        "revid": 976
+      }
+    },
+    "alchemy-lab": {
+      "name": "Alchemy Lab",
+      "group": "Assemblers",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Assembler"
+      ],
+      "sparkSlots": null,
+      "caption": "A building used to craft alchemical items.",
+      "source": {
+        "page": "Alchemy Lab",
+        "revid": 2681
+      }
+    },
+    "ancient-generator": {
+      "name": "Ancient Generator",
+      "group": "Other",
+      "onBuildingsPage": false,
+      "categories": [],
+      "sparkSlots": null,
+      "caption": null,
+      "source": null
+    },
+    "ancient-greenhouse": {
+      "name": "Ancient Greenhouse",
+      "group": "Other",
+      "onBuildingsPage": false,
+      "categories": [],
+      "sparkSlots": null,
+      "caption": "A building to grow small plants.",
+      "source": {
+        "page": "Ancient Greenhouse",
+        "revid": 2661
+      }
+    },
+    "ancient-printer": {
+      "name": "Ancient Printer",
+      "group": "Other",
+      "onBuildingsPage": false,
+      "categories": [],
+      "sparkSlots": null,
+      "caption": "A working remnant of ancient technology, capable of creating items",
+      "source": {
+        "page": "Ancient Printer",
+        "revid": 2662
+      }
+    },
+    "arboretum": {
+      "name": "Arboretum",
+      "group": "Botanicals",
+      "onBuildingsPage": true,
+      "categories": [],
+      "sparkSlots": null,
+      "caption": "A building to grow large plants. Must be built on an Aetheric Fissure in the Glacial Plateau. Must be fed separately by one or more Arboretum Feeders.",
+      "source": {
+        "page": "Arboretum",
+        "revid": 2692
+      }
+    },
+    "crafty-spark-shrine": {
+      "name": "Crafty Spark Shrine",
+      "group": "Shrines",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation Shrine",
+        "Woodland"
+      ],
+      "sparkSlots": null,
+      "caption": "''Before activation:'' A currently unknown remnant of ancient technology''After activation:'' A working remnant of ancient technology.",
+      "source": {
+        "page": "Crafty Spark Shrine",
+        "revid": 967
+      }
+    },
+    "cutter": {
+      "name": "Cutter",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to process basic organic material.",
+      "source": {
+        "page": "Cutter",
+        "revid": 2666
+      }
+    },
+    "drill": {
+      "name": "Drill",
+      "group": "Harvesters",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Harvester"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to infinitely harvest Stone and more from. Place on a Giant Rock deposit.",
+      "source": {
+        "page": "Drill",
+        "revid": 2683
+      }
+    },
+    "furnace": {
+      "name": "Furnace",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": 2,
+      "caption": "A building for crafting items that require heat.",
+      "source": {
+        "page": "Furnace",
+        "revid": 2668
+      }
+    },
+    "geode-breaker": {
+      "name": "Geode Breaker",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to break open Geodes and reveal one of three random item inside.",
+      "source": {
+        "page": "Geode Breaker",
+        "revid": 2688
+      }
+    },
+    "greenhouse": {
+      "name": "Greenhouse",
+      "group": "Botanicals",
+      "onBuildingsPage": true,
+      "categories": [],
+      "sparkSlots": null,
+      "caption": "A building to grow small plants.",
+      "source": {
+        "page": "Greenhouse",
+        "revid": 2687
+      }
+    },
+    "logger": {
+      "name": "Logger",
+      "group": "Harvesters",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Harvester"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to infinitely harvest Logs and more from. Place on a Giant Tree.",
+      "source": {
+        "page": "Logger",
+        "revid": 2682
+      }
+    },
+    "loom": {
+      "name": "Loom",
+      "group": "Assemblers",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Assembler"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to craft fibercraft items.",
+      "source": {
+        "page": "Loom",
+        "revid": 2679
+      }
+    },
+    "miasma-collector": {
+      "name": "Miasma Collector",
+      "group": "Harvesters",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Harvester"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to infinitely harvest Miasma from. Place on a Noxious Coral.",
+      "source": {
+        "page": "Miasma Collector",
+        "revid": 2686
+      }
+    },
+    "ore-miner": {
+      "name": "Ore Miner",
+      "group": "Harvesters",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Harvester"
+      ],
+      "sparkSlots": null,
+      "caption": "A building that allows for infinite harvesting of Copper Ore with a slowly decreasing harvest rate.Must be built on a Giant Ore Deposit.",
+      "source": {
+        "page": "Ore Miner",
+        "revid": 2685
+      }
+    },
+    "plant-extractor": {
+      "name": "Plant Extractor",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to extract multiple items from a single organic material.",
+      "source": {
+        "page": "Plant Extractor",
+        "revid": 2670
+      }
+    },
+    "sawbench": {
+      "name": "Sawbench",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to refine basic wood items.",
+      "source": {
+        "page": "Sawbench",
+        "revid": 2664
+      }
+    },
+    "spark-workbench": {
+      "name": "Spark Workbench",
+      "group": "Assemblers",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Assembler"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to craft Sparks out of wood. Must be built on an Ancient Base.",
+      "source": {
+        "page": "Spark Workbench",
+        "revid": 2676
+      }
+    },
+    "spark-workshop": {
+      "name": "Spark Workshop",
+      "group": "Assemblers",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Assembler"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to craft Sparks out of stone. Must be built on an Ancient Foundation or Ancient Foundations Replica.",
+      "source": {
+        "page": "Spark Workshop",
+        "revid": 2677
+      }
+    },
+    "spark-workstation": {
+      "name": "Spark Workstation",
+      "group": "Assemblers",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Assembler"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to craft Sparks out of stone. Must be built on an Ancient Support.",
+      "source": {
+        "page": "Spark Workstation",
+        "revid": 2675
+      }
+    },
+    "stone-workshop": {
+      "name": "Stone Workshop",
+      "group": "Assemblers",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Assembler"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to assemble complex stone items.",
+      "source": {
+        "page": "Stone Workshop",
+        "revid": 2680
+      }
+    },
+    "stonecutter": {
+      "name": "Stonecutter",
+      "group": "Refiners",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Refiner"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to craft basic stone items.",
+      "source": {
+        "page": "Stonecutter",
+        "revid": 2669
+      }
+    },
+    "tailors-tent": {
+      "name": "Tailor's Tent",
+      "group": "Other",
+      "onBuildingsPage": false,
+      "categories": [],
+      "sparkSlots": null,
+      "caption": null,
+      "source": {
+        "page": "Tailor's Tent",
+        "revid": 2747
+      }
+    },
+    "wood-workshop": {
+      "name": "Wood Workshop",
+      "group": "Assemblers",
+      "onBuildingsPage": true,
+      "categories": [
+        "Building",
+        "Workstation",
+        "Assembler"
+      ],
+      "sparkSlots": null,
+      "caption": "A building to assemble complex wooden items.",
+      "source": {
+        "page": "Wood Workshop",
+        "revid": 2678
+      }
+    }
+  },
+  "items": {
+    "aether-apple": {
+      "name": "Aether Apple",
+      "wikiPage": "Aether Apple"
+    },
+    "aether-crystal": {
+      "name": "Aether Crystal",
+      "wikiPage": "Aether Crystal"
+    },
+    "aether-flower": {
+      "name": "Aether Flower",
+      "wikiPage": "Aether Flower"
+    },
+    "aether-seed": {
+      "name": "Aether Seed",
+      "wikiPage": "Aether Seed"
+    },
+    "aether-segment": {
+      "name": "Aether Segment",
+      "wikiPage": "Aether Segment"
+    },
+    "aether-shard": {
+      "name": "Aether Shard",
+      "wikiPage": "Aether Shard"
+    },
+    "aetheric-clump": {
+      "name": "Aetheric Clump",
+      "wikiPage": "Aetheric Clump"
+    },
+    "aetheric-pellet": {
+      "name": "Aetheric Pellet",
+      "wikiPage": "Aetheric Pellet"
+    },
+    "aethric-converter": {
+      "name": "Aethric Converter",
+      "wikiPage": null
+    },
+    "arty-spark": {
+      "name": "Arty Spark",
+      "wikiPage": "Arty Spark"
+    },
+    "big-vial": {
+      "name": "Big Vial",
+      "wikiPage": "Big Vial"
+    },
+    "black-paint": {
+      "name": "Black Paint",
+      "wikiPage": "Black Paint"
+    },
+    "blue-paint": {
+      "name": "Blue Paint",
+      "wikiPage": "Blue Paint"
+    },
+    "boomy-spark": {
+      "name": "Boomy Spark",
+      "wikiPage": "Boomy Spark"
+    },
+    "bumpy-geode": {
+      "name": "Bumpy Geode",
+      "wikiPage": "Bumpy Geode"
+    },
+    "burning-spark": {
+      "name": "Burning Spark",
+      "wikiPage": "Burning Spark"
+    },
+    "carry-spark": {
+      "name": "Carry Spark",
+      "wikiPage": "Carry Spark"
+    },
+    "choppy-spark": {
+      "name": "Choppy Spark",
+      "wikiPage": "Choppy Spark"
+    },
+    "cleansing-fragment": {
+      "name": "Cleansing Fragment",
+      "wikiPage": "Cleansing Fragment"
+    },
+    "cleansing-seed": {
+      "name": "Cleansing Seed",
+      "wikiPage": null
+    },
+    "coal": {
+      "name": "Coal",
+      "wikiPage": "Coal"
+    },
+    "copper-cutting": {
+      "name": "Copper Cutting",
+      "wikiPage": "Copper Cutting"
+    },
+    "copper-ingot": {
+      "name": "Copper Ingot",
+      "wikiPage": "Copper Ingot"
+    },
+    "copper-ore": {
+      "name": "Copper Ore",
+      "wikiPage": "Copper Ore"
+    },
+    "copper-sap": {
+      "name": "Copper Sap",
+      "wikiPage": "Copper Sap"
+    },
+    "copper-seed": {
+      "name": "Copper Seed",
+      "wikiPage": "Copper Seed"
+    },
+    "coral": {
+      "name": "Coral",
+      "wikiPage": "Coral"
+    },
+    "coral-seed": {
+      "name": "Coral Seed",
+      "wikiPage": "Coral Seed"
+    },
+    "corrupted-aether": {
+      "name": "Corrupted Aether",
+      "wikiPage": "Corrupted Aether"
+    },
+    "corrupted-spark-token": {
+      "name": "Corrupted Spark Token",
+      "wikiPage": "Corrupted Spark Token"
+    },
+    "cracked-geode": {
+      "name": "Cracked Geode",
+      "wikiPage": "Cracked Geode"
+    },
+    "crafty-spark": {
+      "name": "Crafty Spark",
+      "wikiPage": "Crafty Spark"
+    },
+    "crashy-spark": {
+      "name": "Crashy Spark",
+      "wikiPage": "Crashy Spark"
+    },
+    "dowsing-stone": {
+      "name": "Dowsing Stone",
+      "wikiPage": "Dowsing Stone"
+    },
+    "drill-bit": {
+      "name": "Drill Bit",
+      "wikiPage": "Drill Bit"
+    },
+    "drilly-spark": {
+      "name": "Drilly Spark",
+      "wikiPage": "Drilly Spark"
+    },
+    "explosives": {
+      "name": "Explosives",
+      "wikiPage": "Explosives"
+    },
+    "fabric": {
+      "name": "Fabric",
+      "wikiPage": "Fabric"
+    },
+    "fertiliser": {
+      "name": "Fertiliser",
+      "wikiPage": "Fertiliser"
+    },
+    "fireshroom-cluster": {
+      "name": "Fireshroom Cluster",
+      "wikiPage": "Fireshroom Cluster"
+    },
+    "fluted-coral": {
+      "name": "Fluted Coral",
+      "wikiPage": "Fluted Coral"
+    },
+    "freezing-spark": {
+      "name": "Freezing Spark",
+      "wikiPage": "Freezing Spark"
+    },
+    "frozen-log": {
+      "name": "Frozen Log",
+      "wikiPage": "Frozen Log"
+    },
+    "frozen-stone": {
+      "name": "Frozen Stone",
+      "wikiPage": "Frozen Stone"
+    },
+    "geode-cluster": {
+      "name": "Geode Cluster",
+      "wikiPage": "Geode Cluster"
+    },
+    "glowshroom": {
+      "name": "Glowshroom",
+      "wikiPage": "Glowshroom"
+    },
+    "green-paint": {
+      "name": "Green Paint",
+      "wikiPage": "Green Paint"
+    },
+    "grey-aether": {
+      "name": "Grey Aether",
+      "wikiPage": "Grey Aether"
+    },
+    "handy-spark": {
+      "name": "Handy Spark",
+      "wikiPage": "Handy Spark"
+    },
+    "hauling-spark": {
+      "name": "Hauling Spark",
+      "wikiPage": "Hauling Spark"
+    },
+    "hunter-hat": {
+      "name": "Hunter Hat",
+      "wikiPage": null
+    },
+    "ladder": {
+      "name": "Ladder",
+      "wikiPage": "Ladder"
+    },
+    "lava-cap": {
+      "name": "Lava Cap",
+      "wikiPage": "Lava Cap"
+    },
+    "leaf-knot": {
+      "name": "Leaf Knot",
+      "wikiPage": "Leaf Knot"
+    },
+    "leaves": {
+      "name": "Leaves",
+      "wikiPage": "Leaves"
+    },
+    "limestone": {
+      "name": "Limestone",
+      "wikiPage": "Limestone"
+    },
+    "liquid-fertiliser": {
+      "name": "Liquid Fertiliser",
+      "wikiPage": "Liquid Fertiliser"
+    },
+    "loamy-spark": {
+      "name": "Loamy Spark",
+      "wikiPage": "Loamy Spark"
+    },
+    "miasma": {
+      "name": "Miasma",
+      "wikiPage": "Miasma"
+    },
+    "miasma-vial": {
+      "name": "Miasma Vial",
+      "wikiPage": "Miasma Vial"
+    },
+    "orange-paint": {
+      "name": "Orange Paint",
+      "wikiPage": "Orange Paint"
+    },
+    "path-tile": {
+      "name": "Path Tile",
+      "wikiPage": "Path Tile"
+    },
+    "pebble": {
+      "name": "Pebble",
+      "wikiPage": "Pebble"
+    },
+    "puffy-spark": {
+      "name": "Puffy Spark",
+      "wikiPage": "Puffy Spark"
+    },
+    "purple-paint": {
+      "name": "Purple Paint",
+      "wikiPage": "Purple Paint"
+    },
+    "quartz": {
+      "name": "Quartz",
+      "wikiPage": "Quartz"
+    },
+    "raw-aether": {
+      "name": "Raw Aether",
+      "wikiPage": "Raw Aether"
+    },
+    "red-paint": {
+      "name": "Red Paint",
+      "wikiPage": "Red Paint"
+    },
+    "refined-aether": {
+      "name": "Refined Aether",
+      "wikiPage": "Refined Aether"
+    },
+    "rocky-spark": {
+      "name": "Rocky Spark",
+      "wikiPage": "Rocky Spark"
+    },
+    "rope": {
+      "name": "Rope",
+      "wikiPage": "Rope"
+    },
+    "sawn-timber": {
+      "name": "Sawn Timber",
+      "wikiPage": "Sawn Timber"
+    },
+    "scouty-spark": {
+      "name": "Scouty Spark",
+      "wikiPage": "Scouty Spark"
+    },
+    "scrubby-spark": {
+      "name": "Scrubby Spark",
+      "wikiPage": "Scrubby Spark"
+    },
+    "shiny-geode": {
+      "name": "Shiny Geode",
+      "wikiPage": "Shiny Geode"
+    },
+    "slashy-spark": {
+      "name": "Slashy Spark",
+      "wikiPage": "Slashy Spark"
+    },
+    "small-vial": {
+      "name": "Small Vial",
+      "wikiPage": "Small Vial"
+    },
+    "sponge": {
+      "name": "Sponge",
+      "wikiPage": "Sponge"
+    },
+    "stellar-fertiliser": {
+      "name": "Stellar Fertiliser",
+      "wikiPage": "Stellar Fertiliser"
+    },
+    "stellar-ice": {
+      "name": "Stellar Ice",
+      "wikiPage": "Stellar Ice"
+    },
+    "stellar-leaves": {
+      "name": "Stellar Leaves",
+      "wikiPage": "Stellar Leaves"
+    },
+    "stellar-seed": {
+      "name": "Stellar Seed",
+      "wikiPage": "Stellar Seed"
+    },
+    "stone": {
+      "name": "Stone",
+      "wikiPage": "Stone"
+    },
+    "stone-block": {
+      "name": "Stone Block",
+      "wikiPage": "Stone Block"
+    },
+    "stone-plate": {
+      "name": "Stone Plate",
+      "wikiPage": "Stone Plate"
+    },
+    "stone-spike": {
+      "name": "Stone Spike",
+      "wikiPage": "Stone Spike"
+    },
+    "stone-wheel": {
+      "name": "Stone Wheel",
+      "wikiPage": "Stone Wheel"
+    },
+    "stumpy-spark": {
+      "name": "Stumpy Spark",
+      "wikiPage": "Stumpy Spark"
+    },
+    "subsurface-aether": {
+      "name": "Subsurface Aether",
+      "wikiPage": "Subsurface Aether"
+    },
+    "top-hat": {
+      "name": "Top Hat",
+      "wikiPage": null
+    },
+    "tree-bark": {
+      "name": "Tree Bark",
+      "wikiPage": "Tree Bark"
+    },
+    "turpentine": {
+      "name": "Turpentine",
+      "wikiPage": "Turpentine"
+    },
+    "volcanic-soil": {
+      "name": "Volcanic Soil",
+      "wikiPage": "Volcanic Soil"
+    },
+    "white-paint": {
+      "name": "White Paint",
+      "wikiPage": "White Paint"
+    },
+    "wooden-blade": {
+      "name": "Wooden Blade",
+      "wikiPage": "Wooden Blade"
+    },
+    "wooden-log": {
+      "name": "Wooden Log",
+      "wikiPage": "Wooden Log"
+    },
+    "wooden-panel": {
+      "name": "Wooden Panel",
+      "wikiPage": "Wooden Panel"
+    },
+    "yellow-paint": {
+      "name": "Yellow Paint",
+      "wikiPage": "Yellow Paint"
+    }
+  },
+  "recipes": {
+    "aetheric-collider--grey-aether": {
+      "name": "Corrupted Aether Purification",
+      "building": "aetheric-collider",
+      "inputs": [
+        {
+          "item": "corrupted-aether",
+          "amount": 1
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "grey-aether",
+          "amount": 1,
+          "odds": 0.75
+        },
+        {
+          "item": "cleansing-fragment",
+          "amount": 1,
+          "odds": 0.25
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Corrupted Aether - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Collider",
+          "revid": 2673
+        },
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        },
+        {
+          "page": "Corrupted Aether",
+          "revid": 2355
+        },
+        {
+          "page": "Grey Aether",
+          "revid": 2415
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "aetheric-collider--raw-aether--from-aether-seed-grey-aether": {
+      "name": "Grey Aether Purification",
+      "building": "aetheric-collider",
+      "inputs": [
+        {
+          "item": "grey-aether",
+          "amount": 2
+        },
+        {
+          "item": "aether-seed",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "raw-aether",
+          "amount": 8,
+          "odds": 0.25
+        },
+        {
+          "item": "aetheric-clump",
+          "amount": 1,
+          "odds": 0.75
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Collider",
+          "revid": 2673
+        },
+        {
+          "page": "Aether Seed",
+          "revid": 2405
+        },
+        {
+          "page": "Aetheric Clump",
+          "revid": 2357
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "aetheric-collider--raw-aether--from-cleansing-fragment-corrupted-aether": {
+      "name": "Corrupted Aether Cleansing",
+      "building": "aetheric-collider",
+      "inputs": [
+        {
+          "item": "corrupted-aether",
+          "amount": 2
+        },
+        {
+          "item": "cleansing-fragment",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "raw-aether",
+          "amount": 8,
+          "odds": 0.75
+        },
+        {
+          "item": "aetheric-clump",
+          "amount": 1,
+          "odds": 0.25
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Collider",
+          "revid": 2673
+        },
+        {
+          "page": "Aetheric Clump",
+          "revid": 2357
+        },
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        },
+        {
+          "page": "Corrupted Aether",
+          "revid": 2355
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "aetheric-collider--scrubby-spark": {
+      "name": "Spark Token Cleansing",
+      "building": "aetheric-collider",
+      "inputs": [
+        {
+          "item": "corrupted-spark-token",
+          "amount": 1
+        },
+        {
+          "item": "cleansing-fragment",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "scrubby-spark",
+          "amount": 1,
+          "odds": 0.5
+        },
+        {
+          "item": "grey-aether",
+          "amount": 5,
+          "odds": 0.5
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Collider",
+          "revid": 2673
+        },
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        },
+        {
+          "page": "Corrupted Spark Token",
+          "revid": 2416
+        },
+        {
+          "page": "Grey Aether",
+          "revid": 2415
+        },
+        {
+          "page": "Scrubby Spark",
+          "revid": 2574
+        }
+      ],
+      "valueFrom": {
+        "outputs.grey-aether.amount": "Cleansing Fragment"
+      },
+      "conflicts": {
+        "outputs.grey-aether.amount": [
+          {
+            "page": "Aetheric Collider",
+            "revid": 2673,
+            "value": 1
+          },
+          {
+            "page": "Cleansing Fragment",
+            "revid": 2575,
+            "value": 5
+          },
+          {
+            "page": "Corrupted Spark Token",
+            "revid": 2416,
+            "value": 5
+          },
+          {
+            "page": "Grey Aether",
+            "revid": 2415,
+            "value": 1
+          },
+          {
+            "page": "Scrubby Spark",
+            "revid": 2574,
+            "value": 5
+          }
+        ]
+      },
+      "problems": []
+    },
+    "aetheric-converter-feeder--aethric-converter--from-cleansing-fragment": {
+      "name": "Aethric Converter",
+      "building": "aetheric-converter-feeder",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aethric-converter",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 50,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Clean the Ancient Converter - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "aetheric-converter-feeder--aethric-converter--from-scrubby-spark": {
+      "name": "Aethric Converter",
+      "building": "aetheric-converter-feeder",
+      "inputs": [
+        {
+          "item": "scrubby-spark",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aethric-converter",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 50,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Clean the Ancient Converter - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Scrubby Spark",
+          "revid": 2574
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "aetheric-distiller--aether-shard--from-aetheric-pellet": {
+      "name": "Pellet Refining",
+      "building": "aetheric-distiller",
+      "inputs": [
+        {
+          "item": "aetheric-pellet",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-shard",
+          "amount": 6,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Distilling Aether - Tier 2",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aether Shard",
+          "revid": 2440
+        },
+        {
+          "page": "Aetheric Pellet",
+          "revid": 2400
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "aetheric-distiller--aether-shard--from-raw-aether": {
+      "name": "Raw Distillation",
+      "building": "aetheric-distiller",
+      "inputs": [
+        {
+          "item": "raw-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-shard",
+          "amount": 6,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Alchemy - 1 - Tier 6",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Distiller",
+          "revid": 2665
+        },
+        {
+          "page": "Aether Shard",
+          "revid": 2440
+        },
+        {
+          "page": "Aetheric Distiller Shrine",
+          "revid": 976
+        },
+        {
+          "page": "Raw Aether",
+          "revid": 2369
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {
+        "outputs.aether-shard.amount": [
+          {
+            "page": "Aetheric Distiller",
+            "revid": 2665,
+            "value": 6
+          },
+          {
+            "page": "Aether Shard",
+            "revid": 2440,
+            "value": 6
+          },
+          {
+            "page": "Aetheric Distiller Shrine",
+            "revid": 976,
+            "value": 4
+          },
+          {
+            "page": "Raw Aether",
+            "revid": 2369,
+            "value": 6
+          }
+        ]
+      },
+      "problems": []
+    },
+    "aetheric-distiller--aether-shard--from-refined-aether": {
+      "name": "Refined Distillation",
+      "building": "aetheric-distiller",
+      "inputs": [
+        {
+          "item": "refined-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-shard",
+          "amount": 30,
+          "odds": null
+        }
+      ],
+      "duration": 128,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Alchemy - 2 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Distiller",
+          "revid": 2665
+        },
+        {
+          "page": "Aether Shard",
+          "revid": 2440
+        },
+        {
+          "page": "Aetheric Distiller Shrine",
+          "revid": 976
+        },
+        {
+          "page": "Refined Aether",
+          "revid": 2350
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "aetheric-distiller-shrine--aether-shard": {
+      "name": "Pellet Refining",
+      "building": "aetheric-distiller-shrine",
+      "inputs": [
+        {
+          "item": "aetheric-pellet",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-shard",
+          "amount": 6,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Distilling Aether - Tier 2",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Distiller Shrine",
+          "revid": 976
+        },
+        {
+          "page": "Aetheric Distiller",
+          "revid": 2665
+        }
+      ],
+      "valueFrom": {
+        "temperature": "Aetheric Distiller"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "alchemy-lab--aether-crystal": {
+      "name": "Aether Seed Crystallization",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "aether-seed",
+          "amount": 1
+        },
+        {
+          "item": "raw-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-crystal",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Alchemy - 1 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        },
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Aether Seed",
+          "revid": 2405
+        },
+        {
+          "page": "Raw Aether",
+          "revid": 2369
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {
+        "outputs.aether-crystal.amount": [
+          {
+            "page": "Alchemy Lab",
+            "revid": 2681,
+            "value": 10
+          },
+          {
+            "page": "Aether Crystal",
+            "revid": 2565,
+            "value": 10
+          },
+          {
+            "page": "Aether Seed",
+            "revid": 2405,
+            "value": 3
+          },
+          {
+            "page": "Raw Aether",
+            "revid": 2369,
+            "value": 3
+          }
+        ]
+      },
+      "problems": []
+    },
+    "alchemy-lab--aetheric-clump--aether-clump-fusion": {
+      "name": "Aether Clump Fusion",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "leaf-knot",
+          "amount": 2
+        },
+        {
+          "item": "refined-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aetheric-clump",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Alchemy - 1 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aetheric Clump",
+          "revid": 2357
+        },
+        {
+          "page": "Leaf Knot",
+          "revid": 2404
+        },
+        {
+          "page": "Refined Aether",
+          "revid": 2350
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "alchemy-lab--aetheric-clump--aether-pellet-fusion": {
+      "name": "Aether Pellet Fusion",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "leaf-knot",
+          "amount": 1
+        },
+        {
+          "item": "refined-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aetheric-clump",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Alchemy - 1 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "alchemy-lab--aetheric-pellet": {
+      "name": "Aether Pellet Fusion",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "leaf-knot",
+          "amount": 1
+        },
+        {
+          "item": "raw-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aetheric-pellet",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Alchemy - 1 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        },
+        {
+          "page": "Aetheric Pellet",
+          "revid": 2400
+        },
+        {
+          "page": "Leaf Knot",
+          "revid": 2404
+        },
+        {
+          "page": "Raw Aether",
+          "revid": 2369
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "alchemy-lab--cleansing-fragment": {
+      "name": "Cleansing Fragment Enrichment",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "grey-aether",
+          "amount": 4
+        },
+        {
+          "item": "cleansing-fragment",
+          "amount": 18
+        }
+      ],
+      "outputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 20,
+          "odds": null
+        }
+      ],
+      "duration": 256,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        },
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        },
+        {
+          "page": "Grey Aether",
+          "revid": 2415
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "alchemy-lab--liquid-fertiliser": {
+      "name": "Liquid Fertiliser",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "fireshroom-cluster",
+          "amount": 2
+        },
+        {
+          "item": "stellar-leaves",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "liquid-fertiliser",
+          "amount": 4,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Botany - 2 - Tier 9",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        },
+        {
+          "page": "Fireshroom Cluster",
+          "revid": 2731
+        },
+        {
+          "page": "Liquid Fertiliser",
+          "revid": 1987
+        },
+        {
+          "page": "Stellar Leaves",
+          "revid": 2730
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "alchemy-lab--raw-aether": {
+      "name": "Miasma Transmutation",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "miasma-vial",
+          "amount": 2
+        },
+        {
+          "item": "aether-shard",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "raw-aether",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Alchemy - 1 - Tier 6",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        },
+        {
+          "page": "Aether Shard",
+          "revid": 2440
+        },
+        {
+          "page": "Miasma Vial",
+          "revid": 2366
+        },
+        {
+          "page": "Raw Aether",
+          "revid": 2369
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "alchemy-lab--refined-aether": {
+      "name": "Aether Refinement",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "raw-aether",
+          "amount": 4
+        },
+        {
+          "item": "big-vial",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "refined-aether",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Alchemy - 2 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        },
+        {
+          "page": "Big Vial",
+          "revid": 2326
+        },
+        {
+          "page": "Refined Aether",
+          "revid": 2350
+        }
+      ],
+      "valueFrom": {
+        "inputs.raw-aether.amount": "Big Vial"
+      },
+      "conflicts": {
+        "inputs.raw-aether.amount": [
+          {
+            "page": "Alchemy Lab",
+            "revid": 2681,
+            "value": 2
+          },
+          {
+            "page": "Big Vial",
+            "revid": 2326,
+            "value": 4
+          },
+          {
+            "page": "Refined Aether",
+            "revid": 2350,
+            "value": 4
+          }
+        ]
+      },
+      "problems": []
+    },
+    "alchemy-lab--stellar-fertiliser": {
+      "name": "Stellar Fertiliser",
+      "building": "alchemy-lab",
+      "inputs": [
+        {
+          "item": "fertiliser",
+          "amount": 4
+        },
+        {
+          "item": "stellar-leaves",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stellar-fertiliser",
+          "amount": 4,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Microclimates - Tier 8",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Alchemy Lab",
+          "revid": 2681
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        },
+        {
+          "page": "Stellar Fertiliser",
+          "revid": 2732
+        },
+        {
+          "page": "Stellar Leaves",
+          "revid": 2730
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-generator--subsurface-aether--producing-1-subsurface-aether": {
+      "name": "Producing 1 Subsurface Aether",
+      "building": "ancient-generator",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 100,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-generator--subsurface-aether--producing-2-subsurface-aether": {
+      "name": "Producing 2 Subsurface Aether",
+      "building": "ancient-generator",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 31.578,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-generator--subsurface-aether--producing-3-subsurface-aether": {
+      "name": "Producing 3 Subsurface Aether",
+      "building": "ancient-generator",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 15.789,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-greenhouse--cleansing-seed": {
+      "name": "Cleansing Seed",
+      "building": "ancient-greenhouse",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 2
+        },
+        {
+          "item": "aether-seed",
+          "amount": 15
+        }
+      ],
+      "outputs": [
+        {
+          "item": "cleansing-seed",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": null,
+      "sources": [
+        {
+          "page": "Ancient Greenhouse",
+          "revid": 2661
+        },
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--aether-segment": {
+      "name": "Aether Segment Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-segment",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Aether Segment",
+          "revid": 1999
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--carry-spark": {
+      "name": "Carry Spark Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "carry-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--copper-sap": {
+      "name": "Copper Sap Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-sap",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Copper Sap",
+          "revid": 2374
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--coral": {
+      "name": "Coral Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "coral",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 4,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Coral",
+          "revid": 2343
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--fireshroom-cluster--fireshroom-printing": {
+      "name": "Fireshroom Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fireshroom-cluster",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Fireshroom Cluster",
+          "revid": 2731
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--fireshroom-cluster--fireshroome-cluster-printing": {
+      "name": "Fireshroome Cluster Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fireshroom-cluster",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--geode-cluster": {
+      "name": "Geode Cluster Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "geode-cluster",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--handy-spark": {
+      "name": "Handy Spark Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "handy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 128,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Handy Spark",
+          "revid": 1978
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--hauling-spark": {
+      "name": "Hauling Spark Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "hauling-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 96,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--leaves": {
+      "name": "Leaves Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "leaves",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--rocky-spark": {
+      "name": "Rocky Spark Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "rocky-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 96,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Rocky Spark",
+          "revid": 2465
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--stellar-leaves": {
+      "name": "Stellar Leaves Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stellar-leaves",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Stellar Leaves",
+          "revid": 2730
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--stone": {
+      "name": "Stone Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--subsurface-aether--8f6684": {
+      "name": "Producing Subsurface Aether (Cleansing Fragment as Fuel)",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 0.6
+        }
+      ],
+      "outputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 60,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--subsurface-aether--b7910a": {
+      "name": "Producing Subsurface Aether (Cleansing Fragment as Fuel)",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 1.9
+        }
+      ],
+      "outputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 60,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--subsurface-aether--e0e0fc": {
+      "name": "Producing Subsurface Aether (Cleansing Fragment as Fuel)",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "cleansing-fragment",
+          "amount": 3.6
+        }
+      ],
+      "outputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 60,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Enrichment - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Cleansing Fragment",
+          "revid": 2575
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ancient-printer--wooden-log": {
+      "name": "Log Printing",
+      "building": "ancient-printer",
+      "inputs": [
+        {
+          "item": "subsurface-aether",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "wooden-log",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Exploring the Ancient Ruins - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Ancient Printer",
+          "revid": 2662
+        },
+        {
+          "page": "Subsurface Aether",
+          "revid": 2663
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "arboretum--aether-apple": {
+      "name": "Aether Tree",
+      "building": "arboretum",
+      "inputs": [
+        {
+          "item": "liquid-fertiliser",
+          "amount": 5
+        },
+        {
+          "item": "aether-seed",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-apple",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 256,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 100,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": {
+        "quest": "Aetheric Botany - 2 - Tier 9",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Arboretum",
+          "revid": 2692
+        },
+        {
+          "page": "Aether Apple",
+          "revid": 2000
+        },
+        {
+          "page": "Aether Seed",
+          "revid": 2405
+        },
+        {
+          "page": "Liquid Fertiliser",
+          "revid": 1987
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "arboretum--copper-cutting": {
+      "name": "Copper Bamboo",
+      "building": "arboretum",
+      "inputs": [
+        {
+          "item": "leaf-knot",
+          "amount": 2
+        },
+        {
+          "item": "copper-seed",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-cutting",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 256,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 100,
+      "optimalTemperature": -5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical R&D - 2 - Tier 9",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Arboretum",
+          "revid": 2692
+        },
+        {
+          "page": "Copper Cutting",
+          "revid": 2014
+        },
+        {
+          "page": "Copper Seed",
+          "revid": 2403
+        },
+        {
+          "page": "Leaf Knot",
+          "revid": 2404
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "arboretum--geode-cluster": {
+      "name": "Geode Reef",
+      "building": "arboretum",
+      "inputs": [
+        {
+          "item": "lava-cap",
+          "amount": 1
+        },
+        {
+          "item": "coral-seed",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "geode-cluster",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 128,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 100,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical R&D - 1 - Tier 8",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Arboretum",
+          "revid": 2692
+        },
+        {
+          "page": "Coral Seed",
+          "revid": 2402
+        },
+        {
+          "page": "Geode Cluster",
+          "revid": 1969
+        },
+        {
+          "page": "Lava Cap",
+          "revid": 2728
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "crafty-spark-shrine--crafty-spark": {
+      "name": "Crafty Spark",
+      "building": "crafty-spark-shrine",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 2
+        },
+        {
+          "item": "wooden-panel",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "crafty-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": null,
+      "unlock": null,
+      "sources": [
+        {
+          "page": "Wooden Panel",
+          "revid": 2322
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--aetheric-pellet": {
+      "name": "Clump Dividing",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "aetheric-clump",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aetheric-pellet",
+          "amount": 6,
+          "odds": null
+        }
+      ],
+      "duration": 128,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Butchery - Tier 3",
+        "npc": "Merchant"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Aetheric Clump",
+          "revid": 2357
+        },
+        {
+          "page": "Aetheric Pellet",
+          "revid": 2400
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--black-paint": {
+      "name": "Black Paint",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "pebble",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "black-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Complex Pigments - Tier 5",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Black Paint",
+          "revid": 2425
+        },
+        {
+          "page": "Pebble",
+          "revid": 2424
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--blue-paint": {
+      "name": "Blue Paint",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "quartz",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "blue-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Basic Pigments - Tier 4",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Blue Paint",
+          "revid": 2432
+        },
+        {
+          "page": "Quartz",
+          "revid": 2418
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--fertiliser": {
+      "name": "Fertiliser",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "leaves",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fertiliser",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Processing Organics - Tier 3",
+        "npc": "Merchant"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--red-paint": {
+      "name": "Red Paint",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "tree-bark",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "red-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Basic Pigments - Tier 4",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Red Paint",
+          "revid": 2431
+        },
+        {
+          "page": "Tree Bark",
+          "revid": 2410
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--turpentine": {
+      "name": "Turpentine",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "wooden-log",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "turpentine",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Basic Pigments - Tier 4",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Turpentine",
+          "revid": 2434
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--white-paint": {
+      "name": "White Paint",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "limestone",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "white-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Complex Pigments - Tier 5",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        },
+        {
+          "page": "White Paint",
+          "revid": 2427
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "cutter--yellow-paint": {
+      "name": "Yellow Paint",
+      "building": "cutter",
+      "inputs": [
+        {
+          "item": "leaves",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "yellow-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Basic Pigments - Tier 4",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Cutter",
+          "revid": 2666
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        },
+        {
+          "page": "Yellow Paint",
+          "revid": 2429
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "drill--limestone--limestone-harvesting": {
+      "name": "Limestone Harvesting",
+      "building": "drill",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "limestone",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": {
+        "quest": "Limestone Harvesting - Tier 5",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Drill",
+          "revid": 2683
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "drill--limestone--overclocked-limestone-harvesting": {
+      "name": "Overclocked Limestone Harvesting",
+      "building": "drill",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "limestone",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Drill",
+          "revid": 2683
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "drill--quartz--overclocked-quartz-harvesting": {
+      "name": "Overclocked Quartz Harvesting",
+      "building": "drill",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "quartz",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Drill",
+          "revid": 2683
+        },
+        {
+          "page": "Quartz",
+          "revid": 2418
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {
+        "temperature": [
+          {
+            "page": "Drill",
+            "revid": 2683,
+            "value": -3
+          },
+          {
+            "page": "Quartz",
+            "revid": 2418,
+            "value": 3
+          }
+        ]
+      },
+      "problems": []
+    },
+    "drill--quartz--quartz-harvesting": {
+      "name": "Quartz Harvesting",
+      "building": "drill",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "quartz",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": {
+        "quest": "Quartz Harvesting - Tier 5",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Drill",
+          "revid": 2683
+        },
+        {
+          "page": "Quartz",
+          "revid": 2418
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "drill--stone--overclocked-stone-harvesting": {
+      "name": "Overclocked Stone Harvesting",
+      "building": "drill",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "stone",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Drill",
+          "revid": 2683
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "drill--stone--stone-harvesting": {
+      "name": "Stone Harvesting",
+      "building": "drill",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "stone",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": {
+        "quest": "Stone Harvesting & Cutting - Tier 4",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Drill",
+          "revid": 2683
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--big-vial": {
+      "name": "Big Vial",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "quartz",
+          "amount": 10
+        }
+      ],
+      "outputs": [
+        {
+          "item": "big-vial",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 128,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Alchemy - 2 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Big Vial",
+          "revid": 2326
+        },
+        {
+          "page": "Quartz",
+          "revid": 2418
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Big Vial"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--coal": {
+      "name": "Coal",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "wooden-log",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "coal",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 8,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Furnace - Tier 6",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Coal",
+          "revid": 2302
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--copper-ingot--from-copper-ore": {
+      "name": "Copper Ore Smelting",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "copper-ore",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-ingot",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metallurgy - Tier 7",
+        "npc": "Merchant"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        },
+        {
+          "page": "Copper Ore",
+          "revid": 2398
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Copper Ingot"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--copper-ingot--from-copper-sap": {
+      "name": "Copper Sap Smelting",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "copper-sap",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-ingot",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Metallurgy - 2 - Tier 9",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Copper Ingot"
+      },
+      "conflicts": {
+        "duration": [
+          {
+            "page": "Furnace",
+            "revid": 2668,
+            "value": 24
+          },
+          {
+            "page": "Copper Ingot",
+            "revid": 2484,
+            "value": 64
+          }
+        ]
+      },
+      "problems": []
+    },
+    "furnace--copper-ingot--from-copper-seed": {
+      "name": "Copper Seed Smelting",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "copper-seed",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-ingot",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Metallurgy - 1 - Tier 9",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        },
+        {
+          "page": "Copper Seed",
+          "revid": 2403
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Copper Ingot"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--copper-seed": {
+      "name": "Copper Sap Beading",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "copper-sap",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-seed",
+          "amount": 8,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Metallurgy - 2 - Tier 9",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Copper Seed",
+          "revid": 2403
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Copper Seed"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--drill-bit": {
+      "name": "Drill Bit",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "copper-ingot",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "drill-bit",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Miniaturised Drilling - Tier 7",
+        "npc": "Merchant"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        },
+        {
+          "page": "Drill Bit",
+          "revid": 2474
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Copper Ingot"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--quartz": {
+      "name": "Quartz",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "limestone",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "quartz",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 8,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Furnace - Tier 6",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        },
+        {
+          "page": "Quartz",
+          "revid": 2418
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Limestone"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "furnace--small-vial": {
+      "name": "Small Vial",
+      "building": "furnace",
+      "inputs": [
+        {
+          "item": "quartz",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "small-vial",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": true,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Furnace - Tier 6",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Furnace",
+          "revid": 2668
+        },
+        {
+          "page": "Quartz",
+          "revid": 2418
+        },
+        {
+          "page": "Small Vial",
+          "revid": 2365
+        }
+      ],
+      "valueFrom": {
+        "usesFuel": "Quartz"
+      },
+      "conflicts": {},
+      "problems": []
+    },
+    "geode-breaker--bumpy-geode": {
+      "name": "Break Geode Cluster",
+      "building": "geode-breaker",
+      "inputs": [
+        {
+          "item": "geode-cluster",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "bumpy-geode",
+          "amount": 10,
+          "odds": null
+        },
+        {
+          "item": "shiny-geode",
+          "amount": 10,
+          "odds": null
+        },
+        {
+          "item": "cracked-geode",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Geode Breaker - 2 - Tier 8",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Geode Breaker",
+          "revid": 2688
+        },
+        {
+          "page": "Bumpy Geode",
+          "revid": 2377
+        },
+        {
+          "page": "Cracked Geode",
+          "revid": 2381
+        },
+        {
+          "page": "Geode Cluster",
+          "revid": 1969
+        },
+        {
+          "page": "Shiny Geode",
+          "revid": 2380
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "geode-breaker--volcanic-soil--from-bumpy-geode": {
+      "name": "Break Bumpy Geode",
+      "building": "geode-breaker",
+      "inputs": [
+        {
+          "item": "bumpy-geode",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "volcanic-soil",
+          "amount": 20,
+          "odds": null
+        },
+        {
+          "item": "coal",
+          "amount": 10,
+          "odds": null
+        },
+        {
+          "item": "glowshroom",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Geode Breaker - 1 - Tier 8",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Geode Breaker",
+          "revid": 2688
+        },
+        {
+          "page": "Bumpy Geode",
+          "revid": 2377
+        },
+        {
+          "page": "Coal",
+          "revid": 2302
+        },
+        {
+          "page": "Glowshroom",
+          "revid": 2395
+        },
+        {
+          "page": "Volcanic Soil",
+          "revid": 2397
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "geode-breaker--volcanic-soil--from-cracked-geode": {
+      "name": "Break Cracked Geode",
+      "building": "geode-breaker",
+      "inputs": [
+        {
+          "item": "cracked-geode",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "volcanic-soil",
+          "amount": 20,
+          "odds": null
+        },
+        {
+          "item": "copper-ore",
+          "amount": 10,
+          "odds": null
+        },
+        {
+          "item": "coal",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Geode Breaker - 1 - Tier 8",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Geode Breaker",
+          "revid": 2688
+        },
+        {
+          "page": "Coal",
+          "revid": 2302
+        },
+        {
+          "page": "Copper Ore",
+          "revid": 2398
+        },
+        {
+          "page": "Cracked Geode",
+          "revid": 2381
+        },
+        {
+          "page": "Volcanic Soil",
+          "revid": 2397
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "geode-breaker--volcanic-soil--from-shiny-geode": {
+      "name": "Break Shiny Geode",
+      "building": "geode-breaker",
+      "inputs": [
+        {
+          "item": "shiny-geode",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "volcanic-soil",
+          "amount": 20,
+          "odds": null
+        },
+        {
+          "item": "copper-ore",
+          "amount": 10,
+          "odds": null
+        },
+        {
+          "item": "glowshroom",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": true,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Geode Breaker - 1 - Tier 8",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Geode Breaker",
+          "revid": 2688
+        },
+        {
+          "page": "Copper Ore",
+          "revid": 2398
+        },
+        {
+          "page": "Glowshroom",
+          "revid": 2395
+        },
+        {
+          "page": "Shiny Geode",
+          "revid": 2380
+        },
+        {
+          "page": "Volcanic Soil",
+          "revid": 2397
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "greenhouse--aether-flower": {
+      "name": "Aetheric Flower",
+      "building": "greenhouse",
+      "inputs": [
+        {
+          "item": "aetheric-pellet",
+          "amount": 2
+        },
+        {
+          "item": "fertiliser",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-flower",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Greenhouse",
+          "revid": 2687
+        },
+        {
+          "page": "Aether Flower",
+          "revid": 2352
+        },
+        {
+          "page": "Aetheric Pellet",
+          "revid": 2400
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "greenhouse--copper-seed": {
+      "name": "Copper Seed Germination",
+      "building": "greenhouse",
+      "inputs": [
+        {
+          "item": "copper-ore",
+          "amount": 2
+        },
+        {
+          "item": "volcanic-soil",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-seed",
+          "amount": 20,
+          "odds": null
+        }
+      ],
+      "duration": 88,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 3 - Tier 9",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Greenhouse",
+          "revid": 2687
+        },
+        {
+          "page": "Copper Ore",
+          "revid": 2398
+        },
+        {
+          "page": "Copper Seed",
+          "revid": 2403
+        },
+        {
+          "page": "Volcanic Soil",
+          "revid": 2397
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "greenhouse--coral-seed": {
+      "name": "Coral Seed Germination",
+      "building": "greenhouse",
+      "inputs": [
+        {
+          "item": "coral",
+          "amount": 2
+        },
+        {
+          "item": "fertiliser",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "coral-seed",
+          "amount": 20,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 2 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Greenhouse",
+          "revid": 2687
+        },
+        {
+          "page": "Coral",
+          "revid": 2343
+        },
+        {
+          "page": "Coral Seed",
+          "revid": 2402
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "greenhouse--fireshroom-cluster": {
+      "name": "Fireshroom Colony",
+      "building": "greenhouse",
+      "inputs": [
+        {
+          "item": "glowshroom",
+          "amount": 2
+        },
+        {
+          "item": "stellar-fertiliser",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fireshroom-cluster",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Microclimates - Tier 8",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Greenhouse",
+          "revid": 2687
+        },
+        {
+          "page": "Fireshroom Cluster",
+          "revid": 2731
+        },
+        {
+          "page": "Glowshroom",
+          "revid": 2395
+        },
+        {
+          "page": "Stellar Fertiliser",
+          "revid": 2732
+        }
+      ],
+      "valueFrom": {
+        "temperature": "Fireshroom Cluster"
+      },
+      "conflicts": {
+        "temperature": [
+          {
+            "page": "Greenhouse",
+            "revid": 2687,
+            "value": 3
+          },
+          {
+            "page": "Fireshroom Cluster",
+            "revid": 2731,
+            "value": 5
+          },
+          {
+            "page": "Glowshroom",
+            "revid": 2395,
+            "value": 5
+          },
+          {
+            "page": "Stellar Fertiliser",
+            "revid": 2732,
+            "value": 5
+          }
+        ]
+      },
+      "problems": []
+    },
+    "greenhouse--fluted-coral": {
+      "name": "Fluted Coral Reef",
+      "building": "greenhouse",
+      "inputs": [
+        {
+          "item": "coral-seed",
+          "amount": 1
+        },
+        {
+          "item": "fertiliser",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fluted-coral",
+          "amount": 20,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 2 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Greenhouse",
+          "revid": 2687
+        },
+        {
+          "page": "Coral Seed",
+          "revid": 2402
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        },
+        {
+          "page": "Fluted Coral",
+          "revid": 1943
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "greenhouse--leaf-knot": {
+      "name": "Leafy Growth",
+      "building": "greenhouse",
+      "inputs": [
+        {
+          "item": "leaves",
+          "amount": 4
+        },
+        {
+          "item": "fertiliser",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "leaf-knot",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Greenhouse",
+          "revid": 2687
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        },
+        {
+          "page": "Leaf Knot",
+          "revid": 2404
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "greenhouse--stellar-leaves": {
+      "name": "Stellar Cactus",
+      "building": "greenhouse",
+      "inputs": [
+        {
+          "item": "stellar-seed",
+          "amount": 1
+        },
+        {
+          "item": "volcanic-soil",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stellar-leaves",
+          "amount": 20,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": 10,
+      "optimalTemperature": -5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Microclimates - Tier 8",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Greenhouse",
+          "revid": 2687
+        },
+        {
+          "page": "Stellar Leaves",
+          "revid": 2730
+        },
+        {
+          "page": "Stellar Seed",
+          "revid": 2729
+        },
+        {
+          "page": "Volcanic Soil",
+          "revid": 2397
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "logger--leaves--leaves-harvesting": {
+      "name": "Leaves Harvesting",
+      "building": "logger",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "leaves",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": {
+        "quest": "Leaves Harvesting - Tier 4",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Logger",
+          "revid": 2682
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "logger--leaves--overclocked-leaves-harvesting": {
+      "name": "Overclocked Leaves Harvesting",
+      "building": "logger",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "leaves",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Logger",
+          "revid": 2682
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "logger--tree-bark--bark-harvesting": {
+      "name": "Bark Harvesting",
+      "building": "logger",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "tree-bark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": {
+        "quest": "Bark Harvesting - Tier 3",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Logger",
+          "revid": 2682
+        },
+        {
+          "page": "Tree Bark",
+          "revid": 2410
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "logger--tree-bark--overclocked-bark-harvesting": {
+      "name": "Overclocked Bark Harvesting",
+      "building": "logger",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "tree-bark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Logger",
+          "revid": 2682
+        },
+        {
+          "page": "Tree Bark",
+          "revid": 2410
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "logger--wooden-log--log-harvesting": {
+      "name": "Log Harvesting",
+      "building": "logger",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "wooden-log",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": {
+        "quest": "Wood Harvesting - Tier 1",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Logger",
+          "revid": 2682
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "logger--wooden-log--overclocked-log-harvesting": {
+      "name": "Overclocked Log Harvesting",
+      "building": "logger",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "wooden-log",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Logger",
+          "revid": 2682
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "logger--wooden-log--overclocked-wood-harvesting": {
+      "name": "Overclocked Wood Harvesting",
+      "building": "logger",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "wooden-log",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 1.3333,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "loom--fabric": {
+      "name": "Fabric",
+      "building": "loom",
+      "inputs": [
+        {
+          "item": "tree-bark",
+          "amount": 4
+        },
+        {
+          "item": "rope",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fabric",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 8,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Fibrecraft - Tier 6",
+        "npc": "Merchant"
+      },
+      "sources": [
+        {
+          "page": "Loom",
+          "revid": 2679
+        },
+        {
+          "page": "Fabric",
+          "revid": 2411
+        },
+        {
+          "page": "Rope",
+          "revid": 2450
+        },
+        {
+          "page": "Tree Bark",
+          "revid": 2410
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "loom--rope": {
+      "name": "Rope",
+      "building": "loom",
+      "inputs": [
+        {
+          "item": "leaves",
+          "amount": 2
+        },
+        {
+          "item": "tree-bark",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "rope",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Rope Making - Tier 4",
+        "npc": "Merchant"
+      },
+      "sources": [
+        {
+          "page": "Loom",
+          "revid": 2679
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        },
+        {
+          "page": "Rope",
+          "revid": 2450
+        },
+        {
+          "page": "Tree Bark",
+          "revid": 2410
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "loom--sponge": {
+      "name": "Sponge",
+      "building": "loom",
+      "inputs": [
+        {
+          "item": "tree-bark",
+          "amount": 5
+        },
+        {
+          "item": "fabric",
+          "amount": 10
+        }
+      ],
+      "outputs": [
+        {
+          "item": "sponge",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Sanitation - Tier 10",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Loom",
+          "revid": 2679
+        },
+        {
+          "page": "Fabric",
+          "revid": 2411
+        },
+        {
+          "page": "Sponge",
+          "revid": 2477
+        },
+        {
+          "page": "Tree Bark",
+          "revid": 2410
+        }
+      ],
+      "valueFrom": {
+        "duration": "Fabric"
+      },
+      "conflicts": {
+        "duration": [
+          {
+            "page": "Loom",
+            "revid": 2679,
+            "value": 824
+          },
+          {
+            "page": "Fabric",
+            "revid": 2411,
+            "value": 24
+          },
+          {
+            "page": "Sponge",
+            "revid": 2477,
+            "value": 24
+          },
+          {
+            "page": "Tree Bark",
+            "revid": 2410,
+            "value": 24
+          }
+        ]
+      },
+      "problems": []
+    },
+    "miasma-collector--miasma-vial": {
+      "name": "Miasma Vial",
+      "building": "miasma-collector",
+      "inputs": [
+        {
+          "item": "small-vial",
+          "amount": 2
+        },
+        {
+          "item": "miasma",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "miasma-vial",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Gas Capture - Tier 6",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Miasma Collector",
+          "revid": 2686
+        },
+        {
+          "page": "Miasma",
+          "revid": 2364
+        },
+        {
+          "page": "Miasma Vial",
+          "revid": 2366
+        },
+        {
+          "page": "Small Vial",
+          "revid": 2365
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ore-miner--copper-ore--copper-ore-harvesting": {
+      "name": "Copper Ore Harvesting",
+      "building": "ore-miner",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "copper-ore",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 10,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": {
+        "quest": "Leaves Harvesting - Tier 4",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Ore Miner",
+          "revid": 2685
+        },
+        {
+          "page": "Copper Ore",
+          "revid": 2398
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "ore-miner--copper-ore--overclocked-copper-ore-harvesting": {
+      "name": "Overclocked Copper Ore Harvesting",
+      "building": "ore-miner",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "copper-ore",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 4,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Harvester Overclocking - Tier 8",
+        "npc": "Scientist"
+      },
+      "sources": [
+        {
+          "page": "Ore Miner",
+          "revid": 2685
+        },
+        {
+          "page": "Copper Ore",
+          "revid": 2398
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--aether-seed--from-aether-apple": {
+      "name": "Extract Aether Apple",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "aether-apple",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-seed",
+          "amount": 40,
+          "odds": null
+        },
+        {
+          "item": "aether-segment",
+          "amount": 20,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Alchemy - 2 - Tier 9",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Aether Apple",
+          "revid": 2000
+        },
+        {
+          "page": "Aether Segment",
+          "revid": 1999
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--aether-seed--from-aether-segment": {
+      "name": "Extract Aether Segment",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "aether-segment",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-seed",
+          "amount": 30,
+          "odds": null
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Alchemy - 2 - Tier 9",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Aether Seed",
+          "revid": 2405
+        },
+        {
+          "page": "Aether Segment",
+          "revid": 1999
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--aether-seed--from-stellar-ice": {
+      "name": "Extract Aether Segment",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "stellar-ice",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aether-seed",
+          "amount": 30,
+          "odds": null
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botanical Alchemy - 2 - Tier 9",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--aetheric-clump": {
+      "name": "Extract Aether Flower",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "aether-flower",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "aetheric-clump",
+          "amount": 6,
+          "odds": null
+        },
+        {
+          "item": "aether-seed",
+          "amount": 20,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Aetheric Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Aether Flower",
+          "revid": 2352
+        },
+        {
+          "page": "Aether Seed",
+          "revid": 2405
+        },
+        {
+          "page": "Aetheric Clump",
+          "revid": 2357
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--copper-ore": {
+      "name": "Extract Copper Seed",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "copper-seed",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-ore",
+          "amount": 1,
+          "odds": null
+        },
+        {
+          "item": "coal",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 3 - Tier 9",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Coal",
+          "revid": 2302
+        },
+        {
+          "page": "Copper Ore",
+          "revid": 2398
+        },
+        {
+          "page": "Copper Seed",
+          "revid": 2403
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--copper-sap": {
+      "name": "Extract Copper Cuttings",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "copper-cutting",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-sap",
+          "amount": 20,
+          "odds": null
+        },
+        {
+          "item": "copper-seed",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 2 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Copper Cutting",
+          "revid": 2014
+        },
+        {
+          "page": "Copper Sap",
+          "revid": 2374
+        },
+        {
+          "page": "Copper Seed",
+          "revid": 2403
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--glowshroom": {
+      "name": "Extract Fireshroom Cluster",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "fireshroom-cluster",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "glowshroom",
+          "amount": 5,
+          "odds": null
+        },
+        {
+          "item": "lava-cap",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Microclimates - Tier 8",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Fireshroom Cluster",
+          "revid": 2731
+        },
+        {
+          "page": "Lava Cap",
+          "revid": 2728
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--limestone": {
+      "name": "Extract Coral Seed",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "coral-seed",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "limestone",
+          "amount": 3,
+          "odds": null
+        },
+        {
+          "item": "coral",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 2 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Coral",
+          "revid": 2343
+        },
+        {
+          "page": "Coral Seed",
+          "revid": 2402
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--stellar-seed": {
+      "name": "Extract Stellar Leaves",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "stellar-leaves",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stellar-seed",
+          "amount": 3,
+          "odds": null
+        },
+        {
+          "item": "stellar-ice",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Microclimates - Tier 8",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Stellar Ice",
+          "revid": 2483
+        },
+        {
+          "page": "Stellar Leaves",
+          "revid": 2730
+        },
+        {
+          "page": "Stellar Seed",
+          "revid": 2729
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "plant-extractor--stone": {
+      "name": "Extract Stellar Ice",
+      "building": "plant-extractor",
+      "inputs": [
+        {
+          "item": "stellar-ice",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone",
+          "amount": 2,
+          "odds": null
+        },
+        {
+          "item": "stellar-seed",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Microclimates - Tier 8",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Plant Extractor",
+          "revid": 2670
+        },
+        {
+          "page": "Stellar Seed",
+          "revid": 2729
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "sawbench--leaves": {
+      "name": "Leaf Knot Cutting",
+      "building": "sawbench",
+      "inputs": [
+        {
+          "item": "leaf-knot",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "leaves",
+          "amount": 10,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Sawbench",
+          "revid": 2664
+        },
+        {
+          "page": "Leaf Knot",
+          "revid": 2404
+        },
+        {
+          "page": "Leaves",
+          "revid": 2419
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "sawbench--sawn-timber": {
+      "name": "Sawn Timber",
+      "building": "sawbench",
+      "inputs": [
+        {
+          "item": "wooden-log",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "sawn-timber",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodcraft - 1 - Tier 1",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Sawbench",
+          "revid": 2664
+        },
+        {
+          "page": "Sawn Timber",
+          "revid": 2447
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "sawbench--stellar-ice": {
+      "name": "Frozen Log Cutting",
+      "building": "sawbench",
+      "inputs": [
+        {
+          "item": "frozen-log",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stellar-ice",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Sawbench",
+          "revid": 2664
+        },
+        {
+          "page": "Frozen Log",
+          "revid": 1934
+        },
+        {
+          "page": "Stellar Ice",
+          "revid": 2483
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "sawbench--tree-bark": {
+      "name": "Bark",
+      "building": "sawbench",
+      "inputs": [
+        {
+          "item": "wooden-log",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "tree-bark",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 8,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Bark Harvesting - Tier 3",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Sawbench",
+          "revid": 2664
+        },
+        {
+          "page": "Tree Bark",
+          "revid": 2410
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "sawbench--wooden-log": {
+      "name": "Leaf Knot Trimming",
+      "building": "sawbench",
+      "inputs": [
+        {
+          "item": "leaf-knot",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "wooden-log",
+          "amount": 6,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Sawbench",
+          "revid": 2664
+        },
+        {
+          "page": "Leaf Knot",
+          "revid": 2404
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "sawbench--wooden-panel": {
+      "name": "Wooden Panel",
+      "building": "sawbench",
+      "inputs": [
+        {
+          "item": "sawn-timber",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "wooden-panel",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 8,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodcraft - 2 - Tier 2",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Sawbench",
+          "revid": 2664
+        },
+        {
+          "page": "Sawn Timber",
+          "revid": 2447
+        },
+        {
+          "page": "Wooden Panel",
+          "revid": 2322
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workbench--arty-spark": {
+      "name": "Arty Spark",
+      "building": "spark-workbench",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 2
+        },
+        {
+          "item": "rope",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "arty-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark Creation - Tier 4",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workbench",
+          "revid": 2676
+        },
+        {
+          "page": "Arty Spark",
+          "revid": 2451
+        },
+        {
+          "page": "Rope",
+          "revid": 2450
+        },
+        {
+          "page": "Stumpy Spark",
+          "revid": 2457
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workbench--carry-spark": {
+      "name": "Carry Spark",
+      "building": "spark-workbench",
+      "inputs": [
+        {
+          "item": "crafty-spark",
+          "amount": 1
+        },
+        {
+          "item": "sawn-timber",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "carry-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodland Sparks R&D - Tier 3",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workbench",
+          "revid": 2676
+        },
+        {
+          "page": "Carry Spark",
+          "revid": 2455
+        },
+        {
+          "page": "Crafty Spark",
+          "revid": 2470
+        },
+        {
+          "page": "Carry Spark Shrine",
+          "revid": 962
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workbench--choppy-spark": {
+      "name": "Choppy Spark",
+      "building": "spark-workbench",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 3
+        },
+        {
+          "item": "wooden-blade",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "choppy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodland Sparks R&D - Tier 3",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workbench",
+          "revid": 2676
+        },
+        {
+          "page": "Choppy Spark",
+          "revid": 2466
+        },
+        {
+          "page": "Stumpy Spark",
+          "revid": 2457
+        },
+        {
+          "page": "Wooden Blade",
+          "revid": 2443
+        },
+        {
+          "page": "Choppy Spark Shrine",
+          "revid": 964
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workbench--crafty-spark": {
+      "name": "Crafty Spark",
+      "building": "spark-workbench",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 2
+        },
+        {
+          "item": "wooden-panel",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "crafty-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Crafting Crafties - Tier 2",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workbench",
+          "revid": 2676
+        },
+        {
+          "page": "Crafty Spark",
+          "revid": 2470
+        },
+        {
+          "page": "Stumpy Spark",
+          "revid": 2457
+        },
+        {
+          "page": "Crafty Spark Shrine",
+          "revid": 967
+        },
+        {
+          "page": "Wooden Panel",
+          "revid": 2322
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workbench--loamy-spark": {
+      "name": "Loamy Spark",
+      "building": "spark-workbench",
+      "inputs": [
+        {
+          "item": "aether-shard",
+          "amount": 5
+        },
+        {
+          "item": "fertiliser",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "loamy-spark",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodland Sparks R&D - Tier 3",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workbench",
+          "revid": 2676
+        },
+        {
+          "page": "Aether Shard",
+          "revid": 2440
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        },
+        {
+          "page": "Loamy Spark",
+          "revid": 2439
+        },
+        {
+          "page": "Loamy Spark Shrine",
+          "revid": 966
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workbench--slashy-spark": {
+      "name": "Slashy Spark",
+      "building": "spark-workbench",
+      "inputs": [
+        {
+          "item": "rocky-spark",
+          "amount": 2
+        },
+        {
+          "item": "choppy-spark",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "slashy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark R&D - 3 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Choppy Spark",
+          "revid": 2466
+        },
+        {
+          "page": "Rocky Spark",
+          "revid": 2465
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workbench--stumpy-spark": {
+      "name": "Stumpy Spark",
+      "building": "spark-workbench",
+      "inputs": [
+        {
+          "item": "aether-shard",
+          "amount": 1
+        },
+        {
+          "item": "wooden-log",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodland Spark Creation - Tier 1",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workbench",
+          "revid": 2676
+        },
+        {
+          "page": "Stumpy Spark Shrine",
+          "revid": 965
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workshop--burning-spark": {
+      "name": "Burning Spark",
+      "building": "spark-workshop",
+      "inputs": [
+        {
+          "item": "lava-cap",
+          "amount": 5
+        },
+        {
+          "item": "copper-ingot",
+          "amount": 8
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "burning-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metal Spark R&D - 2 - Tier 9",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workshop",
+          "revid": 2677
+        },
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Burning Spark",
+          "revid": 2015
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        },
+        {
+          "page": "Lava Cap",
+          "revid": 2728
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workshop--drilly-spark": {
+      "name": "Drilly Spark",
+      "building": "spark-workshop",
+      "inputs": [
+        {
+          "item": "slashy-spark",
+          "amount": 6
+        },
+        {
+          "item": "drill-bit",
+          "amount": 3
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "drilly-spark",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metal Spark R&D - 1 - Tier 8",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workshop",
+          "revid": 2677
+        },
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Drill Bit",
+          "revid": 2474
+        },
+        {
+          "page": "Drilly Spark",
+          "revid": 1977
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workshop--freezing-spark": {
+      "name": "Freezing Spark",
+      "building": "spark-workshop",
+      "inputs": [
+        {
+          "item": "stellar-ice",
+          "amount": 10
+        },
+        {
+          "item": "copper-ingot",
+          "amount": 8
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "freezing-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metal Spark R&D - 2 - Tier 9",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workshop",
+          "revid": 2677
+        },
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        },
+        {
+          "page": "Freezing Spark",
+          "revid": 2569
+        },
+        {
+          "page": "Stellar Ice",
+          "revid": 2483
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workshop--handy-spark": {
+      "name": "Handy Spark",
+      "building": "spark-workshop",
+      "inputs": [
+        {
+          "item": "crafty-spark",
+          "amount": 5
+        },
+        {
+          "item": "copper-ingot",
+          "amount": 4
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "handy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metal Spark R&D - 1 - Tier 8",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workshop",
+          "revid": 2677
+        },
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        },
+        {
+          "page": "Crafty Spark",
+          "revid": 2470
+        },
+        {
+          "page": "Handy Spark",
+          "revid": 1978
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workshop--scrubby-spark": {
+      "name": "Scrubby Spark",
+      "building": "spark-workshop",
+      "inputs": [
+        {
+          "item": "sponge",
+          "amount": 2
+        },
+        {
+          "item": "copper-ingot",
+          "amount": 8
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "scrubby-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 128,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metal Spark R&D - 3 - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workshop",
+          "revid": 2677
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--boomy-spark": {
+      "name": "Boomy Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "rocky-spark",
+          "amount": 3
+        },
+        {
+          "item": "explosives",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "boomy-spark",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark R&D - 2 - Tier 6",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workstation",
+          "revid": 2675
+        },
+        {
+          "page": "Boomy Spark",
+          "revid": 2463
+        },
+        {
+          "page": "Explosives",
+          "revid": 1916
+        },
+        {
+          "page": "Rocky Spark",
+          "revid": 2465
+        },
+        {
+          "page": "Boomy Spark Shrine",
+          "revid": 972
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--crashy-spark": {
+      "name": "Crashy Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "boomy-spark",
+          "amount": 2
+        },
+        {
+          "item": "stone-spike",
+          "amount": 7
+        }
+      ],
+      "outputs": [
+        {
+          "item": "crashy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark R&D - 3 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workstation",
+          "revid": 2675
+        },
+        {
+          "page": "Boomy Spark",
+          "revid": 2463
+        },
+        {
+          "page": "Crashy Spark",
+          "revid": 2469
+        },
+        {
+          "page": "Stone Spike",
+          "revid": 2346
+        },
+        {
+          "page": "Crashy Spark Shrine",
+          "revid": 974
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--drilly-spark": {
+      "name": "Drilly Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "slashy-spark",
+          "amount": 6
+        },
+        {
+          "item": "drill-bit",
+          "amount": 3
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "drilly-spark",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 5,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metal Spark R&D - 1 - Tier 8",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Slashy Spark",
+          "revid": 2490
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--hauling-spark": {
+      "name": "Hauling Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "carry-spark",
+          "amount": 2
+        },
+        {
+          "item": "stone-wheel",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "hauling-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark R&D - 1 - Tier 5",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workstation",
+          "revid": 2675
+        },
+        {
+          "page": "Carry Spark",
+          "revid": 2455
+        },
+        {
+          "page": "Hauling Spark",
+          "revid": 2456
+        },
+        {
+          "page": "Stone Wheel",
+          "revid": 1865
+        },
+        {
+          "page": "Hauling Spark Shrine",
+          "revid": 970
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--puffy-spark": {
+      "name": "Puffy Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "rocky-spark",
+          "amount": 1
+        },
+        {
+          "item": "fabric",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "puffy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark R&D - 2 - Tier 6",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workstation",
+          "revid": 2675
+        },
+        {
+          "page": "Fabric",
+          "revid": 2411
+        },
+        {
+          "page": "Puffy Spark",
+          "revid": 2462
+        },
+        {
+          "page": "Rocky Spark",
+          "revid": 2465
+        },
+        {
+          "page": "Puffy Spark Shrine",
+          "revid": 973
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--rocky-spark": {
+      "name": "Rocky Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 2
+        },
+        {
+          "item": "stone",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "rocky-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark Creation - Tier 4",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workstation",
+          "revid": 2675
+        },
+        {
+          "page": "Rocky Spark",
+          "revid": 2465
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        },
+        {
+          "page": "Stumpy Spark",
+          "revid": 2457
+        },
+        {
+          "page": "Rocky Spark Shrine",
+          "revid": 969
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--scouty-spark": {
+      "name": "Scouty Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1
+        },
+        {
+          "item": "dowsing-stone",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "scouty-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark R&D - 1 - Tier 5",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workstation",
+          "revid": 2675
+        },
+        {
+          "page": "Dowsing Stone",
+          "revid": 1864
+        },
+        {
+          "page": "Scouty Spark",
+          "revid": 2458
+        },
+        {
+          "page": "Stumpy Spark",
+          "revid": 2457
+        },
+        {
+          "page": "Scouty Spark Shrine",
+          "revid": 971
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--scrubby-spark": {
+      "name": "Scrubby Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "sponge",
+          "amount": 2
+        },
+        {
+          "item": "copper-ingot",
+          "amount": 4
+        },
+        {
+          "item": "aether-crystal",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "scrubby-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 128,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Metal Spark R&D - 3 - Tier 10",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aether Crystal",
+          "revid": 2565
+        },
+        {
+          "page": "Copper Ingot",
+          "revid": 2484
+        },
+        {
+          "page": "Scrubby Spark",
+          "revid": 2574
+        },
+        {
+          "page": "Sponge",
+          "revid": 2477
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--slashy-spark": {
+      "name": "Slashy Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "rocky-spark",
+          "amount": 2
+        },
+        {
+          "item": "choppy-spark",
+          "amount": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "slashy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 64,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Mountain Spark R&D - 3 - Tier 7",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Spark Workstation",
+          "revid": 2675
+        },
+        {
+          "page": "Slashy Spark",
+          "revid": 2490
+        },
+        {
+          "page": "Slashy Spark Shrine",
+          "revid": 975
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "spark-workstation--stumpy-spark": {
+      "name": "Stumpy Spark",
+      "building": "spark-workstation",
+      "inputs": [
+        {
+          "item": "aether-shard",
+          "amount": 1
+        },
+        {
+          "item": "wooden-log",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": -3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodland Spark Creation - Tier 1",
+        "npc": "Divine Researcher"
+      },
+      "sources": [
+        {
+          "page": "Aether Shard",
+          "revid": 2440
+        },
+        {
+          "page": "Stumpy Spark",
+          "revid": 2457
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stone-workshop--dowsing-stone": {
+      "name": "Dowsing Stone",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "quartz",
+          "amount": 1
+        },
+        {
+          "item": "rope",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "dowsing-stone",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 1 - Tier 5",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Dowsing Stone",
+          "revid": 1864
+        },
+        {
+          "page": "Quartz",
+          "revid": 2418
+        },
+        {
+          "page": "Rope",
+          "revid": 2450
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stone-workshop--green-paint": {
+      "name": "Green Paint",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "blue-paint",
+          "amount": 1
+        },
+        {
+          "item": "yellow-paint",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "green-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 1,
+      "insulated": false,
+      "unlock": {
+        "quest": "Complex Pigments - Tier 5",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Blue Paint",
+          "revid": 2432
+        },
+        {
+          "page": "Green Paint",
+          "revid": 2420
+        },
+        {
+          "page": "Yellow Paint",
+          "revid": 2429
+        }
+      ],
+      "valueFrom": {
+        "temperature": "Blue Paint"
+      },
+      "conflicts": {
+        "temperature": [
+          {
+            "page": "Stone Workshop",
+            "revid": 2680,
+            "value": 3
+          },
+          {
+            "page": "Blue Paint",
+            "revid": 2432,
+            "value": 1
+          },
+          {
+            "page": "Green Paint",
+            "revid": 2420,
+            "value": 1
+          },
+          {
+            "page": "Yellow Paint",
+            "revid": 2429,
+            "value": 1
+          }
+        ]
+      },
+      "problems": []
+    },
+    "stone-workshop--orange-paint": {
+      "name": "Orange Paint",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "red-paint",
+          "amount": 1
+        },
+        {
+          "item": "yellow-paint",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "orange-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 1,
+      "insulated": false,
+      "unlock": {
+        "quest": "Complex Pigments - Tier 5",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Orange Paint",
+          "revid": 2430
+        },
+        {
+          "page": "Red Paint",
+          "revid": 2431
+        },
+        {
+          "page": "Yellow Paint",
+          "revid": 2429
+        }
+      ],
+      "valueFrom": {
+        "temperature": "Orange Paint"
+      },
+      "conflicts": {
+        "temperature": [
+          {
+            "page": "Stone Workshop",
+            "revid": 2680,
+            "value": 3
+          },
+          {
+            "page": "Orange Paint",
+            "revid": 2430,
+            "value": 1
+          },
+          {
+            "page": "Red Paint",
+            "revid": 2431,
+            "value": 1
+          },
+          {
+            "page": "Yellow Paint",
+            "revid": 2429,
+            "value": 1
+          }
+        ]
+      },
+      "problems": []
+    },
+    "stone-workshop--path-tile": {
+      "name": "Path Tile",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "pebble",
+          "amount": 10
+        },
+        {
+          "item": "limestone",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "path-tile",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 1 - Tier 5",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        },
+        {
+          "page": "Path Tile",
+          "revid": 1867
+        },
+        {
+          "page": "Pebble",
+          "revid": 2424
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stone-workshop--purple-paint": {
+      "name": "Purple Paint",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "red-paint",
+          "amount": 1
+        },
+        {
+          "item": "blue-paint",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "purple-paint",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 1,
+      "insulated": false,
+      "unlock": {
+        "quest": "Complex Pigments - Tier 5",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Blue Paint",
+          "revid": 2432
+        },
+        {
+          "page": "Purple Paint",
+          "revid": 2433
+        },
+        {
+          "page": "Red Paint",
+          "revid": 2431
+        }
+      ],
+      "valueFrom": {
+        "temperature": "Blue Paint"
+      },
+      "conflicts": {
+        "temperature": [
+          {
+            "page": "Stone Workshop",
+            "revid": 2680,
+            "value": 3
+          },
+          {
+            "page": "Blue Paint",
+            "revid": 2432,
+            "value": 1
+          },
+          {
+            "page": "Purple Paint",
+            "revid": 2433,
+            "value": 1
+          },
+          {
+            "page": "Red Paint",
+            "revid": 2431,
+            "value": 1
+          }
+        ]
+      },
+      "problems": []
+    },
+    "stone-workshop--stone-block": {
+      "name": "Stone Block",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "limestone",
+          "amount": 10
+        },
+        {
+          "item": "stone-plate",
+          "amount": 10
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone-block",
+          "amount": 5,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 2 - Tier 7",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        },
+        {
+          "page": "Stone Block",
+          "revid": 2037
+        },
+        {
+          "page": "Stone Plate",
+          "revid": 2407
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stone-workshop--stone-spike": {
+      "name": "Stone Spike",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "wooden-blade",
+          "amount": 1
+        },
+        {
+          "item": "stone-plate",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone-spike",
+          "amount": 4,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 2 - Tier 7",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Stone Plate",
+          "revid": 2407
+        },
+        {
+          "page": "Stone Spike",
+          "revid": 2346
+        },
+        {
+          "page": "Wooden Blade",
+          "revid": 2443
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stone-workshop--stone-wheel": {
+      "name": "Stone Wheel",
+      "building": "stone-workshop",
+      "inputs": [
+        {
+          "item": "path-tile",
+          "amount": 4
+        },
+        {
+          "item": "stone-plate",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone-wheel",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 1 - Tier 5",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stone Workshop",
+          "revid": 2680
+        },
+        {
+          "page": "Path Tile",
+          "revid": 1867
+        },
+        {
+          "page": "Stone Plate",
+          "revid": 2407
+        },
+        {
+          "page": "Stone Wheel",
+          "revid": 1865
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--coral": {
+      "name": "Coral",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "fluted-coral",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "coral",
+          "amount": 8,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 2 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        },
+        {
+          "page": "Coral",
+          "revid": 2343
+        },
+        {
+          "page": "Fluted Coral",
+          "revid": 1943
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--limestone": {
+      "name": "Limestone",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "coral",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "limestone",
+          "amount": 3,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Coral Processing - Tier 4",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        },
+        {
+          "page": "Coral",
+          "revid": 2343
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--pebble": {
+      "name": "Pebble",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "stone",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "pebble",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stone Harvesting & Cutting - Tier 4",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        },
+        {
+          "page": "Pebble",
+          "revid": 2424
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--stellar-ice": {
+      "name": "Frozen Stone Cutting",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "frozen-stone",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stellar-ice",
+          "amount": 6,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        },
+        {
+          "page": "Frozen Stone",
+          "revid": 2385
+        },
+        {
+          "page": "Stellar Ice",
+          "revid": 2483
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--stone--from-limestone": {
+      "name": "Stone",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "limestone",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 8,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Limestone Harvesting - Tier 5",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--stone--from-stone-block": {
+      "name": "Stone Block Breakdown",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "stone-block",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone",
+          "amount": 8,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 3 - Tier 10",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        },
+        {
+          "page": "Stone Block",
+          "revid": 2037
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--stone-plate": {
+      "name": "Stone Plate",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "stone",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone-plate",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stone Harvesting & Cutting - Tier 4",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        },
+        {
+          "page": "Stone",
+          "revid": 2452
+        },
+        {
+          "page": "Stone Plate",
+          "revid": 2407
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--stone-spike--from-frozen-stone": {
+      "name": "Stone Block Cutting",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "frozen-stone",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone-spike",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 3 - Tier 10",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stonecutter",
+          "revid": 2669
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "stonecutter--stone-spike--from-stone-block": {
+      "name": "Stone Block Cutting",
+      "building": "stonecutter",
+      "inputs": [
+        {
+          "item": "stone-block",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone-spike",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 16,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Stonecraft - 3 - Tier 10",
+        "npc": "Mason Sisters"
+      },
+      "sources": [
+        {
+          "page": "Stone Block",
+          "revid": 2037
+        },
+        {
+          "page": "Stone Spike",
+          "revid": 2346
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "tailors-tent--stumpy-spark--from-hunter-hat-stumpy-spark": {
+      "name": "Hatted Spark",
+      "building": "tailors-tent",
+      "inputs": [
+        {
+          "item": "hunter-hat",
+          "amount": 1
+        },
+        {
+          "item": "stumpy-spark",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2.5,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": null,
+      "sources": [
+        {
+          "page": "Tailor's Tent",
+          "revid": 2747
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "tailors-tent--stumpy-spark--from-stumpy-spark--6b62a6": {
+      "name": "Hat and Spark",
+      "building": "tailors-tent",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1,
+          "odds": null
+        },
+        {
+          "item": "hunter-hat",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2.5,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": null,
+      "sources": [
+        {
+          "page": "Tailor's Tent",
+          "revid": 2747
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "tailors-tent--stumpy-spark--from-stumpy-spark--7fcea5": {
+      "name": "Hat and Spark",
+      "building": "tailors-tent",
+      "inputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1,
+          "odds": null
+        },
+        {
+          "item": "top-hat",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2.5,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": null,
+      "sources": [
+        {
+          "page": "Tailor's Tent",
+          "revid": 2747
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "tailors-tent--stumpy-spark--from-stumpy-spark-top-hat": {
+      "name": "Hatted Spark",
+      "building": "tailors-tent",
+      "inputs": [
+        {
+          "item": "top-hat",
+          "amount": 1
+        },
+        {
+          "item": "stumpy-spark",
+          "amount": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stumpy-spark",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 2.5,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": null,
+      "insulated": true,
+      "unlock": null,
+      "sources": [
+        {
+          "page": "Tailor's Tent",
+          "revid": 2747
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "wood-workshop--explosives": {
+      "name": "Explosives",
+      "building": "wood-workshop",
+      "inputs": [
+        {
+          "item": "fertiliser",
+          "amount": 2
+        },
+        {
+          "item": "limestone",
+          "amount": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "explosives",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Explosives - Tier 6",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Wood Workshop",
+          "revid": 2678
+        },
+        {
+          "page": "Explosives",
+          "revid": 1916
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        },
+        {
+          "page": "Limestone",
+          "revid": 2426
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "wood-workshop--fertiliser": {
+      "name": "Fertiliser Enrichment",
+      "building": "wood-workshop",
+      "inputs": [
+        {
+          "item": "fertiliser",
+          "amount": 1
+        },
+        {
+          "item": "stellar-ice",
+          "amount": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fertiliser",
+          "amount": 4,
+          "odds": null
+        }
+      ],
+      "duration": 24,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Botany - 1 - Tier 7",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Wood Workshop",
+          "revid": 2678
+        },
+        {
+          "page": "Fertiliser",
+          "revid": 2441
+        },
+        {
+          "page": "Stellar Ice",
+          "revid": 2483
+        }
+      ],
+      "valueFrom": {
+        "outputs.fertiliser.amount": "Fertiliser"
+      },
+      "conflicts": {
+        "outputs.fertiliser.amount": [
+          {
+            "page": "Wood Workshop",
+            "revid": 2678,
+            "value": 5
+          },
+          {
+            "page": "Fertiliser",
+            "revid": 2441,
+            "value": 4
+          },
+          {
+            "page": "Stellar Ice",
+            "revid": 2483,
+            "value": 4
+          }
+        ]
+      },
+      "problems": []
+    },
+    "wood-workshop--ladder": {
+      "name": "Ladder",
+      "building": "wood-workshop",
+      "inputs": [
+        {
+          "item": "wooden-log",
+          "amount": 4
+        },
+        {
+          "item": "sawn-timber",
+          "amount": 10
+        }
+      ],
+      "outputs": [
+        {
+          "item": "ladder",
+          "amount": 2,
+          "odds": null
+        }
+      ],
+      "duration": 32,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Vertical Logistics - 1 - Tier 4",
+        "npc": "Quartermaster"
+      },
+      "sources": [
+        {
+          "page": "Wood Workshop",
+          "revid": 2678
+        },
+        {
+          "page": "Ladder",
+          "revid": 1801
+        },
+        {
+          "page": "Sawn Timber",
+          "revid": 2447
+        },
+        {
+          "page": "Wooden Log",
+          "revid": 2583
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    },
+    "wood-workshop--wooden-blade": {
+      "name": "Wooden Blade",
+      "building": "wood-workshop",
+      "inputs": [
+        {
+          "item": "sawn-timber",
+          "amount": 1
+        },
+        {
+          "item": "wooden-panel",
+          "amount": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "wooden-blade",
+          "amount": 1,
+          "odds": null
+        }
+      ],
+      "duration": 48,
+      "usesFuel": null,
+      "randomised": null,
+      "cycles": null,
+      "optimalTemperature": 3,
+      "insulated": false,
+      "unlock": {
+        "quest": "Woodcraft - 3 - Tier 3",
+        "npc": "Woodsman"
+      },
+      "sources": [
+        {
+          "page": "Wood Workshop",
+          "revid": 2678
+        },
+        {
+          "page": "Sawn Timber",
+          "revid": 2447
+        },
+        {
+          "page": "Wooden Blade",
+          "revid": 2443
+        },
+        {
+          "page": "Wooden Panel",
+          "revid": 2322
+        }
+      ],
+      "valueFrom": {},
+      "conflicts": {},
+      "problems": []
+    }
+  }
+}

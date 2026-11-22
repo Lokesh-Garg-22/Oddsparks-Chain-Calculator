@@ -13,7 +13,14 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 1 (repo setup): done, awaiting the owner's review before commit.** Added:
+- **Step 2 (wiki extractor): done, awaiting the owner's review before commit.**
+  - `npm run extract` (live) and `-- --offline` (from the cached snapshot)
+  - first data: 154 recipes, 28 buildings, 98 items, data version `wiki-2026-11-22-aedf0458`
+  - 12 recipes where pages disagree, 0 with missing values
+  - the report is in `site/data/extraction-report.md`
+  - 24 tests pass
+  - reviewed with `security-review` (no findings; hardening applied), `code-review` (none) and `simplify` (data-shape and ID-stability fixes)
+- **Step 1 (repo setup): committed** (`1ec6d54`). Added:
   - README, CONTRIBUTING, `site/` skeleton with a placeholder page and design tokens (light + dark)
   - data licence and icon credits
   - `package.json` (scripts `serve` and `test` only, no dependencies) and a zero-dependency dev server (`tools/serve.mjs`)
@@ -32,7 +39,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 1 → commit → **step 2: wiki extractor** (`tools/extract-wiki.mjs`, using the `update-game-data` and `security-review` skills). See [plan.md](plan.md#7-build-steps).
+Owner reviews step 2 → commit → **step 3: icon download** (`tools/download-icons.mjs` + `site/icons/CREDITS.md` with each file's licence). See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

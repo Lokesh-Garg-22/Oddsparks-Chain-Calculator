@@ -60,6 +60,9 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 - **Each tab's ··· menu:** Open, Rename, Duplicate, Move to…, Export to Excel, Delete.
 - **Each folder's ··· menu:** New subfolder, Rename, Move to…, Export folder to Excel, Delete.
 - **Saved with older data:** if `dataVersion` differs and a recipe or item ID no longer exists, the tab opens with a banner naming what's missing and offering a replacement. It's never silently dropped.
+  - `renamedIds` in overrides maps old IDs to new ones automatically.
+  - Recipe IDs depend only on recipe content, so reordering wiki pages never changes them.
+  - Adding a recipe that collides with an existing one can lengthen that recipe's ID (e.g. `furnace--big-vial` → `furnace--big-vial--from-quartz`). That shows up as a missing ID and is handled the same way.
 - **Storage unavailable** (private browsing, blocked, quota full): every access is wrapped in try/catch. The calculator still works, saving is disabled with a message, and back up still works.
 - **Back up / Restore:** download or upload the library as `.json`. On restore, choose to merge (new IDs where they clash) or replace.
 - Size: about 1 KB per tab, against a roughly 5 MB browser limit.

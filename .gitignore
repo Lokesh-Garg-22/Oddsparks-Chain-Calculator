@@ -6,6 +6,9 @@ __pycache__/
 # Node (no dependencies expected, but just in case)
 node_modules/
 
+# Raw wiki snapshot (re-creatable with npm run extract)
+tools/.cache/
+
 # Test and skill-eval scratch output
 test-results/
 screenshots/

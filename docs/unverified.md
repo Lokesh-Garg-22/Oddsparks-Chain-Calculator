@@ -12,10 +12,11 @@ The site shows a warning badge on any value marked open here. When a value is co
 | U6 | Random outputs with no odds (Geode Breaker) | Listed amounts are treated as averages | Game files, or count many crafts in-game |
 | U7 | Fuel burn rates, and which items count as fuel | Shown as a note only | Game files |
 | U8 | Temperature effect | ×1 everywhere (optimal) | Not needed for now |
-| U9 | Overclocked harvester recipes: same `duration`, but the page text says "+15/min" | Treated the same as the normal recipe | In-game |
+| U9 | Overclocked harvester recipes. The Logger page says 2 s plus "150% at −3°"; the Wooden Log page lists "Overclocked Wood Harvesting" at 1.333 s (= 2 ÷ 1.5). The item page probably has the bonus built in | Both kept as separate recipes and flagged as possible duplicates. The building page's 2 s is the base | In-game: an overclocked Logger at −3° |
 | U10 | Non-standard buildings (Aetheric Converter Feeder, Ancient Generator, Ancient Greenhouse, Ancient Printer, Tailor's Tent, 2 Shrines) | Included, never chosen as default recipe | Owner's knowledge of the game |
 | U11 | Ingredients that nothing makes (Corrupted Aether, Corrupted Spark Token, Frozen Log, Frozen Stone, Miasma) | Treated as raw resources | Extraction report |
-| U12 | Recipes found on only one page, and conflicts (e.g. Copper Ore Smelting fuel) | Listed in each extraction report | Review the report |
+| U12 | **12 recipes where pages disagree** (2026-11-22). The value used is shown first, with the other value(s) after the slash: Sponge 24 s / 824 s (Loom page typo?) · Copper Sap Smelting 24 s / 64 s · Aether Refinement 4 / 2 Raw Aether · Spark Token Cleansing 5 / 1 Grey Aether · Raw Distillation 6 / 4 Aether Shard · Aether Seed Crystallisation 10 / 3 Aether Crystal · Fertiliser Enrichment 4 / 5 · temperature on 3 paints, Fireshroom Colony and Overclocked Quartz. Also 21 recipes found on only one page | Most pages win; a tie goes to the building page. Shown with a "sources disagree" badge | In-game, one recipe at a time; record the answer in overrides |
+| U14 | **Same name, different ingredients** (likely copy-paste errors on the wiki). Extract Aether Segment: 1 Aether Segment vs **4 Stellar Ice** (Plant Extractor page) · Stone Block Cutting: Stone Block vs **Frozen Stone** · Aether Pellet Fusion vs Aether Clump Fusion. The Hat recipes are real variants, one per hat type | All kept, flagged in the report | In-game; then `mergeRecipes` or a correction in overrides |
 | U13 | Wiki names vs in-game names | `overrides.json` in-game names; known so far: Wooden Log → **Timber** | Owner's in-game check, or game files |
 
 ## Confirmed

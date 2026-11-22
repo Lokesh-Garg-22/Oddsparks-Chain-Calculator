@@ -4,6 +4,25 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 2 (wiki extractor) decisions:**
+  - **Merge rules:**
+    - only values a page states are compared
+    - most pages win, a tie goes to the building's own page, fuel any-yes
+    - two blocks on one page are always two recipes
+    - name variants of up to 3 letters merge if the numbers agree
+
+    Reason: the first version let the building page always win, which would have picked the Loom page's "824 s" typo for Sponge over three pages saying 24 s.
+  - **Data stores facts, not a status:**
+    - `sources` with revisions, `valueFrom`, `conflicts` by field path, `problems[]`
+    - flags nobody states stay `null`
+    - temperature split into `optimalTemperature` (a number) and `insulated`
+
+    Reason: overrides (step 4) need to address individual fields, and the app works out a status after applying them. Recorded after the `simplify` review.
+  - **Recipe IDs depend only on content** (building + main product, plus inputs, name or hash only when needed). Reason: saved tabs store IDs. Order-based `-2` suffixes could have silently swapped recipes when someone reordered a wiki page.
+  - **`dataVersion` includes a content hash.** The hard-coded game version is dropped.
+  - **New override key `mergeRecipes`** for "these two extracted recipes are one". `renamedIds` stays for moving saved-tab IDs.
+  - **The extractor keeps a raw wikitext snapshot** in `tools/.cache/` (git-ignored), so `npm run extract -- --offline` rebuilds without touching the wiki. A live run makes about 6 requests, one at a time, with a 400 ms pause between them.
+  - **Security review:** no findings. Hardening applied anyway: wiki text is escaped in the report, and maps keyed by wiki text have no inherited keys.
 - **Step 1 choices:**
   - The local dev server is our own ~70-line Node script (`tools/serve.mjs`), not `npx serve` or Python, keeping the zero-dependency rule. It serves only `site/`, refuses paths that escape it, and doesn't cache.
   - `package.json` only lists scripts that exist (`serve`, `test`); `extract`, `validate` and `icons` are added in the steps that create them.

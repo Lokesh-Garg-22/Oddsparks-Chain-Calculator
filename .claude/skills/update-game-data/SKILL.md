@@ -31,7 +31,11 @@ If `tools/extract-wiki.mjs`, `tools/validate-data.mjs` or `site/data/` don't exi
    - **conflicts** (building page vs item page disagree)
    - **recipes found on only one page**
    - **likely renames**
+   - **same name, different ingredients** (usually a copy-paste error on one wiki page)
+   - **possible duplicates** (two extracted recipes that are really one: use `mergeRecipes`, not `renamedIds`)
    - **unknown fields** (the wiki template may have gained a field the extractor doesn't understand)
+
+   Each recipe in `oddsparks.json` carries its own `sources`, `valueFrom`, `conflicts` and `problems`. Use those field paths (e.g. `inputs.raw-aether.amount`) when writing corrections. `npm run extract -- --offline` rebuilds from the cached snapshot, so you can iterate on the extractor without touching the wiki.
 5. Handle anything that affects saved tabs. Saved tabs store recipe and item IDs (see `docs/storage-and-export.md`). If an ID was removed or renamed:
    - add a mapping in `overrides.json` (`renamedIds`) when the replacement is clear
    - otherwise list it, so the app's "saved with older data" banner can offer a replacement

@@ -55,28 +55,50 @@ Status: **awaiting "execute the plan"**. Details referenced here live in the oth
 
 ## 4. Data schema
 
-Generated file `site/data/oddsparks.json`: `meta` (game version, extraction date, source, licence), `items`, `buildings`, `recipes`. Each recipe has:
-- `building`, `duration`, `inputs[]`, `outputs[]` (with optional `odds`)
-- `usesFuel`, `randomised`, `cycles`, `optimalTemperature`, `unlock`
-- `source` (page, revision ID, other page it appears on, `match` or `conflict`) and `status` (`verified`, `unverified` or `conflict`)
+Generated file `site/data/oddsparks.json` (built in step 2): `meta` (`dataVersion`, extraction time, source, licence, counts), `buildings`, `items`, `recipes`.
 
-Hand-edited file `site/data/overrides.json`:
+Each recipe stores **facts only**. The app works out a status from them after applying overrides:
+- `name`, `building`
+- `inputs[]` and `outputs[]` (`item`, `amount`, plus `odds` on outputs)
+- `duration`
+- `usesFuel`, `randomised`, `cycles`
+- `optimalTemperature` (a number), `insulated` (true/false)
+- `unlock`
+- `sources[]`: `{ page, revid }`, with the building's own page first
+- `valueFrom`: field path → page, for values that didn't come from the first source
+- `conflicts`: field path → `[{ page, revid, value }]`, whenever pages disagree
+- `problems[]`: values no page states
+
+**Null means "no page states it"**, never "no".
+
+**Field paths:** `duration`, `usesFuel`, `randomised`, `cycles`, `temperature`, `inputs.<item>.amount`, `outputs.<item>.amount`, `outputs.<item>.odds`. Overrides use the same paths.
+
+**Recipe IDs come from content, never from page order:**
+- `building--main-product`, with just enough added to tell recipes apart: inputs (`--from-copper-ore`), then name, then a short hash of the numbers.
+- Adding a colliding recipe can lengthen existing IDs. That shows up as a missing ID, which saved tabs and `renamedIds` handle.
+
+**`dataVersion`** is `wiki-<date>-<content hash>`. The same content always gives the same version.
+
+Hand-edited file `site/data/overrides.json` (step 4):
 - `displayName` (in-game names, e.g. `wooden-log` → "Timber") and `aliases`
 - `defaultRecipe`, `raw` items, the `sparkCrews` table
-- corrections (each with a reason and source)
+- corrections by field path (each with a reason and source)
 - `confirmed` flags
+- `mergeRecipes` (two extracted recipes that are really one)
+- `renamedIds` (old saved-tab ID → new ID)
 
-Example (real wiki values):
+Example (real, from the 2026-11-22 extraction):
 
 ```jsonc
 "sawbench--sawn-timber": {
-  "name": "Sawn Timber", "building": "sawbench", "duration": 16,
+  "name": "Sawn Timber", "building": "sawbench",
   "inputs":  [ { "item": "wooden-log",  "amount": 2 } ],
   "outputs": [ { "item": "sawn-timber", "amount": 1, "odds": null } ],
-  "usesFuel": false, "randomised": false, "cycles": null, "optimalTemperature": -3,
+  "duration": 16, "usesFuel": null, "randomised": null, "cycles": null,
+  "optimalTemperature": -3, "insulated": false,
   "unlock": { "quest": "Woodcraft - 1 - Tier 1", "npc": "Woodsman" },
-  "source": { "page": "Sawbench", "revid": "<at extraction>", "alsoOn": ["Sawn Timber"], "crossCheck": "match" },
-  "status": "verified"
+  "sources": [ { "page": "Sawbench", "revid": 2664 }, { "page": "Sawn Timber", "revid": 2447 }, { "page": "Wooden Log", "revid": 2583 } ],
+  "valueFrom": {}, "conflicts": {}, "problems": []
 }
 ```
 

@@ -22,7 +22,45 @@
 - Buildings that make things but aren't on the Buildings page: Aetheric Converter Feeder, Ancient Generator, Ancient Greenhouse, Ancient Printer, Tailor's Tent, Aetheric Distiller Shrine, Crafty Spark Shrine.
 - Ingredients that nothing makes: Corrupted Aether, Corrupted Spark Token, Frozen Log, Frozen Stone, Miasma, plus `limestone` (a case issue).
 
-### Extraction (`tools/extract-wiki.mjs`, build step 2)
+### First extraction (2026-11-22, data version `wiki-2026-11-22-aedf0458`)
+
+| | Count |
+|---|---|
+| Pages with recipes | 131 |
+| Recipe blocks | 471 |
+| Recipes after merging copies | 154 |
+| Recipes where pages disagree | 12 |
+| Recipes with a value no page states | 0 |
+| Recipes found on only one page | 21 |
+| Buildings | 28 |
+| Items | 98 |
+
+**Buildings by group:**
+- Refiners: 8
+- Assemblers: 7
+- Harvesters: 4
+- Botanicals: 2
+- Shrines: 2
+- Other: 5 (not on the Buildings page)
+
+The full list of issues is in `site/data/extraction-report.md`. The ones that need an in-game check are in [unverified.md](unverified.md) (U12, U14).
+
+### How the extractor works (`tools/extract-wiki.mjs`, built in step 2)
+
+- **Merging copies:** a recipe usually appears on several pages; the copies are merged.
+  - Only values a page actually states are compared.
+  - Where pages disagree, the value most pages state wins, a tie goes to the building's own page, and for fuel any "yes" wins.
+  - Every disagreement is kept in the recipe's `conflicts`.
+- **Separate recipes:**
+  - Two blocks on one page are always two recipes.
+  - Names differing by only 1–3 letters, with agreeing numbers, are merged as spelling variants.
+- **Formats read:**
+  - "8 (75%)" in an amount field is read as amount 8, odds 75%.
+  - The Shrine pages' old field style (`first ingredient`, `seccond ingredient`) and `{{IconNPC|…}}` are understood.
+- **Name matching:** names are matched to page titles the way the wiki does it, and also ignoring case for names with no page (e.g. "Big vial" → "Big Vial"). Every such change is reported.
+- **Wiki text in the report is escaped.** Maps keyed by wiki text have no inherited keys.
+
+The original extraction plan:
 
 1. Ask the API which pages embed `Template:Recipe`, then download their wikitext in batches of 50, using a descriptive user agent with no personal details.
 2. Parse every `{{Recipe}}` and `{{Infobox building}}` block and normalise field names.
