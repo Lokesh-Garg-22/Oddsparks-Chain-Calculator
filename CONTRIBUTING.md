@@ -22,7 +22,10 @@ Node.js 22+ is all you need. Browser tests use Python Playwright in a local virt
 python -m venv .venv
 .venv/Scripts/python -m pip install playwright      # macOS/Linux: .venv/bin/python
 .venv/Scripts/python -m playwright install chromium
+.venv/Scripts/python tests/browser/run.py           # all browser checks; add a word to run some ("tabs")
 ```
+
+The runner starts the dev server on a free port and runs each `tests/browser/check_*.py` in Chromium (desktop and phone sizes). Screenshots and downloaded files go to `test-results/browser/`. Run them before a pull request that changes the UI.
 
 ## Fixing game data
 

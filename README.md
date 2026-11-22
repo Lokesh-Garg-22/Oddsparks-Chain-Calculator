@@ -28,6 +28,14 @@ npm test        # unit tests
 
 Opening `site/index.html` directly from disk won't work, because browsers block module loading from `file://`.
 
+Browser tests (Playwright) are described in [CONTRIBUTING.md](CONTRIBUTING.md#setup).
+
+## Deployment
+
+Every push to `main` runs the tests and publishes `site/` to GitHub Pages (`.github/workflows/pages.yml`). Pull requests are tested only. Nothing is built: the files in `site/` are the site.
+
+One-time setup, in the repository's **Settings › Pages**: set **Source** to **GitHub Actions**. Free GitHub accounts can only publish Pages from a public repository.
+
 ## Project layout
 
 | Path | What's there |
@@ -35,7 +43,8 @@ Opening `site/index.html` directly from disk won't work, because browsers block 
 | `site/` | The website, exactly as published to GitHub Pages |
 | `site/data/` | Game data: `oddsparks.json` (generated from the wiki) and `overrides.json` (hand-made fixes) |
 | `tools/` | Data extraction and validation scripts, plus the local dev server |
-| `tests/` | Tests (`node --test`) |
+| `tests/` | Unit tests (`node --test`) and browser checks (`tests/browser/`, Playwright) |
+| `.github/workflows/` | Test and deploy to GitHub Pages |
 | `docs/` | Plan, decisions, data sources and other project context |
 | `.claude/skills/` | Claude Code skills used to build and maintain the project |
 
@@ -44,6 +53,19 @@ Opening `site/index.html` directly from disk won't work, because browsers block 
 Data comes from the [Oddsparks Wiki](https://oddsparks.wiki.gg) through its MediaWiki API, with corrections and in-game names in `site/data/overrides.json`. Every recipe records the wiki page it came from. Values that aren't confirmed are flagged in the app and listed in [docs/unverified.md](docs/unverified.md).
 
 Found a wrong number? See [CONTRIBUTING.md](CONTRIBUTING.md#fixing-game-data).
+
+### Updating the game data
+
+After a game patch or wiki edits:
+
+```sh
+npm run extract    # re-reads the wiki (politely: one request at a time) and rewrites site/data/oddsparks.json
+npm run validate   # checks the data and overrides fit together
+npm test           # includes the owner's in-game readings and spreadsheets
+npm run icons      # only if new items or buildings appeared
+```
+
+Then read `site/data/extraction-report.md` (conflicts, recipes found on one page, likely renames). Put fixes in `site/data/overrides.json`, never in `oddsparks.json`. If a recipe or item id changed, map it in `renamedIds` so saved tabs and share links keep working. The full checklist is the `update-game-data` skill (`.claude/skills/update-game-data/SKILL.md`).
 
 ## Contributing
 

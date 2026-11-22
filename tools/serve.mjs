@@ -61,7 +61,10 @@ function startServer(port) {
       if (!file) throw new Error('unmappable path');
       body = await readFile(file);
     } catch {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Not found');
+      // Like GitHub Pages: missing paths get site/404.html, with status 404.
+      const page = await readFile(join(SITE_ROOT, '404.html')).catch(() => null);
+      res.writeHead(404, { 'Content-Type': page ? MIME['.html'] : 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' })
+        .end(req.method === 'HEAD' ? undefined : page ?? 'Not found');
       return;
     }
     res.writeHead(200, {

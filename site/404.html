@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Page not found · Oddsparks Chain Calculator</title>
+  <!-- Self-contained: GitHub Pages serves this for any missing path, at any depth, so relative links to
+       css/ or js/ would break. Colours match site/css/styles.css. -->
+  <style>
+    :root { color-scheme: light dark; --page: light-dark(#F3F5F0, #0F1612); --ink: light-dark(#1B2A22, #E6ECE6); --muted: light-dark(#4F5E55, #A9B7AD); --action: light-dark(#22695C, #6FD0BC); }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--page); color: var(--ink); font: 1rem/1.5 system-ui, sans-serif; padding: 16px; box-sizing: border-box; }
+    main { max-width: 34rem; text-align: center; }
+    svg { color: #F2A93B; }
+    h1 { font-size: 1.6rem; margin: 12px 0 8px; }
+    p { color: var(--muted); margin: 0 0 20px; }
+    a { color: var(--action); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main>
+    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+      <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M5 19l2.5-2.5M16.5 7.5L19 5"/><circle cx="12" cy="12" r="3"/>
+    </svg>
+    <h1>This page doesn't exist</h1>
+    <p>The calculator lives on its main page. A link someone shared will work from there.</p>
+    <p><a id="home" href="/">Go to the calculator</a></p>
+  </main>
+  <script>
+    // The calculator is at / on a user site or custom domain, and at /repo/ on a project site
+    // (user.github.io/repo/...). Use /repo/ only once it's confirmed to serve the calculator.
+    // A share link's #… part is kept, in case the page address itself was mistyped.
+    (function () {
+      var link = document.getElementById('home');
+      var first = location.pathname.split('/')[1];
+      link.href = '/' + location.hash;
+      if (!first) return;
+      var base = '/' + first + '/';
+      fetch(base + 'js/main.js', { method: 'HEAD' })
+        .then(function (r) { if (r.ok) link.href = base + location.hash; })
+        .catch(function () {});
+    })();
+  </script>
+</body>
+</html>

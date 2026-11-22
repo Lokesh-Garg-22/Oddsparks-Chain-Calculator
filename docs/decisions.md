@@ -4,6 +4,20 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 12 (deploy) decisions:**
+  - **One GitHub Actions workflow** (`.github/workflows/pages.yml`): every push and pull request runs `npm test` and `npm run validate`, and pushes to `main` then publish `site/`, and only `site/`, to Pages.
+    - Actions are pinned to full commit SHAs, each of a release more than two weeks old.
+    - Permissions are read-only, apart from the deploy job's `pages`/`id-token`.
+    - Checkout keeps no credentials, and there is no npm install (no dependencies).
+  - **Browser checks are run locally, not in CI.** They need Python, Playwright and Chromium, and they're exploratory, with screenshots. `tests/browser/run.py` starts the dev server on a free port and runs all six checks (or the ones whose name contains a word), with shared setup in `common.py`.
+  - **`site/404.html` stands alone** (inline styles, no relative links), because Pages serves it at any depth. Its link goes to `/`, or to `/repo/` once that is confirmed to serve the calculator (a project site), and keeps a share link's `#…`. The dev server now serves it for missing paths too, as Pages does.
+  - **README:** a Deployment section (Settings › Pages › Source: GitHub Actions; free accounts need a public repository) and "Updating the game data".
+  - **`security-review`:** no vulnerabilities found. Checked share links, restored libraries and stored data reaching the page, the Excel export (no formula injection: names are written as text), `404.html`, the dev server's paths, the wiki tools, and the workflow's triggers and permissions.
+  - **After `code-review`:** the 404 link no longer guesses `/typo/` as the site root on a user site.
+  - **After `simplify`:**
+    - the browser checks share `common.py`, so every check now catches console errors the same way
+    - one-off leftovers removed
+    - **skipped:** a `test:browser` npm script (the venv path differs by OS) and running browser checks in CI
 - **Step 11 (Excel export) decisions:**
   - **ExcelJS 4.4.0, the "bare" build,** vendored unchanged with its integrity checked against the npm registry (MIT, 860 KB). It's loaded only on the first export, by a path relative to its module, so it works from any page. The bare build leaves out polyfills that the site's 2024+ browsers don't need.
   - **The workbook is built as plain data first** (`site/js/export/workbook.js`), so Node tests check every value and formula. ExcelJS only writes it.

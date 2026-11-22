@@ -13,13 +13,18 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 11 (Excel export): done, awaiting the owner's review before commit.**
+- **Step 12 (deploy): done, awaiting the owner's review before commit.**
+  - `.github/workflows/pages.yml`: tests on every push and pull request; pushes to `main` publish `site/` to Pages (actions pinned to commit SHAs, least privilege)
+  - `site/404.html`; the dev server serves it for missing paths
+  - browser checks in the repo (`tests/browser/`, 6 checks, `run.py`); README sections on deployment and updating the data
+  - reviewed with `security-review` (no findings), `code-review` (1 fix) and `simplify` (shared browser-check helpers)
+  - 107 tests and 6 browser checks pass; `validate` passes
+  - **to go live:** push, make the repository public, and set Settings › Pages › Source to GitHub Actions
+- **Step 11 (Excel export): committed** (`e7bfe96`).
   - Export to Excel from the toolbar (this tab), a saved tab's or folder's ··· menu, or the whole library
   - the owner's layout A–W with live formulas and their values, 3 input slots, frozen header, then a Summary sheet with credits
   - ExcelJS 4.4.0 vendored (bare build), loaded only on export
   - test recreates the owner's Wooden Blade sheet; every formula is checked against its value
-  - reviewed with `code-review` (1 fix) and `simplify` (fixes applied, see decisions)
-  - 105 tests pass; `validate` passes; checked in a real browser (downloaded files opened and checked), no console errors
 - **Step 10 (saved library): committed** (`21ade2e`).
   - Library column (a drawer on narrower screens): search, nested folders with counts, collapse, drag and drop, ··· menus (open, rename, duplicate, move to…, delete; new subfolder), Move to… dialog, back up and restore (add or replace)
   - toolbar above the results: name, folder, unsaved state, Save, Save as…
@@ -93,7 +98,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 11 → commit → **step 12**: deploy (GitHub Pages workflow, `404.html`, README section on updating data, browser tests with `webapp-testing`, `security-review`). The site goes live once the repo is made public. See [plan.md](plan.md#7-build-steps).
+Owner reviews step 12 → commit. Then the owner decides on **step 13** (optional game-file extraction), pushes, makes the repo public and turns on Pages (Source: GitHub Actions). Still open: the Aether Shard default (see open questions).
 
 ## Open questions for the owner
 

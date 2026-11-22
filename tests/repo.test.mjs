@@ -31,3 +31,16 @@ test('the import map comes before any module preload (else bare imports like "pr
   assert.ok(page.indexOf('type="importmap"') > -1);
   assert.ok(page.indexOf('type="importmap"') < page.indexOf('rel="modulepreload"'));
 });
+
+test('the Pages workflow publishes only site/, after the tests, with every action pinned to a commit', () => {
+  const wf = readFileSync(join(ROOT, '.github', 'workflows', 'pages.yml'), 'utf8');
+  assert.match(wf, /upload-pages-artifact@[0-9a-f]{40}[^\n]*\n\s+with:\n\s+path: site\n/);
+  assert.match(wf, /needs: test/);
+  for (const use of wf.matchAll(/uses: ([^\s]+)/g)) assert.match(use[1], /@[0-9a-f]{40}$/, `${use[1]} is pinned to a full commit SHA`);
+  assert.match(wf, /^permissions:\n\s+contents: read/m, 'least privilege by default');
+});
+
+test('site/404.html stands alone (Pages serves it at any depth)', () => {
+  const page = readFileSync(join(SITE_ROOT, '404.html'), 'utf8');
+  assert.ok(!/(href|src)="\.?\//.test(page.replace('href="/"', '')), 'no relative links to css/ or js/');
+});
