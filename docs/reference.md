@@ -2,7 +2,6 @@
 
 ## UI mockup
 
-- Design canvas (private to the owner): https://claude.ai/artifact/SqUTYPG4PwJwiFujwkLBQ1
 - Screens:
   - desktop chain
   - phone
