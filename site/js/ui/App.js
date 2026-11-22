@@ -4,7 +4,7 @@
  * library (site/js/state/library.js, localStorage) and the user's prefs; everything below changes them
  * only through the pure updaters in site/js/state/.
  */
-import { useEffect, useLayoutEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { html } from './html.js';
 import { AppContext, useApp } from './context.js';
 import { Picker } from './Picker.js';
@@ -18,8 +18,10 @@ import { CrewSelect } from './CrewSelect.js';
 import { buildingName, makeFormat } from './format.js';
 import { calculate } from '../engine/calc.js';
 import { fromRecipe, pickBuilding, setCount, setRecipe } from '../state/calc.js';
-import { activeTab, closeTab, dismissMissing, newKey, newTab, openLink, openSaved, readStoredSession, selectTab, storeSession, syncWithLibrary, updateActive } from '../state/tabs.js';
-import { newId, readStoredLibrary, savedCalc, storeLibrary } from '../state/library.js';
+import { activeTab, closeTab, dismissMissing, newKey, newTab, openLink, openSaved, readStoredSession, selectTab, storeSession, syncWithLibrary, tabLabel, updateActive } from '../state/tabs.js';
+import { exportEntries, newId, readStoredLibrary, savedCalc, storeLibrary } from '../state/library.js';
+import { libraryFileName } from './download.js';
+import { Notice } from './Notice.js';
 import { renameOpenTab, saveTab, saveTabAs } from '../state/saving.js';
 import { applyTheme, cleanPrefs, readStoredPrefs, storePrefs } from '../state/prefs.js';
 import { takeShareLink } from '../state/url.js';
@@ -106,6 +108,14 @@ export function App({ game }) {
   const tab = activeTab(session);
   const calc = tab.draft;
 
+  const [prefs, setPrefs] = useState(() => cleanPrefs(game, readStoredPrefs(), resolveId));
+  const [prefsStored, setPrefsStored] = useState(true);
+  // Layout effects: the theme switches in the same frame, and a change is stored before the page can be left.
+  useLayoutEffect(() => setPrefsStored(storePrefs(prefs)), [prefs]);
+  useLayoutEffect(() => applyTheme(prefs.theme), [prefs.theme]);
+  const fmt = useMemo(() => makeFormat(prefs), [prefs.unit, prefs.decimals]);
+  const context = useMemo(() => ({ game, fmt, prefs, setPrefs }), [game, fmt, prefs]);
+
   // The saved library. Open tabs follow it: a renamed saved tab renames its open tab; a deleted one leaves it unsaved.
   const [library, setLibrary] = useState(readStoredLibrary);
   const [libraryStored, setLibraryStored] = useState(true);
@@ -140,18 +150,35 @@ export function App({ game }) {
     if (matchMedia('(max-width: 900px)').matches) setLibraryOpen(false);
   };
   const renameOpen = (/** @type {string} */ key, /** @type {string} */ name) => both((b) => renameOpenTab(b, key, name, game));
+
+  // Excel export: this tab (as it is now, unsaved changes included), a saved tab, a folder or the whole
+  // library. The workbook code and ExcelJS load only now, the first time someone exports.
+  const [exportNote, setExportNote] = useState(/** @type {{ tone: 'busy' | 'ok' | 'warn', text: string } | null} */ (null));
+  /** @param {{ kind: 'tab' } | { kind: 'saved' | 'folder', id: string } | { kind: 'library' }} target */
+  const exportTo = async (target) => {
+    const label = tabLabel(game, tab);
+    const { name, entries } = target.kind === 'tab'
+      ? { name: label, entries: [{ name: label, path: [], calc: tab.draft, missing: tab.missing }] }
+      : exportEntries(game, library, target, resolveId);
+    setExportNote({ tone: 'busy', text: 'Preparing the Excel file…' });
+    try {
+      const [{ buildWorkbook }, { saveWorkbook, fileNameFor }] = await Promise.all([import('../export/workbook.js'), import('../export/xlsx.js')]);
+      const file = fileNameFor(name ?? libraryFileName());
+      await saveWorkbook(buildWorkbook(game, entries, { defaultCrew: prefs.defaultCrew, now: new Date() }), file);
+      setExportNote({ tone: 'ok', text: `Downloaded “${file}”.` });
+    } catch (err) {
+      console.error(err);
+      setExportNote({ tone: 'warn', text: `The Excel file couldn't be made: ${/** @type {Error} */ (err).message}.` });
+    }
+  };
+  // The library list is memoised; it calls the latest exportTo through this ref (current prefs and tabs).
+  const exportRef = useRef(exportTo);
+  exportRef.current = exportTo;
   // The library list only re-renders when the library itself, or which saved tab is current, changes.
   const libraryView = useMemo(() => libraryOpen && html`
     <button type="button" class="library-scrim" aria-label="Close the library" tabindex="-1" onClick=${() => setLibraryOpen(false)}></button>
     <${Library} lib=${library} change=${setLibrary} stored=${libraryStored} activeTabId=${tab.tabId}
-      onOpen=${openFromLibrary} onClose=${() => setLibraryOpen(false)} />`, [libraryOpen, library, libraryStored, tab.tabId]);
-  const [prefs, setPrefs] = useState(() => cleanPrefs(game, readStoredPrefs(), resolveId));
-  const [prefsStored, setPrefsStored] = useState(true);
-  // Layout effects: the theme switches in the same frame, and a change is stored before the page can be left.
-  useLayoutEffect(() => setPrefsStored(storePrefs(prefs)), [prefs]);
-  useLayoutEffect(() => applyTheme(prefs.theme), [prefs.theme]);
-  const fmt = useMemo(() => makeFormat(prefs), [prefs.unit, prefs.decimals]);
-  const context = useMemo(() => ({ game, fmt, prefs, setPrefs }), [game, fmt, prefs]);
+      onOpen=${openFromLibrary} onExport=${(/** @type {any} */ t) => exportRef.current(t)} onClose=${() => setLibraryOpen(false)} />`, [libraryOpen, library, libraryStored, tab.tabId]);
 
   /** @type {Update} */
   const update = (fn) => setSession((s) => updateActive(s, fn));
@@ -175,16 +202,16 @@ export function App({ game }) {
         ${libraryView}
         <main class="layout" key=${tab.key}>
           ${tab.missing.length > 0 && html`
-            <div class="notice layout__banner banner" role="status">
-              <p>
-                Not in the current game data, so left out: ${tab.missing.join(', ')}. This happens with links and tabs made before a data update.
-                ${!calc.recipe && calc.building && ` Choose another recipe for the ${buildingName(game, calc.building)}.`}
-              </p>
-              <button type="button" class="button button--quiet" onClick=${() => setSession(dismissMissing)}>Dismiss</button>
-            </div>`}
+            <${Notice} className="layout__banner" onDismiss=${() => setSession(dismissMissing)}>
+              Not in the current game data, so left out: ${tab.missing.join(', ')}. This happens with links and tabs made before a data update.
+              ${!calc.recipe && calc.building && ` Choose another recipe for the ${buildingName(game, calc.building)}.`}
+            <//>`}
+          ${exportNote && html`
+            <${Notice} className="layout__banner" tone=${exportNote.tone === 'ok' ? 'ok' : 'warn'}
+              onDismiss=${exportNote.tone === 'busy' ? undefined : () => setExportNote(null)}>${exportNote.text}<//>`}
           <${TargetPanel} calc=${calc} update=${update} crew=${result?.rows[calc.recipe]?.crew ?? prefs.defaultCrew} />
           <div class="results">
-            ${calc.recipe && html`<${TabToolbar} tab=${tab} lib=${library} onSave=${save} onSaveAs=${saveAs} />`}
+            ${calc.recipe && html`<${TabToolbar} tab=${tab} lib=${library} onSave=${save} onSaveAs=${saveAs} onExport=${() => exportTo({ kind: 'tab' })} />`}
             ${result
               ? html`<${Results} result=${result} calc=${calc} update=${update} />`
               : html`<${EmptyState} hasBuilding=${Boolean(calc.building)} onExample=${(/** @type {typeof EXAMPLES[number]} */ ex) => update(() => fromRecipe(game, ex.recipe, { count: ex.count }))} />`}

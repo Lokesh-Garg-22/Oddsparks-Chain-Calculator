@@ -10,3 +10,6 @@ export function downloadFile(blob, name) {
 
 /** "2026-11-22", for file names. */
 export const today = () => new Date().toISOString().slice(0, 10);
+
+/** "oddsparks-library-2026-11-22", for backups and the library's Excel export. */
+export const libraryFileName = () => `oddsparks-library-${today()}`;

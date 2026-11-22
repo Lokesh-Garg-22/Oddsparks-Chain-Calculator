@@ -83,8 +83,42 @@ function isWithin(lib, id, ancestor) {
 }
 
 /** Saved tabs in a folder and all its subfolders. @param {Library} lib @param {string} folderId @returns {string[]} */
-export function tabsWithin(lib, folderId) {
-  return lib.folders[folderId].children.flatMap((c) => (isFolder(lib, c) ? tabsWithin(lib, c) : [c]));
+export const tabsWithin = (lib, folderId) => exportList(lib, folderId).map((e) => e.id);
+
+/**
+ * Saved tabs to export, in tree order, each with its folders below `folderId` (the whole library when
+ * null): for a folder's or the library's Excel export, one sheet per tab.
+ * @param {Library} lib @param {string | null} folderId @returns {{ id: string, path: string[] }[]}
+ */
+export function exportList(lib, folderId) {
+  /** @type {{ id: string, path: string[] }[]} */
+  const out = [];
+  /** @param {string[]} ids @param {string[]} path */
+  const walk = (ids, path) => {
+    for (const id of ids) {
+      if (isFolder(lib, id)) walk(lib.folders[id].children, [...path, lib.folders[id].name]);
+      else out.push({ id, path });
+    }
+  };
+  walk(folderId == null ? lib.root : lib.folders[folderId]?.children ?? [], []);
+  return out;
+}
+
+/**
+ * What to export from the library: a saved tab, a folder (its subfolders too) or everything. Each
+ * calc is checked against the current data, so the Summary can name what an older tab lost.
+ * @param {any} game @param {Library} lib
+ * @param {{ kind: 'saved' | 'folder', id: string } | { kind: 'library' }} target
+ * @param {Parameters<typeof cleanCalc>[2]} resolve
+ * @returns {{ name: string | null, entries: { name: string, path: string[], calc: import('./calc.js').TabCalc, missing: string[] }[] }}
+ *   name: the file's name, null for the whole library (the caller dates it)
+ */
+export function exportEntries(game, lib, target, resolve) {
+  const list = target.kind === 'saved' ? [{ id: target.id, path: [] }] : exportList(lib, target.kind === 'folder' ? target.id : null);
+  return {
+    name: target.kind === 'saved' ? lib.tabs[target.id].name : target.kind === 'folder' ? lib.folders[target.id].name : null,
+    entries: list.map(({ id, path }) => ({ name: lib.tabs[id].name, path, ...savedCalc(game, lib.tabs[id].calc, resolve) })),
+  };
 }
 
 /** Every folder in tree order with its depth, for pickers; `except` leaves out a folder and its subfolders. @param {Library} lib @param {string} [except] */

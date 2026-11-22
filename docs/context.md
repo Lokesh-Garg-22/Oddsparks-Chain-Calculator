@@ -13,13 +13,18 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 10 (saved library): done, awaiting the owner's review before commit.**
+- **Step 11 (Excel export): done, awaiting the owner's review before commit.**
+  - Export to Excel from the toolbar (this tab), a saved tab's or folder's ··· menu, or the whole library
+  - the owner's layout A–W with live formulas and their values, 3 input slots, frozen header, then a Summary sheet with credits
+  - ExcelJS 4.4.0 vendored (bare build), loaded only on export
+  - test recreates the owner's Wooden Blade sheet; every formula is checked against its value
+  - reviewed with `code-review` (1 fix) and `simplify` (fixes applied, see decisions)
+  - 105 tests pass; `validate` passes; checked in a real browser (downloaded files opened and checked), no console errors
+- **Step 10 (saved library): committed** (`21ade2e`).
   - Library column (a drawer on narrower screens): search, nested folders with counts, collapse, drag and drop, ··· menus (open, rename, duplicate, move to…, delete; new subfolder), Move to… dialog, back up and restore (add or replace)
   - toolbar above the results: name, folder, unsaved state, Save, Save as…
   - saved with older data: what's missing is named, and a removed recipe opens on its building to pick a replacement
   - asks before closing the browser tab with unsaved work; storage-blocked and restore messages
-  - reviewed with `code-review` (1 fix) and `simplify` (fixes applied, see decisions)
-  - 98 tests pass; `validate` passes; checked in a real browser (desktop, phone drawer), no console errors
 - **Step 9 (tabs): committed** (`e3a64b3`).
   - tab bar in the header: new, switch, close (asks when there are changes), rename (double-click or F2), unsaved dot
   - open tabs kept in sessionStorage: a reload keeps them
@@ -88,7 +93,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 10 → commit → **step 11**: Excel export (this tab, a folder, or the whole library; the owner's layout with formulas; Summary sheet; test that recreates the Wooden Blade sheet). See [plan.md](plan.md#7-build-steps).
+Owner reviews step 11 → commit → **step 12**: deploy (GitHub Pages workflow, `404.html`, README section on updating data, browser tests with `webapp-testing`, `security-review`). The site goes live once the repo is made public. See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

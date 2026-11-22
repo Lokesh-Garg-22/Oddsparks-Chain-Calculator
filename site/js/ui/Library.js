@@ -11,7 +11,8 @@ import { ConfirmDialog } from './Dialog.js';
 import { FolderPicker } from './FolderPicker.js';
 import { RenameField } from './RenameField.js';
 import { Chevron, CloseIcon, FolderIcon } from './icons.js';
-import { downloadFile, today } from './download.js';
+import { downloadFile, libraryFileName } from './download.js';
+import { Notice } from './Notice.js';
 import {
   addFolder, deleteFolder, deleteTab, duplicateTab, folderPath, fromBackup, isFolder, mergeLibrary,
   moveItem, newId, parentOf, positionOf, rename, searchTabs, tabsWithin, toBackup, toggleFolder,
@@ -27,10 +28,10 @@ import {
 const plural = (/** @type {number} */ n, /** @type {string} */ word) => `${n} ${word}${n === 1 ? '' : 's'}`;
 
 /**
- * @param {{ lib: Library, change: ChangeLibrary, stored: boolean, activeTabId: string | null, onOpen: (tabId: string) => void, onClose: () => void }} props
+ * @param {{ lib: Library, change: ChangeLibrary, stored: boolean, activeTabId: string | null, onOpen: (tabId: string) => void, onExport: (target: { kind: 'saved' | 'folder', id: string } | { kind: 'library' }) => void, onClose: () => void }} props
  * stored: false when the browser blocks saving
  */
-export function Library({ lib, change, stored, activeTabId, onOpen, onClose }) {
+export function Library({ lib, change, stored, activeTabId, onOpen, onExport, onClose }) {
   const [query, setQuery] = useState('');
   const [renaming, setRenaming] = useState(/** @type {string | null} */ (null));
   const [ask, setAsk] = useState(/** @type {Ask | null} */ (null));
@@ -80,7 +81,7 @@ export function Library({ lib, change, stored, activeTabId, onOpen, onClose }) {
 
   // ---- back up and restore ----
   const backup = () =>
-    downloadFile(new Blob([JSON.stringify(toBackup(lib, new Date().toISOString()), null, 1)], { type: 'application/json' }), `oddsparks-library-${today()}.json`);
+    downloadFile(new Blob([JSON.stringify(toBackup(lib, new Date().toISOString()), null, 1)], { type: 'application/json' }), `${libraryFileName()}.json`);
   /** @param {Library} incoming @param {'merge' | 'replace'} how */
   const restore = (incoming, how) => {
     change((l) => (how === 'replace' ? incoming : mergeLibrary(l, incoming, newId)));
@@ -130,12 +131,14 @@ export function Library({ lib, change, stored, activeTabId, onOpen, onClose }) {
         <${MenuItem} onClick=${() => newFolder(id)}>New subfolder<//>
         <${MenuItem} onClick=${() => setRenaming(id)}>Rename<//>
         <${MenuItem} onClick=${() => askMove(id)}>Move to…<//>
+        <${MenuItem} onClick=${() => onExport({ kind: 'folder', id })}>Export folder to Excel<//>
         <${MenuItem} danger onClick=${() => (folder.children.length ? setAsk({ kind: 'delete-folder', id }) : change((l) => deleteFolder(l, id, 'move-up')))}>Delete<//>`
       : html`
         <${MenuItem} onClick=${() => onOpen(id)}>Open<//>
         <${MenuItem} onClick=${() => setRenaming(id)}>Rename<//>
         <${MenuItem} onClick=${() => change((l) => duplicateTab(l, id, newId('t'), new Date().toISOString()))}>Duplicate<//>
         <${MenuItem} onClick=${() => askMove(id)}>Move to…<//>
+        <${MenuItem} onClick=${() => onExport({ kind: 'saved', id })}>Export to Excel<//>
         <${MenuItem} danger onClick=${() => setAsk({ kind: 'delete-tab', id })}>Delete<//>`;
 
     return html`
@@ -215,11 +218,7 @@ export function Library({ lib, change, stored, activeTabId, onOpen, onClose }) {
       </div>
 
       ${!stored && html`<p class="notice small" role="alert">This browser blocks saving (private browsing, or storage is full), so the library is lost when you close the page. Back up keeps a copy.</p>`}
-      ${note && html`
-        <div class=${`notice banner small${note.tone === 'ok' ? ' notice--ok' : ''}`} role="status">
-          <p>${note.text}</p>
-          <button type="button" class="button button--quiet" onClick=${() => setNote(null)}>Dismiss</button>
-        </div>`}
+      ${note && html`<${Notice} tone=${note.tone} className="small" onDismiss=${() => setNote(null)}>${note.text}<//>`}
 
       ${tabCount > 0 && html`
         <label class="field">
@@ -241,6 +240,7 @@ export function Library({ lib, change, stored, activeTabId, onOpen, onClose }) {
         <div class="library__backup">
           <button type="button" class="button button--quiet" onClick=${backup} disabled=${lib.root.length === 0}>Back up library</button>
           <button type="button" class="button button--quiet" onClick=${() => file.current?.click()}>Restore…</button>
+          <button type="button" class="button button--quiet" onClick=${() => onExport({ kind: 'library' })} disabled=${tabCount === 0}>Export library to Excel</button>
           <input ref=${file} type="file" accept=".json,application/json" hidden onChange=${readFile} />
         </div>
       </div>

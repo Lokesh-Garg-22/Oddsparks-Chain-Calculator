@@ -1,5 +1,5 @@
 // @ts-check
-/** Above the results: the tab's name, where it's saved, whether it has unsaved changes; Save and Save as…. */
+/** Above the results: the tab's name, where it's saved, whether it has unsaved changes; Save, Save as… and Export to Excel. */
 import { useState } from 'preact/hooks';
 import { html } from './html.js';
 import { ConfirmDialog } from './Dialog.js';
@@ -9,9 +9,9 @@ import { folderPath, parentOf } from '../state/library.js';
 import { tabLabel } from '../state/tabs.js';
 
 /**
- * @param {{ tab: import('../state/tabs.js').OpenTab, lib: import('../state/library.js').Library, onSave: () => void, onSaveAs: (name: string, folder: string | null) => void }} props
+ * @param {{ tab: import('../state/tabs.js').OpenTab, lib: import('../state/library.js').Library, onSave: () => void, onSaveAs: (name: string, folder: string | null) => void, onExport: () => void }} props
  */
-export function TabToolbar({ tab, lib, onSave, onSaveAs }) {
+export function TabToolbar({ tab, lib, onSave, onSaveAs, onExport }) {
   const { game } = useApp();
   const [savingAs, setSavingAs] = useState(false);
   const [name, setName] = useState('');
@@ -38,6 +38,7 @@ export function TabToolbar({ tab, lib, onSave, onSaveAs }) {
       <div class="toolbar__actions">
         <button type="button" class="button button--primary" disabled=${saved && !tab.dirty} onClick=${() => (saved ? onSave() : openSaveAs())}>Save</button>
         <button type="button" class="button button--quiet" onClick=${openSaveAs}>Save as…</button>
+        <button type="button" class="button button--quiet" onClick=${onExport}>Export to Excel</button>
       </div>
       ${savingAs && html`
         <${ConfirmDialog} title="Save as" onCancel=${() => setSavingAs(false)}

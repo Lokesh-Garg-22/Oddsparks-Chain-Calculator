@@ -89,12 +89,15 @@ Open tabs (the session) store:
 
 ## Excel export (ExcelJS, loaded on demand)
 
+Code: `site/js/export/workbook.js` builds the workbook as plain data (pure, tested in Node), and `site/js/export/xlsx.js` writes it with ExcelJS 4.4.0 (the "bare" build in `site/vendor/exceljs/`). Both load only when someone exports. Export from the toolbar (this tab, as it is now, unsaved changes included), from a saved tab's or folder's ··· menu, or with Export library to Excel at the foot of the library.
+
 - **This tab:** a workbook with one sheet. **Folder:** one sheet per tab, including subfolders, with sheet names prefixed by the folder path. **Whole library:** the same for everything.
-- Sheet names follow Excel's rules: at most 31 characters, none of `[]:*?/\`, unique.
+- Sheet names follow Excel's rules: at most 31 characters, none of `[]:*?/\` (each becomes `-`), not starting or ending with an apostrophe, not "History", and unique ignoring case (` (2)` is added). A folder's sheets are named with the folders below the exported one; the library's with their full path.
+- Tabs with no recipe chosen are listed in the Summary as skipped.
 
 ### Sheet layout (based on the owner's `Odd Sparks.xlsx`)
 
-Row 1 holds headers; then one row per recipe in the chain, in dependency order, with a blank row between rows like the owner's sheet.
+Row 1 holds headers; then one row per recipe in the chain, in dependency order (target first), with a blank row between rows like the owner's sheet. The headers and values come from the shared column definitions (`site/js/engine/columns.js`, the `excel` field), the same ones the build list uses.
 
 | Col | Header (owner's wording) | Content |
 |---|---|---|
@@ -115,5 +118,6 @@ Row 1 holds headers; then one row per recipe in the chain, in dependency order, 
 
 - Every formula is written together with its calculated value, so file previewers that don't recalculate still show numbers.
 - Formatting: bold header row, frozen header row, column widths, number format `0.00`.
-- **Summary sheet:** machines per building and recipe (rounded up), raw resources per minute, byproducts, warnings, data version, export date, and a CC BY-SA credit line.
-- **Test:** exporting 3 × Wood Workshop making Wooden Blade (2 Stumpy; others 2 Crafty) must reproduce the owner's Wooden Blade sheet, using the exact rate (11.25 rather than the 11.2 read off the game).
+- **Summary sheet:** for each calculation, what it makes, machines per building (rounded up), what comes from outside the chain, byproducts and spare capacity, and warnings, including ids lost to a data update. Then the data version, export date, and the CC BY-SA and THQ Nordic credit lines.
+- E (Parts Needed) is written as a formula only when every consuming row's cell is found, and as a plain value otherwise.
+- **Test** (`tests/export.test.mjs`): exporting 3 × Wood Workshop making Wooden Blade (2 Stumpy; others 2 Crafty) reproduces the owner's Wooden Blade sheet, using the exact rate (11.25 rather than the 11.2 read off the game); Sawn Timber's Parts Needed is `=K2+K4`, like the owner's `=K16+K13`. Every formula is evaluated from the other cells and must equal the value written beside it.

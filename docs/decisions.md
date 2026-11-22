@@ -4,6 +4,21 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 11 (Excel export) decisions:**
+  - **ExcelJS 4.4.0, the "bare" build,** vendored unchanged with its integrity checked against the npm registry (MIT, 860 KB). It's loaded only on the first export, by a path relative to its module, so it works from any page. The bare build leaves out polyfills that the site's 2024+ browsers don't need.
+  - **The workbook is built as plain data first** (`site/js/export/workbook.js`), so Node tests check every value and formula. ExcelJS only writes it.
+  - **Headers and values come from the shared column definitions** (step 8's registry), so the build list and the sheet can't disagree.
+  - **This tab exports as it is now, unsaved changes included.** Saved tabs, folders and the library export their saved copies, each checked against the current data, so lost ids show up in the Summary.
+  - **One sheet per calculation, then a Summary sheet,** which lists skipped tabs (no recipe) and carries the credit lines.
+  - **Status banner:** "Preparing the Excel file…", then "Downloaded …" or what went wrong. Only a failed library load says to check the connection.
+  - **After `code-review`:** Parts Needed falls back to a plain value if a consumer's cell can't be found, instead of pointing at the wrong column.
+  - **After the `simplify` review:**
+    - export entries are built by a pure, tested `exportEntries()`
+    - headers derive from the column registry
+    - `tabsWithin` reuses the export walk
+    - one `Notice` component
+    - one library file-name helper
+    - the library list doesn't re-render when the default crew changes
 - **Step 10 (saved library) decisions:**
   - **Layout, as in the mockup:** the library is a column beside the calculator, opened with Library in the header. On screens up to 900 px wide it's a drawer over the page, which closes after opening a tab.
   - **The chain tree measures its own width** (a CSS container query): below 720 px it switches to its compact cards. That covers phones and the narrower results column when the library is open, with one rule.
