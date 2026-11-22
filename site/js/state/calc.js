@@ -88,7 +88,7 @@ export function cleanCalc(game, raw, resolve) {
   };
 
   const recipe = r.recipe ? id('recipes', r.recipe) : '';
-  if (recipe == null) return { calc: null, missing };
+  if (recipe == null) return { calc: null, missing: [...new Set(missing)] };
   const rest = {
     count: typeof r.count === 'number' && Number.isFinite(r.count) && r.count >= 0 ? r.count : 1,
     crews: idMap(r.crews, 'recipes', 'crews'),
@@ -96,7 +96,7 @@ export function cleanCalc(game, raw, resolve) {
     supplied: /** @type {string[]} */ ([...new Set((Array.isArray(r.supplied) ? r.supplied : []).map((i) => id('items', i)).filter((i) => i != null))]),
     ...(r.view === 'list' ? { view: /** @type {const} */ ('list') } : {}),
   };
-  if (recipe) return { calc: fromRecipe(game, recipe, rest), missing };
+  if (recipe) return { calc: fromRecipe(game, recipe, rest), missing: [...new Set(missing)] };
   const building = typeof r.building === 'string' && Object.hasOwn(game.buildings, r.building) ? r.building : null;
-  return { calc: { ...emptyCalc(), ...rest, building }, missing };
+  return { calc: { ...emptyCalc(), ...rest, building }, missing: [...new Set(missing)] };
 }

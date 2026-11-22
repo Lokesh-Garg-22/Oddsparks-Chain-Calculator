@@ -4,6 +4,28 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 10 (saved library) decisions:**
+  - **Layout, as in the mockup:** the library is a column beside the calculator, opened with Library in the header. On screens up to 900 px wide it's a drawer over the page, which closes after opening a tab.
+  - **The chain tree measures its own width** (a CSS container query): below 720 px it switches to its compact cards. That covers phones and the narrower results column when the library is open, with one rule.
+  - **Storage format:** each folder lists its children in order (subfolders and tabs mixed), and `root` lists the top level. This replaces the planned `parentId`/`tabIds`/`order`/`unfiled` fields, because one ordered list per folder makes drag and drop and "Move to…" simple and leaves nothing to keep in step. `cleanLibrary()` repairs a damaged or hand-edited library: duplicates, loops and orphans. storage-and-export.md is updated.
+  - **Save and Save as…:** a tab that was never saved (or whose saved copy was deleted) gets Save as…, with a name and a folder. Saving links the open tab to its saved copy.
+  - **Open tabs follow the library:** a rename in either place renames both, and a blank name on a saved tab becomes the automatic one. Deleting a saved tab leaves its open tab with its contents, marked unsaved. Opening a saved tab that's already open switches to it.
+  - **Saved with older data:** saved calcs are stored as saved and checked when opened. What's missing is named in the tab's banner. If the target recipe itself is gone, the tab opens on its building so the recipe cards offer the replacement.
+  - **Deleting a folder asks:** "Keep its contents, delete the folder" moves them up where it was, or delete it with its saved tabs. An empty folder goes without asking.
+  - **Restore asks** to add the backup to the library (clashing ids get new ones) or replace it. A file that isn't a backup is refused with a message. Restoring into an empty library doesn't ask.
+  - **Asking before the browser tab closes (`beforeunload`)** is on whenever an open tab has unsaved changes.
+  - **Storage blocked:** the library still works for the visit, says it will be lost, and back up still works.
+  - **Found while testing:** menus near the bottom of the screen ran off it (for example the Columns menu, once the toolbar pushed it down). They now open upward or cap their height when there isn't room below.
+  - **After `code-review`:** clearing a saved tab's name no longer lets the library put the old name back.
+  - **After the `simplify` review:**
+    - Save, Save as and rename moved into pure, tested functions (`site/js/state/saving.js`) that change the open tabs and the library together
+    - one id helper
+    - `positionOf()` instead of tree code in the UI
+    - shared icons and a `downloadFile()` helper, which the Excel export will reuse
+    - one row builder and dialog helper in the library
+    - the library list no longer re-renders on every edit to a calculation
+    - **deferred to step 11:** an export list with folder paths, and one `onExport` handler for the toolbar and the library menus
+    - **skipped as negligible:** a parent-lookup map and one shared icon-button style
 - **Step 9 (tabs) decisions:**
   - **Tabs sit in the header,** as in the mockup: inactive tabs are a lighter green, and the active tab takes the page colour so it joins the page. The row scrolls sideways when it's full (always on phones).
   - **"Unsaved" means changed since opened.** A tab opened from a share link starts clean; editing it, including switching tree/list (stored with the tab), shows the dot. Renaming doesn't, because the name isn't part of the calculation; step 10 decides how a rename reaches a saved copy.

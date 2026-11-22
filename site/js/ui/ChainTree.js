@@ -9,6 +9,7 @@ import { useMemo, useState } from 'preact/hooks';
 import { html } from './html.js';
 import { Icon } from './Icon.js';
 import { Badge } from './Badge.js';
+import { Chevron } from './icons.js';
 import { CrewSelect } from './CrewSelect.js';
 import { useApp } from './context.js';
 import { crewName, itemName, recipeLabel } from './format.js';
@@ -109,7 +110,7 @@ function ChainRow({ node, depth, row, badges, supplied, update, open, onToggle }
       <div class="chain__item">
         ${node.children.length > 0
           ? html`<button class="chain__toggle" type="button" aria-expanded=${open} aria-label=${`${open ? 'Collapse' : 'Expand'} ${name}`} onClick=${onToggle}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d=${open ? 'M6 9l6 6 6-6' : 'M9 6l6 6-6 6'} /></svg>
+              <${Chevron} open=${open} />
             </button>`
           : html`<span class="chain__toggle" aria-hidden="true"></span>`}
         <${Icon} kind="items" id=${node.item} name=${name} />

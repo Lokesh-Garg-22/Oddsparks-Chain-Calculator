@@ -17,7 +17,13 @@ export function Menu({ id, label, buttonClass = 'button button--quiet', buttonLa
     if (e.newState !== 'open' || !button.current) return;
     const r = button.current.getBoundingClientRect();
     const panel = /** @type {HTMLElement} */ (e.currentTarget);
-    panel.style.top = `${Math.round(r.bottom + 6)}px`;
+    // Below the button, unless there's clearly more room above; either way it fits on screen (and scrolls inside).
+    const below = innerHeight - r.bottom - 14;
+    const above = r.top - 14;
+    const down = below >= 240 || below >= above;
+    panel.style.top = down ? `${Math.round(r.bottom + 6)}px` : 'auto';
+    panel.style.bottom = down ? 'auto' : `${Math.round(innerHeight - r.top + 6)}px`;
+    panel.style.maxHeight = `${Math.round(down ? below : above)}px`;
     panel.style.right = `${Math.max(8, Math.round(document.documentElement.clientWidth - r.right))}px`;
   };
   return html`
@@ -42,4 +48,14 @@ export function Choice({ legend, name, options, value, onChange }) {
           </label>`)}
       </div>
     </fieldset>`;
+}
+
+/** An action in a menu: closes the menu, then acts. @param {{ onClick: () => void, danger?: boolean, children: any }} props */
+export function MenuItem({ onClick, danger = false, children }) {
+  return html`
+    <button type="button" class=${`menu__item${danger ? ' menu__item--danger' : ''}`}
+      onClick=${(/** @type {MouseEvent} */ e) => {
+        /** @type {any} */ (e.currentTarget).closest('[popover]')?.hidePopover();
+        onClick();
+      }}>${children}</button>`;
 }

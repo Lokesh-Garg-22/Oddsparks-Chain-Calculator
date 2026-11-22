@@ -123,7 +123,8 @@ button, input, select { font: inherit; color: inherit; }
 .site-footer { border-top: 1px solid var(--c-border); margin-top: 24px; }
 .site-footer__inner { padding-block: 20px 32px; display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 0.85rem; color: var(--c-muted); }
 
-.layout { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; padding-block: 24px; }
+.workspace { display: flex; align-items: flex-start; gap: 24px; padding-block: 24px; }
+.layout { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; }
 .target { flex: 1 1 340px; max-width: 440px; }
 .results { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 
@@ -278,6 +279,56 @@ button, input, select { font: inherit; color: inherit; }
 .banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
 .banner p { margin: 0; }
 
+/* ---- Saved library: a column beside the calculator; a drawer on narrower screens ---- */
+.library { flex: 0 0 290px; gap: 12px; padding: 16px; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
+.library__head { display: flex; align-items: center; gap: 8px; }
+.library__head h2 { flex-grow: 1; font-size: 1.15rem; }
+.library__icon { width: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.library__close, .library-scrim { display: none; }
+.library__foot { border-top: 1px solid var(--c-border); padding-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+.library__backup { display: flex; flex-wrap: wrap; gap: 8px; }
+.notice--ok { background: var(--c-selected); color: var(--c-ink); border-color: var(--c-border); }
+.lib__tree { display: flex; flex-direction: column; font-size: 0.92rem; }
+.lib__row { display: flex; align-items: center; gap: 2px; padding-left: calc(var(--depth) * 16px); border-radius: var(--radius-s); }
+.lib__row.is-current { background: var(--c-selected); }
+.lib__row.is-dragging { opacity: 0.45; }
+.lib__row--folder { font-weight: 600; }
+.lib__name { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 6px; border: 0; background: transparent; text-align: left; padding: 8px 6px; min-height: 40px; cursor: pointer; font-weight: inherit; }
+.lib__name > span:first-of-type { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lib__name--tab { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; padding-left: 26px; }
+.lib__row.is-current .lib__name--tab { font-weight: 600; }
+.lib__count { padding-inline: 4px; font-weight: 500; }
+.lib__more { border: 0; background: transparent; color: var(--c-muted); width: 32px; height: 36px; cursor: pointer; border-radius: var(--radius-s); flex-shrink: 0; font-weight: 700; letter-spacing: 1px; }
+.lib__more:hover { background: var(--c-sunken); color: var(--c-ink); }
+.lib__rename { margin: 4px 0; min-height: 36px; padding: 4px 8px; }
+.lib__drop { border: 2px dashed var(--c-field); border-radius: var(--radius-m); padding: 12px; text-align: center; color: var(--c-muted); }
+.menu__list { display: flex; flex-direction: column; margin: -8px; }
+.menu__item { border: 0; background: transparent; text-align: left; padding: 10px 12px; min-height: 40px; border-radius: var(--radius-s); cursor: pointer; }
+.menu__item:hover { background: var(--c-selected); }
+.menu__item--danger { color: var(--c-danger); }
+.folder-picker { border: 0; margin: 12px 0 0; padding: 0; }
+.folder-picker ul { max-height: 280px; overflow-y: auto; border: 1px solid var(--c-border); border-radius: var(--radius-m); padding: 4px; }
+.folder-picker__option { display: flex; align-items: center; gap: 8px; padding: 6px 8px 6px calc(8px + var(--depth) * 18px); border-radius: var(--radius-s); cursor: pointer; }
+.folder-picker__option:hover { background: var(--c-selected); }
+.folder-picker__option input { margin: 0; }
+.dialog .field { margin-top: 12px; }
+
+/* ---- Tab toolbar (above the results) ---- */
+.toolbar { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px; }
+.toolbar__name { font-size: 1.15rem; }
+.toolbar__text p { display: flex; align-items: center; gap: 6px; }
+.toolbar__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.button:disabled { opacity: 0.5; cursor: default; }
+
+@media (max-width: 900px) {
+  .library {
+    position: fixed; inset: 0 auto 0 0; z-index: 20; width: min(340px, 88vw); max-height: none; border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+    box-shadow: 0 12px 32px var(--c-shade);
+  }
+  .library__close { display: inline-flex; }
+  .library-scrim { display: block; position: fixed; inset: 0; z-index: 19; border: 0; padding: 0; background: var(--c-scrim); }
+}
+
 /* ---- Menus (popover panels) ---- */
 .menu, .dialog { background: var(--c-surface); color: var(--c-ink); border: 1px solid var(--c-border); border-radius: var(--radius-l); box-shadow: 0 12px 32px var(--c-shade); }
 .menu { inset: auto; margin: 0; position: fixed; width: min(340px, calc(100vw - 16px)); max-height: calc(100vh - 80px); overflow-y: auto; padding: 16px; }
@@ -310,7 +361,8 @@ button, input, select { font: inherit; color: inherit; }
 .badge[open] { display: block; }
 
 /* ---- Chain tree ---- */
-.chain { --chain-cols: minmax(0, 2.4fr) 96px minmax(0, 2fr) 156px 100px; }
+/* The tree measures itself: below 720px wide (phones, or beside the open library) rows become cards. */
+.chain { --chain-cols: minmax(0, 2.4fr) 96px minmax(0, 2fr) 156px 100px; container: chain / inline-size; }
 .chain__head, .chain__row { display: grid; grid-template-columns: var(--chain-cols); gap: 12px; align-items: center; }
 .chain__head { padding: 0 10px 8px; border-bottom: 1px solid var(--c-border); font-weight: 600; }
 .chain__head .num { text-align: right; }
@@ -334,8 +386,8 @@ button, input, select { font: inherit; color: inherit; }
 .chain__label, .chain__summary, .chain__edit, .chain__unit { display: none; }
 .input--compact { min-height: 36px; padding: 6px 8px; font-size: 0.88rem; }
 
-/* Phones: each row becomes a compact card. Its recipe and crew show as one line; "Change" opens the controls. */
-@media (max-width: 720px) {
+/* Narrow: each row becomes a compact card. Its recipe and crew show as one line; "Change" opens the controls. */
+@container chain (max-width: 720px) {
   .chain__head { display: none; }
   .chain__row {
     grid-template-columns: 1fr auto; grid-template-areas: "item machines" "summary summary" "rate edit" "made made" "crew crew";

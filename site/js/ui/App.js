@@ -1,7 +1,8 @@
 // @ts-check
 /**
- * The calculator page. App owns the open tabs (site/js/state/tabs.js, kept in sessionStorage) and the
- * user's prefs; everything below edits the active tab's calc only through the state updaters.
+ * The calculator page. App owns the open tabs (site/js/state/tabs.js, kept in sessionStorage), the saved
+ * library (site/js/state/library.js, localStorage) and the user's prefs; everything below changes them
+ * only through the pure updaters in site/js/state/.
  */
 import { useEffect, useLayoutEffect, useMemo, useState } from 'preact/hooks';
 import { html } from './html.js';
@@ -11,11 +12,15 @@ import { RecipeCards } from './RecipeCards.js';
 import { Results } from './Results.js';
 import { Header } from './Header.js';
 import { TabBar } from './TabBar.js';
+import { TabToolbar } from './TabToolbar.js';
+import { Library } from './Library.js';
 import { CrewSelect } from './CrewSelect.js';
-import { makeFormat } from './format.js';
+import { buildingName, makeFormat } from './format.js';
 import { calculate } from '../engine/calc.js';
 import { fromRecipe, pickBuilding, setCount, setRecipe } from '../state/calc.js';
-import { activeTab, closeTab, dismissMissing, newKey, newTab, openLink, readStoredSession, renameTab, selectTab, storeSession, updateActive } from '../state/tabs.js';
+import { activeTab, closeTab, dismissMissing, newKey, newTab, openLink, openSaved, readStoredSession, selectTab, storeSession, syncWithLibrary, updateActive } from '../state/tabs.js';
+import { newId, readStoredLibrary, savedCalc, storeLibrary } from '../state/library.js';
+import { renameOpenTab, saveTab, saveTabAs } from '../state/saving.js';
 import { applyTheme, cleanPrefs, readStoredPrefs, storePrefs } from '../state/prefs.js';
 import { takeShareLink } from '../state/url.js';
 import { resolveId } from '../data/merge.js';
@@ -100,6 +105,46 @@ export function App({ game }) {
   }, [game]);
   const tab = activeTab(session);
   const calc = tab.draft;
+
+  // The saved library. Open tabs follow it: a renamed saved tab renames its open tab; a deleted one leaves it unsaved.
+  const [library, setLibrary] = useState(readStoredLibrary);
+  const [libraryStored, setLibraryStored] = useState(true);
+  const [libraryOpen, setLibraryOpen] = useState(false);
+  useLayoutEffect(() => {
+    setLibraryStored(storeLibrary(library));
+    setSession((s) => syncWithLibrary(s, library.tabs));
+  }, [library]);
+
+  // Unsaved work: the browser asks before the page is closed or reloaded.
+  const unsaved = session.open.some((t) => t.dirty && t.draft.recipe);
+  useEffect(() => {
+    if (!unsaved) return undefined;
+    const warn = (/** @type {BeforeUnloadEvent} */ e) => e.preventDefault();
+    addEventListener('beforeunload', warn);
+    return () => removeEventListener('beforeunload', warn);
+  }, [unsaved]);
+
+  /** Saving changes the open tabs and the library together (site/js/state/saving.js). @param {(both: import('../state/saving.js').Both) => import('../state/saving.js').Both} fn */
+  const both = (fn) => {
+    const next = fn({ session, lib: library });
+    if (next.session !== session) setSession(next.session);
+    if (next.lib !== library) setLibrary(next.lib);
+  };
+  const stamp = () => ({ now: new Date().toISOString(), dataVersion: game.meta.dataVersion });
+  const save = () => both((b) => saveTab(b, tab.key, stamp(), game));
+  const saveAs = (/** @type {string} */ name, /** @type {string | null} */ folder) =>
+    both((b) => saveTabAs(b, tab.key, { id: newId('t'), name, folder }, stamp(), game));
+  const openFromLibrary = (/** @type {string} */ tabId) => {
+    const saved = library.tabs[tabId];
+    setSession((s) => openSaved(s, { tabId, name: saved.name, ...savedCalc(game, saved.calc, resolveId) }, newKey()));
+    if (matchMedia('(max-width: 900px)').matches) setLibraryOpen(false);
+  };
+  const renameOpen = (/** @type {string} */ key, /** @type {string} */ name) => both((b) => renameOpenTab(b, key, name, game));
+  // The library list only re-renders when the library itself, or which saved tab is current, changes.
+  const libraryView = useMemo(() => libraryOpen && html`
+    <button type="button" class="library-scrim" aria-label="Close the library" tabindex="-1" onClick=${() => setLibraryOpen(false)}></button>
+    <${Library} lib=${library} change=${setLibrary} stored=${libraryStored} activeTabId=${tab.tabId}
+      onOpen=${openFromLibrary} onClose=${() => setLibraryOpen(false)} />`, [libraryOpen, library, libraryStored, tab.tabId]);
   const [prefs, setPrefs] = useState(() => cleanPrefs(game, readStoredPrefs(), resolveId));
   const [prefsStored, setPrefsStored] = useState(true);
   // Layout effects: the theme switches in the same frame, and a change is stored before the page can be left.
@@ -119,25 +164,32 @@ export function App({ game }) {
 
   return html`
     <${AppContext.Provider} value=${context}>
-      <${Header} calc=${calc} prefsStored=${prefsStored}>
+      <${Header} calc=${calc} prefsStored=${prefsStored} libraryOpen=${libraryOpen} onLibrary=${() => setLibraryOpen(!libraryOpen)}>
         <${TabBar} session=${session}
           onSelect=${(/** @type {string} */ key) => setSession((s) => selectTab(s, key))}
           onNew=${() => setSession((s) => newTab(s, newKey()))}
           onClose=${(/** @type {string} */ key) => setSession((s) => closeTab(s, key, newKey()))}
-          onRename=${(/** @type {string} */ key, /** @type {string} */ name) => setSession((s) => renameTab(s, key, name))} />
+          onRename=${renameOpen} />
       <//>
-      <main class="container layout" key=${tab.key}>
-        ${tab.missing.length > 0 && html`
-          <div class="notice layout__banner banner" role="status">
-            <p>Not in the current game data, so left out: ${tab.missing.join(', ')}. This happens with links and tabs made before a data update.</p>
-            <button type="button" class="button button--quiet" onClick=${() => setSession(dismissMissing)}>Dismiss</button>
-          </div>`}
-        <${TargetPanel} calc=${calc} update=${update} crew=${result?.rows[calc.recipe]?.crew ?? prefs.defaultCrew} />
-        <div class="results">
-          ${result
-            ? html`<${Results} result=${result} calc=${calc} update=${update} />`
-            : html`<${EmptyState} hasBuilding=${Boolean(calc.building)} onExample=${(/** @type {typeof EXAMPLES[number]} */ ex) => update(() => fromRecipe(game, ex.recipe, { count: ex.count }))} />`}
-        </div>
-      </main>
+      <div class="container workspace">
+        ${libraryView}
+        <main class="layout" key=${tab.key}>
+          ${tab.missing.length > 0 && html`
+            <div class="notice layout__banner banner" role="status">
+              <p>
+                Not in the current game data, so left out: ${tab.missing.join(', ')}. This happens with links and tabs made before a data update.
+                ${!calc.recipe && calc.building && ` Choose another recipe for the ${buildingName(game, calc.building)}.`}
+              </p>
+              <button type="button" class="button button--quiet" onClick=${() => setSession(dismissMissing)}>Dismiss</button>
+            </div>`}
+          <${TargetPanel} calc=${calc} update=${update} crew=${result?.rows[calc.recipe]?.crew ?? prefs.defaultCrew} />
+          <div class="results">
+            ${calc.recipe && html`<${TabToolbar} tab=${tab} lib=${library} onSave=${save} onSaveAs=${saveAs} />`}
+            ${result
+              ? html`<${Results} result=${result} calc=${calc} update=${update} />`
+              : html`<${EmptyState} hasBuilding=${Boolean(calc.building)} onExample=${(/** @type {typeof EXAMPLES[number]} */ ex) => update(() => fromRecipe(game, ex.recipe, { count: ex.count }))} />`}
+          </div>
+        </main>
+      </div>
     <//>`;
 }

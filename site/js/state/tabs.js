@@ -10,7 +10,7 @@
  * restored session, later a saved tab); the page shows them until dismissed.
  */
 import { cleanCalc, emptyCalc } from './calc.js';
-import { asRecord, readJson, writeJson } from './storage.js';
+import { asRecord, readJson, uniqueId, writeJson } from './storage.js';
 import { buildingName, recipeName } from '../data/names.js';
 
 /** @typedef {import('./calc.js').TabCalc} TabCalc */
@@ -28,7 +28,7 @@ import { buildingName, recipeName } from '../data/names.js';
 const SESSION_NAME = 'session';
 
 /** A key that won't repeat within a session. */
-export const newKey = () => `o${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+export const newKey = () => uniqueId('o');
 
 /** @param {string} key @param {TabCalc} [draft] @param {string[]} [missing] @returns {OpenTab} */
 const blankTab = (key, draft = emptyCalc(), missing = []) => ({ key, tabId: null, name: null, draft, dirty: false, missing });
@@ -58,9 +58,50 @@ const changeActive = (s, fn) => {
  */
 export function openLink(s, { calc, missing }, key) {
   if (!calc) return missing.length ? changeActive(s, (t) => ({ ...t, missing })) : s;
-  const fresh = blankTab(key, calc, missing);
+  return addOpen(s, blankTab(key, calc, missing));
+}
+
+/** Add a tab as the active one, in place of an untouched empty tab. @param {Session} s @param {OpenTab} fresh @returns {Session} */
+function addOpen(s, fresh) {
   const current = activeTab(s);
-  return { open: isUntouched(current) ? s.open.map((t) => (t === current ? fresh : t)) : [...s.open, fresh], active: key };
+  return { open: isUntouched(current) ? s.open.map((t) => (t === current ? fresh : t)) : [...s.open, fresh], active: fresh.key };
+}
+
+/**
+ * Open a saved tab from the library, or switch to it when it's already open.
+ * @param {Session} s
+ * @param {{ tabId: string, name: string, calc: TabCalc, missing: string[] }} saved its calc already checked (cleanCalc)
+ * @param {string} key for a new open tab
+ * @returns {Session}
+ */
+export function openSaved(s, { tabId, name, calc, missing }, key) {
+  const open = s.open.find((t) => t.tabId === tabId);
+  if (open) return { ...s, active: open.key };
+  return addOpen(s, { ...blankTab(key, calc, missing), tabId, name });
+}
+
+/** After a save: the tab is linked to its saved copy and has no unsaved changes. @param {Session} s @param {string} key @param {string} tabId @param {string} name @returns {Session} */
+export const markSaved = (s, key, tabId, name) => ({
+  ...s,
+  open: s.open.map((t) => (t.key === key ? { ...t, tabId, name, dirty: false } : t)),
+});
+
+/**
+ * Keep open tabs in step with the library: a renamed saved tab renames its open tab; a deleted one
+ * leaves its open tab unsaved (it keeps its contents, now only in this browser tab).
+ * @param {Session} s @param {Record<string, { name: string }>} savedTabs the library's tabs
+ * @returns {Session}
+ */
+export function syncWithLibrary(s, savedTabs) {
+  let changed = false;
+  const open = s.open.map((t) => {
+    if (t.tabId == null) return t;
+    const saved = Object.hasOwn(savedTabs, t.tabId) ? savedTabs[t.tabId] : null;
+    if (saved && saved.name === t.name) return t;
+    changed = true;
+    return saved ? { ...t, name: saved.name } : { ...t, tabId: null, dirty: true };
+  });
+  return changed ? { ...s, open } : s;
 }
 
 /** @param {Session} s @param {string} key @returns {Session} */

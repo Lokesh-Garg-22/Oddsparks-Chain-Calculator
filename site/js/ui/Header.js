@@ -3,6 +3,7 @@
 import { useState } from 'preact/hooks';
 import { html } from './html.js';
 import { Menu, Choice } from './Menu.js';
+import { FolderIcon } from './icons.js';
 import { useApp } from './context.js';
 import { crewOption } from './format.js';
 import { toShareHash } from '../state/url.js';
@@ -54,8 +55,11 @@ function ShareButton({ calc }) {
     </button>`;
 }
 
-/** @param {{ calc: import('../state/calc.js').TabCalc, prefsStored: boolean, children?: any }} props children: the tab bar */
-export function Header({ calc, prefsStored, children }) {
+/**
+ * @param {{ calc: import('../state/calc.js').TabCalc, prefsStored: boolean, libraryOpen: boolean, onLibrary: () => void, children?: any }} props
+ * children: the tab bar
+ */
+export function Header({ calc, prefsStored, libraryOpen, onLibrary, children }) {
   return html`
     <header class="site-header">
       <div class="container site-header__inner">
@@ -63,6 +67,10 @@ export function Header({ calc, prefsStored, children }) {
         <h1 class="site-header__title">Oddsparks Chain Calculator</h1>
         <div class="site-header__tools">
           ${calc.recipe && html`<${ShareButton} calc=${calc} />`}
+          <button type="button" class="button button--chrome" aria-expanded=${libraryOpen} onClick=${onLibrary}>
+            <${FolderIcon} />
+            <span>Library</span>
+          </button>
           <${Menu} id="settings-menu" buttonClass="button button--chrome" panelLabel="Display settings"
             label=${html`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12" /><circle cx="16" cy="6" r="2" /><circle cx="10" cy="12" r="2" /><circle cx="18" cy="18" r="2" /></svg><span>Settings</span>`}>
             <${Settings} prefsStored=${prefsStored} />

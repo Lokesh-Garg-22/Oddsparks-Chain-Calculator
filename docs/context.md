@@ -13,12 +13,17 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 9 (tabs): done, awaiting the owner's review before commit.**
+- **Step 10 (saved library): done, awaiting the owner's review before commit.**
+  - Library column (a drawer on narrower screens): search, nested folders with counts, collapse, drag and drop, ··· menus (open, rename, duplicate, move to…, delete; new subfolder), Move to… dialog, back up and restore (add or replace)
+  - toolbar above the results: name, folder, unsaved state, Save, Save as…
+  - saved with older data: what's missing is named, and a removed recipe opens on its building to pick a replacement
+  - asks before closing the browser tab with unsaved work; storage-blocked and restore messages
+  - reviewed with `code-review` (1 fix) and `simplify` (fixes applied, see decisions)
+  - 98 tests pass; `validate` passes; checked in a real browser (desktop, phone drawer), no console errors
+- **Step 9 (tabs): committed** (`e3a64b3`).
   - tab bar in the header: new, switch, close (asks when there are changes), rename (double-click or F2), unsaved dot
   - open tabs kept in sessionStorage: a reload keeps them
   - share links open as a tab; anything a link or stored tab lost is named on that tab until dismissed
-  - reviewed with `code-review` (1 fix) and `simplify` (fixes applied, see decisions)
-  - 88 tests pass; `validate` passes; checked in a real browser (desktop light and dark, phone), no console errors
 - **Step 8 (columns, settings, share link, panels, phone): committed** (`63a0eeb`).
   - Columns menu on the build list (9 extra columns from the owner's spreadsheet, hidden by default), from one column registry the Excel export will reuse
   - Settings: rate unit, decimals (incl. "1, like the game"), default crew, theme (system/light/dark), remembered per browser
@@ -83,7 +88,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 9 → commit → **step 10**: saved library (Save / Save as…, nested folders, drag and drop, ··· menus, Move to…, search, back up / restore, "saved with older data" banner, storage-unavailable fallback, asking before the browser tab closes). See [plan.md](plan.md#7-build-steps).
+Owner reviews step 10 → commit → **step 11**: Excel export (this tab, a folder, or the whole library; the owner's layout with formulas; Summary sheet; test that recreates the Wooden Blade sheet). See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

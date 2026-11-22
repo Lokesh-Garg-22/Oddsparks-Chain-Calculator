@@ -41,3 +41,6 @@ export function writeJson(area, name, value) {
 
 /** Stored or pasted data as an object to read fields from; anything else (null, arrays, text) as {}. @param {unknown} v @returns {Record<string, unknown>} */
 export const asRecord = (v) => (v && typeof v === 'object' && !Array.isArray(v) ? /** @type {Record<string, unknown>} */ (v) : {});
+
+/** An id that won't repeat in this browser: "t_m3k9x2ab1". @param {string} prefix */
+export const uniqueId = (prefix) => `${prefix}_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;

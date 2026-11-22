@@ -6,6 +6,8 @@
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { html } from './html.js';
 import { ConfirmDialog } from './Dialog.js';
+import { RenameField } from './RenameField.js';
+import { CloseIcon } from './icons.js';
 import { useApp } from './context.js';
 import { tabLabel } from '../state/tabs.js';
 
@@ -38,7 +40,7 @@ export function TabBar({ session, onSelect, onNew, onClose, onRename }) {
           return html`
             <li key=${tab.key} class=${`tab${active ? ' is-active' : ''}`}>
               ${editing === tab.key
-                ? html`<${RenameField} initial=${tab.name ?? label} onDone=${(/** @type {string | null} */ name) => {
+                ? html`<${RenameField} initial=${tab.name ?? label} label="Tab name" className="tab__rename" onDone=${(/** @type {string | null} */ name) => {
                     setEditing(null);
                     // Unchanged keeps it as it was, so an automatic name keeps following its calc.
                     if (name != null && name.trim() !== label) onRename(tab.key, name);
@@ -53,7 +55,7 @@ export function TabBar({ session, onSelect, onNew, onClose, onRename }) {
                     ${tab.dirty && html`<span class="tab__dot" role="img" aria-label="unsaved changes"></span>`}
                   </button>`}
               <button type="button" class="tab__close" aria-label=${`Close ${label}`} onClick=${() => askClose(tab)}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                <${CloseIcon} />
               </button>
             </li>`;
         })}
@@ -70,27 +72,4 @@ export function TabBar({ session, onSelect, onNew, onClose, onRename }) {
           <p>It has changes that aren't saved, so closing it loses them.</p>
         <//>`}
     </nav>`;
-}
-
-/** Inline rename: Enter or leaving the field keeps it, Escape cancels; blank goes back to the automatic name. */
-function RenameField(/** @type {{ initial: string, onDone: (name: string | null) => void }} */ { initial, onDone }) {
-  const input = useRef(/** @type {HTMLInputElement | null} */ (null));
-  const done = useRef(false);
-  useLayoutEffect(() => {
-    input.current?.focus();
-    input.current?.select();
-  }, []);
-  /** @param {string | null} name */
-  const finish = (name) => {
-    if (done.current) return;
-    done.current = true;
-    onDone(name);
-  };
-  return html`
-    <input ref=${input} class="input tab__rename" aria-label="Tab name" value=${initial} maxlength="60"
-      onKeyDown=${(/** @type {KeyboardEvent} */ e) => {
-        if (e.key === 'Enter') finish(/** @type {HTMLInputElement} */ (e.currentTarget).value);
-        else if (e.key === 'Escape') finish(null);
-      }}
-      onBlur=${(/** @type {FocusEvent} */ e) => finish(/** @type {HTMLInputElement} */ (e.currentTarget).value)} />`;
 }

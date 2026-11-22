@@ -38,12 +38,14 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
     }
   },
   "folders": {
-    "f_01": { "id": "f_01", "name": "Early game wood", "parentId": null,   "tabIds": ["t_8f2"], "collapsed": false },
-    "f_02": { "id": "f_02", "name": "Blades",          "parentId": "f_01", "tabIds": [],         "collapsed": false }
+    "f_01": { "id": "f_01", "name": "Early game wood", "children": ["f_02", "t_8f2"], "collapsed": false },
+    "f_02": { "id": "f_02", "name": "Blades",          "children": [],                "collapsed": false }
   },
-  "rootOrder": ["f_01", "t_9aa"],   // order of top-level folders and tabs not in a folder
-  "unfiled": ["t_9aa"]
+  "root": ["f_01", "t_9aa"]   // the top level, in order: folders and tabs not in a folder
 }
+
+// Back up file (.json): the library with a format tag
+{ "format": "oddsparks-calc-library", "exportedAt": "2026-11-22T10:00:00Z", "library": { /* as above */ } }
 
 // localStorage "oddsparks-calc:v1:prefs"
 { "unit": "min", "decimals": 2, "defaultCrew": "2-stumpy", "theme": "system", "columns": [] }   // columns: keys from site/js/engine/columns.js
@@ -51,26 +53,29 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 
 ### Rules
 
-- A tab is in exactly one folder's `tabIds`, or in `unfiled`.
-- Folder order inside a parent: an `order` number on each folder.
+- Every tab and folder is listed exactly once: in one folder's `children`, or in `root`. Each list is in display order, folders and tabs mixed, so drag and drop can place an item anywhere. `cleanLibrary()` (`site/js/state/library.js`) repairs anything else on load or restore: items listed twice keep their first place, loops between folders are broken, and anything unlisted goes to the top level.
+- Saved calcs are stored as saved and checked with `cleanCalc()` when opened (`savedCalc()`), so the tab can say what's missing.
 - **Nested folders:**
   - A folder can't be moved into itself or into one of its own subfolders.
   - Deleting a folder asks first. Its contents either move up one level or are deleted.
 - **Moving things:** drag and drop on desktop, plus a ··· › **Move to…** dialog showing the folder tree, which works on touch screens and with a keyboard.
-- **Each tab's ··· menu:** Open, Rename, Duplicate, Move to…, Export to Excel, Delete.
-- **Each folder's ··· menu:** New subfolder, Rename, Move to…, Export folder to Excel, Delete.
-- **Saved with older data:** if `dataVersion` differs and a recipe or item ID no longer exists, the tab opens with a banner naming what's missing and offering a replacement. It's never silently dropped.
+- **Each tab's ··· menu:** Open, Rename, Duplicate, Move to…, Export to Excel (step 11), Delete.
+- **Each folder's ··· menu:** New subfolder, Rename, Move to…, Export folder to Excel (step 11), Delete.
+- **Open tabs follow the library:** saving links an open tab to its saved copy (`tabId`). Renaming either renames both. Deleting a saved tab leaves its open tab with its contents, marked unsaved.
+- **Saved with older data:** if a recipe, item or crew ID no longer exists, the tab opens with a banner naming what's missing. If the target recipe itself is gone, the tab opens on its building, so the recipe cards offer the replacement. Nothing is silently dropped.
   - `renamedIds` in overrides has one map per kind of stored ID (`recipes`, `items`, `crews`). `resolveId()` in `site/js/data/merge.js` follows them, so old tabs keep working after a rename or merge.
   - Crew IDs (`2-stumpy`, `1-stumpy-1-crafty`…) are stored too, so they only change via `renamedIds.crews`.
   - Recipe IDs depend only on recipe content, so reordering wiki pages never changes them.
   - Adding a recipe that collides with an existing one can lengthen that recipe's ID (e.g. `furnace--big-vial` → `furnace--big-vial--from-quartz`). That shows up as a missing ID and is handled the same way.
-- **Storage unavailable** (private browsing, blocked, quota full): every access is wrapped in try/catch. The calculator still works, saving is disabled with a message, and back up still works.
+- **Storage unavailable** (private browsing, blocked, quota full): every access is wrapped in try/catch. The calculator and the library still work for this visit, the library says it will be lost when the page closes, and back up still works.
 - **Back up / Restore:** download or upload the library as `.json`. On restore, choose to merge (new IDs where they clash) or replace.
 - Size: about 1 KB per tab, against a roughly 5 MB browser limit.
 
-- `name`: set by the user (double-click or F2 on the tab); null means it's named after its calc ("Wooden Blade ×3").
+Open tabs (the session) store:
+
+- `name`: set by the user (double-click or F2 on the tab); null means it's named after its calc ("Wooden Blade ×3"). A saved tab always has its saved name.
 - `missing`: ids the calc lost because they're no longer in the game data. The page names them until dismissed.
-- Every stored calc goes through `cleanCalc()` (`site/js/state/calc.js`) on the way in, the same check share links use, and the saved library and restores will use.
+- Every stored calc goes through `cleanCalc()` (`site/js/state/calc.js`) on the way in, the same check that share links, the saved library and restores use.
 
 ## Share links
 
