@@ -3,7 +3,7 @@
 ## Concepts
 
 - **Tab:** one calculation. Stores building, recipe, count, crew per row, recipe choice per item, items marked "I supply this", and the Chain tree / Build list view. Display settings (unit, decimals, default crew, theme, extra columns) are per browser, not per tab (decision of 2026-11-22, step 8).
-- **Open tabs** live in **sessionStorage**. They're gone when the browser tab closes. A tab with unsaved changes shows a dot, and closing the browser tab with unsaved work asks first.
+- **Open tabs** live in **sessionStorage** (`site/js/state/tabs.js`). A reload keeps them; they're gone when the browser tab closes. A tab with changes since it was opened (or saved) shows a dot, and closing that tab asks first. Asking before the *browser* tab closes arrives with Save in step 10, since until then there's nothing to do about it but lose the work.
 - **Saved library** lives in **localStorage**. It holds saved tabs, organised in **nested folders**.
 - Only inputs are stored, never results. Results are recalculated from the current data, so saved tabs stay small and work after a data update.
 
@@ -15,8 +15,8 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 // sessionStorage "oddsparks-calc:v1:session"
 {
   "open": [
-    { "key": "o1", "tabId": "t_8f2", "draft": { /* calc */ }, "dirty": true },
-    { "key": "o2", "tabId": null,    "draft": { /* calc */ }, "dirty": true }   // never saved
+    { "key": "o1", "tabId": "t_8f2", "name": null,          "draft": { /* calc */ }, "dirty": true,  "missing": [] },
+    { "key": "o2", "tabId": null,    "name": "Copper line", "draft": { /* calc */ }, "dirty": false, "missing": ["old-crew-id"] }   // never saved
   ],
   "active": "o1"
 }
@@ -68,6 +68,10 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 - **Back up / Restore:** download or upload the library as `.json`. On restore, choose to merge (new IDs where they clash) or replace.
 - Size: about 1 KB per tab, against a roughly 5 MB browser limit.
 
+- `name`: set by the user (double-click or F2 on the tab); null means it's named after its calc ("Wooden Blade ×3").
+- `missing`: ids the calc lost because they're no longer in the game data. The page names them until dismissed.
+- Every stored calc goes through `cleanCalc()` (`site/js/state/calc.js`) on the way in, the same check share links use, and the saved library and restores will use.
+
 ## Share links
 
 `site/js/state/url.js`. The URL fragment holds a tab's calc, so it never reaches a server:
@@ -76,7 +80,7 @@ All keys are prefixed `oddsparks-calc:v1:`, because every GitHub Pages project u
 
 - Ids are slugs, so `:` and `,` need no escaping.
 - On the way in, every id goes through `resolveId`, so renamed ids still work. Ids that no longer exist are dropped and named in a banner. If the target recipe itself is gone, the page says so and opens empty.
-- After it's read, the fragment is removed from the address bar. A link pasted into an open page replaces the current calc; from step 9 it will open a new tab.
+- After it's read, the fragment is removed from the address bar. The link opens as a new tab, or replaces the current tab if that one is empty and untouched, whether the page was opened from the link or it was pasted into an open page.
 
 ## Excel export (ExcelJS, loaded on demand)
 

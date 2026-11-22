@@ -9,8 +9,8 @@ import { toShareHash } from '../state/url.js';
 
 /** @typedef {import('../state/prefs.js').Prefs} Prefs */
 
-/** @param {{ saved: boolean }} props saved: false when the browser blocks storage */
-function Settings({ saved }) {
+/** @param {{ prefsStored: boolean }} props prefsStored: false when the browser blocks storage */
+function Settings({ prefsStored }) {
   const { game, prefs, setPrefs } = useApp();
   /** @template {keyof Prefs} K @param {K} key @returns {(v: Prefs[K]) => void} */
   const set = (key) => (v) => setPrefs((p) => ({ ...p, [key]: v }));
@@ -29,7 +29,7 @@ function Settings({ saved }) {
       </label>
       <${Choice} legend="Theme" name="theme" value=${prefs.theme} onChange=${set('theme')}
         options=${[{ value: 'system', label: 'System' }, { value: 'light', label: 'Light' }, { value: 'dark', label: 'Dark' }]} />
-      <p class="small muted">${saved ? 'Remembered in this browser.' : 'This browser blocks saving, so these reset when you close the page.'}</p>
+      <p class="small muted">${prefsStored ? 'Remembered in this browser.' : 'This browser blocks saving, so these reset when you close the page.'}</p>
     </div>`;
 }
 
@@ -54,8 +54,8 @@ function ShareButton({ calc }) {
     </button>`;
 }
 
-/** @param {{ calc: import('../state/calc.js').TabCalc, saved: boolean }} props */
-export function Header({ calc, saved }) {
+/** @param {{ calc: import('../state/calc.js').TabCalc, prefsStored: boolean, children?: any }} props children: the tab bar */
+export function Header({ calc, prefsStored, children }) {
   return html`
     <header class="site-header">
       <div class="container site-header__inner">
@@ -64,10 +64,11 @@ export function Header({ calc, saved }) {
         <div class="site-header__tools">
           ${calc.recipe && html`<${ShareButton} calc=${calc} />`}
           <${Menu} id="settings-menu" buttonClass="button button--chrome" panelLabel="Display settings"
-            label=${html`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0" /><circle cx="16" cy="6" r="2" /><circle cx="10" cy="12" r="2" /><circle cx="18" cy="18" r="2" /></svg><span>Settings</span>`}>
-            <${Settings} saved=${saved} />
+            label=${html`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12" /><circle cx="16" cy="6" r="2" /><circle cx="10" cy="12" r="2" /><circle cx="18" cy="18" r="2" /></svg><span>Settings</span>`}>
+            <${Settings} prefsStored=${prefsStored} />
           <//>
         </div>
       </div>
+      <div class="container">${children}</div>
     </header>`;
 }

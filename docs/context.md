@@ -13,14 +13,18 @@ You can keep several calculations open as tabs, save them into a library organis
 ## Status (2026-11-22)
 
 - **Phase: building.** Owner said "execute the plan" on 2026-11-22.
-- **Step 8 (columns, settings, share link, panels, phone): done, awaiting the owner's review before commit.**
+- **Step 9 (tabs): done, awaiting the owner's review before commit.**
+  - tab bar in the header: new, switch, close (asks when there are changes), rename (double-click or F2), unsaved dot
+  - open tabs kept in sessionStorage: a reload keeps them
+  - share links open as a tab; anything a link or stored tab lost is named on that tab until dismissed
+  - reviewed with `code-review` (1 fix) and `simplify` (fixes applied, see decisions)
+  - 88 tests pass; `validate` passes; checked in a real browser (desktop light and dark, phone), no console errors
+- **Step 8 (columns, settings, share link, panels, phone): committed** (`63a0eeb`).
   - Columns menu on the build list (9 extra columns from the owner's spreadsheet, hidden by default), from one column registry the Excel export will reuse
   - Settings: rate unit, decimals (incl. "1, like the game"), default crew, theme (system/light/dark), remembered per browser
   - Copy share link; old links survive renamed ids and name what's missing
   - Byproducts and spare capacity panel; Warnings panel
   - compact phone cards with "Change"; data version and "Report a data error" in the footer
-  - reviewed with `code-review` (no findings) and `simplify` (fixes applied, see decisions)
-  - 82 tests pass; `validate` passes; checked in a real browser (desktop light and dark, phone), no console errors
 - **Step 7 (chain tree): committed** (`7a1735e`).
   - expandable tree with crew per row, recipe switch, "I supply this", and badges that explain themselves; shared rows show their part; Chain tree / Build list switch; phone cards
 - **Step 6 (app shell): committed** (`217f3d0`).
@@ -79,7 +83,7 @@ You can keep several calculations open as tabs, save them into a library organis
 
 ## Next step
 
-Owner reviews step 8 → commit → **step 9**: tabs in sessionStorage (tab bar, new/close/rename, unsaved dot, confirm on close; a pasted share link opens a new tab). See [plan.md](plan.md#7-build-steps).
+Owner reviews step 9 → commit → **step 10**: saved library (Save / Save as…, nested folders, drag and drop, ··· menus, Move to…, search, back up / restore, "saved with older data" banner, storage-unavailable fallback, asking before the browser tab closes). See [plan.md](plan.md#7-build-steps).
 
 ## Open questions for the owner
 

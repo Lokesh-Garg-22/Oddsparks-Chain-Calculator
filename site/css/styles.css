@@ -29,6 +29,12 @@
   --c-field:        light-dark(#B8C4BA, #3A4B41);
   --c-chrome:       light-dark(#1B2A22, #0A100D); /* header */
   --c-chrome-ink:   light-dark(#F3F5F0, #E6ECE6);
+  --c-chrome-tab:   light-dark(#2C3D33, #18231D);   /* inactive tabs on the header */
+  --c-chrome-muted: light-dark(#C9D3CB, #A9B7AD);
+  --c-unsaved:      #C77A00;                        /* the unsaved dot */
+  --c-danger:       light-dark(#A3372B, #F08A7E);
+  --c-shade:        color-mix(in srgb, #0F1612 22%, transparent); /* menu shadows */
+  --c-scrim:        color-mix(in srgb, #0F1612 45%, transparent); /* behind dialogs */
   --c-spark:        #F2A93B;                      /* amber accent, both themes */
   --c-on-spark:     #1B2A22;                      /* text on amber */
   --c-target:       light-dark(#FBF7EE, #2A2416); /* the user's own row */
@@ -99,7 +105,7 @@ button, input, select { font: inherit; color: inherit; }
 .spark-mark { color: var(--c-spark); flex-shrink: 0; }
 
 .site-header { background: var(--c-chrome); color: var(--c-chrome-ink); }
-.site-header__inner { display: flex; align-items: center; gap: 10px; padding-block: 14px; }
+.site-header__inner { display: flex; align-items: center; gap: 10px; padding-block: 14px 10px; }
 .site-header__title { font-size: 1.35rem; }
 .site-header__tools { margin-left: auto; display: flex; gap: 8px; }
 .button--chrome {
@@ -111,6 +117,7 @@ button, input, select { font: inherit; color: inherit; }
   .site-header__title { font-size: 1.1rem; }
   .button--chrome { padding-inline: 10px; }
   .button--chrome span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .tab__select { max-width: 160px; padding-left: 12px; }
 }
 
 .site-footer { border-top: 1px solid var(--c-border); margin-top: 24px; }
@@ -247,14 +254,33 @@ button, input, select { font: inherit; color: inherit; }
 .switch__option input:focus-visible + span { outline: 3px solid var(--c-focus); outline-offset: 1px; }
 .switch__option .muted { font-weight: 400; }
 
+/* ---- Tabs: the open calculations, in the header. The active tab takes the page colour, so it joins the page below. ---- */
+.tabbar { display: flex; align-items: flex-end; gap: 4px; min-height: 44px; }
+.tabbar__list { display: flex; align-items: flex-end; gap: 4px; overflow-x: auto; scrollbar-width: thin; min-width: 0; }
+.tab { display: flex; align-items: center; flex-shrink: 0; background: var(--c-chrome-tab); color: var(--c-chrome-muted); border-radius: var(--radius-m) var(--radius-m) 0 0; }
+.tab.is-active { background: var(--c-page); color: var(--c-ink); }
+.tab__select { display: flex; align-items: center; gap: 8px; border: 0; background: transparent; color: inherit; padding: 10px 4px 10px 14px; min-height: 44px; cursor: pointer; max-width: 240px; }
+.tab.is-active .tab__select { font-weight: 600; }
+.tab__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tab__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c-unsaved); flex-shrink: 0; }
+.tab__close { border: 0; background: transparent; color: inherit; width: 32px; height: 44px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius-s); }
+.tab__close:hover { color: var(--c-danger); }
+.tab__rename { margin: 6px 0 6px 8px; width: 180px; min-height: 32px; padding: 4px 8px; }
+.tabbar__new { flex-shrink: 0; width: 40px; padding: 0; justify-content: center; margin-bottom: 2px; }
+
+/* ---- Dialogs (they share the menus' surface, below) ---- */
+.dialog { padding: 22px; max-width: min(440px, calc(100vw - 32px)); }
+.dialog::backdrop { background: var(--c-scrim); }
+.dialog__body p { margin: 10px 0 0; }
+.dialog__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+.button--primary { border: 1px solid var(--c-action); background: var(--c-action); color: var(--c-surface); }
+.button--danger { border: 1px solid var(--c-danger); background: var(--c-danger); color: var(--c-surface); }
+.banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.banner p { margin: 0; }
+
 /* ---- Menus (popover panels) ---- */
-.menu {
-  inset: auto; margin: 0; position: fixed;
-  width: min(340px, calc(100vw - 16px)); max-height: calc(100vh - 80px); overflow-y: auto;
-  background: var(--c-surface); color: var(--c-ink);
-  border: 1px solid var(--c-border); border-radius: var(--radius-l); padding: 16px;
-  box-shadow: 0 12px 32px color-mix(in srgb, #0F1612 22%, transparent);
-}
+.menu, .dialog { background: var(--c-surface); color: var(--c-ink); border: 1px solid var(--c-border); border-radius: var(--radius-l); box-shadow: 0 12px 32px var(--c-shade); }
+.menu { inset: auto; margin: 0; position: fixed; width: min(340px, calc(100vw - 16px)); max-height: calc(100vh - 80px); overflow-y: auto; padding: 16px; }
 .settings, .columns-menu { display: flex; flex-direction: column; gap: 14px; }
 .settings__title { font-size: 1.05rem; }
 .menu p { margin: 0; }

@@ -4,6 +4,7 @@
  * Pure: every function returns a new object. Used by the UI, and later by tabs, share links and the
  * saved library, so they all edit a calc the same way.
  */
+import { asRecord } from './storage.js';
 
 /**
  * @typedef {object} TabCalc
@@ -53,3 +54,49 @@ export const toggleSupplied = (calc, item) => ({
 
 /** @param {TabCalc} calc @param {'tree' | 'list'} view @returns {TabCalc} */
 export const setView = (calc, view) => ({ ...calc, view });
+
+/**
+ * A calc from outside the app (a share link, session storage, later the saved library and restores),
+ * checked against the current data. Ids go through `resolve` (resolveId), so renamed ones still work;
+ * ids that no longer exist are dropped and listed. Bad values fall back to the defaults.
+ * @param {any} game
+ * @param {unknown} raw
+ * @param {(game: any, kind: 'recipes' | 'items' | 'crews', id: string) => string | null} resolve
+ * @returns {{ calc: TabCalc | null, missing: string[] }} calc is null when its target recipe no longer exists
+ */
+export function cleanCalc(game, raw, resolve) {
+  const r = asRecord(raw);
+  /** @type {string[]} */
+  const missing = [];
+  /** @param {'recipes' | 'items' | 'crews'} kind @param {unknown} id */
+  const id = (kind, id) => {
+    if (typeof id !== 'string' || !id) return null;
+    const found = resolve(game, kind, id);
+    if (!found) missing.push(id);
+    return found;
+  };
+  /** A map of id → id, keeping only pairs where both still exist. @param {unknown} o @param {'recipes' | 'items'} keyKind @param {'recipes' | 'crews'} valueKind */
+  const idMap = (o, keyKind, valueKind) => {
+    /** @type {Record<string, string>} */
+    const out = {};
+    for (const [k, v] of Object.entries(asRecord(o))) {
+      const a = id(keyKind, k);
+      const b = id(valueKind, v);
+      if (a && b) out[a] = b;
+    }
+    return out;
+  };
+
+  const recipe = r.recipe ? id('recipes', r.recipe) : '';
+  if (recipe == null) return { calc: null, missing };
+  const rest = {
+    count: typeof r.count === 'number' && Number.isFinite(r.count) && r.count >= 0 ? r.count : 1,
+    crews: idMap(r.crews, 'recipes', 'crews'),
+    recipeChoice: idMap(r.recipeChoice, 'items', 'recipes'),
+    supplied: /** @type {string[]} */ ([...new Set((Array.isArray(r.supplied) ? r.supplied : []).map((i) => id('items', i)).filter((i) => i != null))]),
+    ...(r.view === 'list' ? { view: /** @type {const} */ ('list') } : {}),
+  };
+  if (recipe) return { calc: fromRecipe(game, recipe, rest), missing };
+  const building = typeof r.building === 'string' && Object.hasOwn(game.buildings, r.building) ? r.building : null;
+  return { calc: { ...emptyCalc(), ...rest, building }, missing };
+}

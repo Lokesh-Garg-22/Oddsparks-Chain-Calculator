@@ -4,6 +4,25 @@ Newest first. Each entry: date, decision, reason.
 
 ## 2026-11-22
 
+- **Step 9 (tabs) decisions:**
+  - **Tabs sit in the header,** as in the mockup: inactive tabs are a lighter green, and the active tab takes the page colour so it joins the page. The row scrolls sideways when it's full (always on phones).
+  - **"Unsaved" means changed since opened.** A tab opened from a share link starts clean; editing it, including switching tree/list (stored with the tab), shows the dot. Renaming doesn't, because the name isn't part of the calculation; step 10 decides how a rename reaches a saved copy.
+  - **Closing asks only when there are changes,** in a modal dialog ("Keep it open" first, so Enter and Escape are safe). Closing the last tab leaves a fresh empty one.
+  - **Asking before the browser tab closes (`beforeunload`) moves to step 10.** Until Save exists, the prompt would only say "you'll lose this" with nothing to do about it. A reload keeps everything anyway.
+  - **Share links open a tab:** a new one, or in place of an untouched empty tab, so opening a link in a fresh browser tab doesn't leave a stray "New calculation" behind.
+  - **Renaming:** double-click or F2. Enter or clicking away keeps the name, Escape cancels, and a blank name goes back to the automatic one.
+  - **What a link or stored tab lost is kept on the tab** (`missing`), shown in a banner until dismissed, and survives a reload. Step 10's "saved with older data" banner builds on it.
+  - **One check for calcs from outside:** `cleanCalc()` is used by share links and the session now, and by the library and restores in step 10.
+  - **Found while building:** `resolveId` used `in`, so an id like `constructor` in a link counted as a recipe and would crash the page. It now checks own keys only, with a test.
+  - **After `code-review`:** pressing Enter on an unchanged automatic name no longer freezes it as a fixed name.
+  - **After the `simplify` review:**
+    - session storage helpers moved into `tabs.js`
+    - the dialog takes a list of actions, ready for three-way choices
+    - one `asRecord` guard
+    - `cleanCalc` reuses `fromRecipe`
+    - the + button and rename field reuse the header button and `.input` styles
+    - dialogs and menus share one surface style
+    - the prefs flag is renamed `prefsStored`, so it won't clash with Save
 - **Step 8 (columns, settings, share link, panels, phone) decisions:**
   - **One column registry,** `site/js/engine/columns.js`. Each column reads one raw value from a calculated row, with a `kind` that says how to show it. The build list shows it now; the Excel export will write it (step 11). The demand column keeps which row each part comes from, so Excel can write `=K16+K13`.
   - **The extra columns are the mockup's 9,** each named after the owner's spreadsheet header (shown in the menu as "Excel column …"). They are hidden by default, apply to the build list, and are remembered per browser. The tree stays at its 5 columns, since its rows are branches, not whole recipes.

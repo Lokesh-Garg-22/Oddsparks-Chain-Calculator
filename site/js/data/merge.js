@@ -119,12 +119,13 @@ export function applyOverrides(data, overrides) {
  */
 export function resolveId(game, kind, id) {
   let current = id;
-  for (let hops = 0; hops < 20 && !(current in game[kind]); hops++) {
-    const next = game.renamedIds[kind][current];
+  // Own keys only: "constructor" or "__proto__" from a link must not count as an id.
+  for (let hops = 0; hops < 20 && !Object.hasOwn(game[kind], current); hops++) {
+    const next = Object.hasOwn(game.renamedIds[kind], current) ? game.renamedIds[kind][current] : null;
     if (!next) return null;
     current = next;
   }
-  return current in game[kind] ? current : null;
+  return Object.hasOwn(game[kind], current) ? current : null;
 }
 
 /**

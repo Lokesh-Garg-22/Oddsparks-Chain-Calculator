@@ -38,3 +38,6 @@ export function writeJson(area, name, value) {
     return false;
   }
 }
+
+/** Stored or pasted data as an object to read fields from; anything else (null, arrays, text) as {}. @param {unknown} v @returns {Record<string, unknown>} */
+export const asRecord = (v) => (v && typeof v === 'object' && !Array.isArray(v) ? /** @type {Record<string, unknown>} */ (v) : {});

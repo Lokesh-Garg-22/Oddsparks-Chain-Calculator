@@ -6,7 +6,7 @@
  * means settings last until the page closes.
  */
 import { OPTIONAL_KEYS } from '../engine/columns.js';
-import { readJson, writeJson } from './storage.js';
+import { asRecord, readJson, writeJson } from './storage.js';
 
 /** Stored as KEY_PREFIX + 'prefs'. The theme script in site/index.html reads the same key (a test checks it). */
 export const PREFS_NAME = 'prefs';
@@ -33,7 +33,7 @@ const oneOf = (v, allowed, fallback) => (allowed.includes(/** @type {T} */ (v)) 
  */
 export function cleanPrefs(game, stored, resolve) {
   const d = defaultPrefs(game);
-  const s = stored && typeof stored === 'object' ? /** @type {Record<string, unknown>} */ (stored) : {};
+  const s = asRecord(stored);
   return {
     unit: oneOf(s.unit, /** @type {const} */ (['min', 'sec']), d.unit),
     decimals: oneOf(s.decimals, /** @type {const} */ ([2, 1]), d.decimals),

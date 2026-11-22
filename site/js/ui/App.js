@@ -1,7 +1,7 @@
 // @ts-check
 /**
- * The calculator page. App owns the tab's calc (the stored shape, site/js/state/calc.js) and the user's
- * prefs; everything below edits the calc only through the state updaters.
+ * The calculator page. App owns the open tabs (site/js/state/tabs.js, kept in sessionStorage) and the
+ * user's prefs; everything below edits the active tab's calc only through the state updaters.
  */
 import { useEffect, useLayoutEffect, useMemo, useState } from 'preact/hooks';
 import { html } from './html.js';
@@ -10,10 +10,12 @@ import { Picker } from './Picker.js';
 import { RecipeCards } from './RecipeCards.js';
 import { Results } from './Results.js';
 import { Header } from './Header.js';
+import { TabBar } from './TabBar.js';
 import { CrewSelect } from './CrewSelect.js';
 import { makeFormat } from './format.js';
 import { calculate } from '../engine/calc.js';
-import { emptyCalc, fromRecipe, pickBuilding, setCount, setRecipe } from '../state/calc.js';
+import { fromRecipe, pickBuilding, setCount, setRecipe } from '../state/calc.js';
+import { activeTab, closeTab, dismissMissing, newKey, newTab, openLink, readStoredSession, renameTab, selectTab, storeSession, updateActive } from '../state/tabs.js';
 import { applyTheme, cleanPrefs, readStoredPrefs, storePrefs } from '../state/prefs.js';
 import { takeShareLink } from '../state/url.js';
 import { resolveId } from '../data/merge.js';
@@ -78,29 +80,36 @@ function EmptyState({ hasBuilding, onExample }) {
 
 /** @param {{ game: any }} props */
 export function App({ game }) {
-  // A share link opens in place of the current calc (from step 9: in a new tab).
-  const [link, setLink] = useState(() => takeShareLink(game, resolveId));
-  const [calc, setCalc] = useState(() => link?.calc ?? emptyCalc());
+  // The open tabs, restored from this browser tab's session; a share link in the address bar opens as a new tab.
+  const [session, setSession] = useState(() => {
+    const restored = readStoredSession(game, resolveId);
+    const link = takeShareLink(game, resolveId);
+    return link ? openLink(restored, link, newKey()) : restored;
+  });
+  useLayoutEffect(() => {
+    storeSession(session);
+  }, [session]);
+  // A share link pasted into the open page.
   useEffect(() => {
     const onHash = () => {
-      const shared = takeShareLink(game, resolveId);
-      if (!shared) return;
-      setLink(shared);
-      if (shared.calc) setCalc(shared.calc);
+      const link = takeShareLink(game, resolveId);
+      if (link) setSession((s) => openLink(s, link, newKey()));
     };
     addEventListener('hashchange', onHash);
     return () => removeEventListener('hashchange', onHash);
   }, [game]);
+  const tab = activeTab(session);
+  const calc = tab.draft;
   const [prefs, setPrefs] = useState(() => cleanPrefs(game, readStoredPrefs(), resolveId));
-  const [saved, setSaved] = useState(true);
+  const [prefsStored, setPrefsStored] = useState(true);
   // Layout effects: the theme switches in the same frame, and a change is stored before the page can be left.
-  useLayoutEffect(() => setSaved(storePrefs(prefs)), [prefs]);
+  useLayoutEffect(() => setPrefsStored(storePrefs(prefs)), [prefs]);
   useLayoutEffect(() => applyTheme(prefs.theme), [prefs.theme]);
   const fmt = useMemo(() => makeFormat(prefs), [prefs.unit, prefs.decimals]);
   const context = useMemo(() => ({ game, fmt, prefs, setPrefs }), [game, fmt, prefs]);
 
   /** @type {Update} */
-  const update = (fn) => setCalc(fn);
+  const update = (fn) => setSession((s) => updateActive(s, fn));
   // Only the inputs the engine reads: switching tree/list (calc.view) doesn't recalculate.
   const { recipe, count, crews, recipeChoice, supplied } = calc;
   const result = useMemo(
@@ -110,18 +119,24 @@ export function App({ game }) {
 
   return html`
     <${AppContext.Provider} value=${context}>
-      <${Header} calc=${calc} saved=${saved} />
-      <main class="container layout">
-        ${link && link.missing.length > 0 && html`
-          <p class="notice layout__banner" role="status">
-            ${link.calc ? 'This link was made with older game data. Some parts no longer exist and were left out: ' : 'This link names a recipe that no longer exists in the game data: '}
-            ${link.missing.join(', ')}.
-          </p>`}
+      <${Header} calc=${calc} prefsStored=${prefsStored}>
+        <${TabBar} session=${session}
+          onSelect=${(/** @type {string} */ key) => setSession((s) => selectTab(s, key))}
+          onNew=${() => setSession((s) => newTab(s, newKey()))}
+          onClose=${(/** @type {string} */ key) => setSession((s) => closeTab(s, key, newKey()))}
+          onRename=${(/** @type {string} */ key, /** @type {string} */ name) => setSession((s) => renameTab(s, key, name))} />
+      <//>
+      <main class="container layout" key=${tab.key}>
+        ${tab.missing.length > 0 && html`
+          <div class="notice layout__banner banner" role="status">
+            <p>Not in the current game data, so left out: ${tab.missing.join(', ')}. This happens with links and tabs made before a data update.</p>
+            <button type="button" class="button button--quiet" onClick=${() => setSession(dismissMissing)}>Dismiss</button>
+          </div>`}
         <${TargetPanel} calc=${calc} update=${update} crew=${result?.rows[calc.recipe]?.crew ?? prefs.defaultCrew} />
         <div class="results">
           ${result
             ? html`<${Results} result=${result} calc=${calc} update=${update} />`
-            : html`<${EmptyState} hasBuilding=${Boolean(calc.building)} onExample=${(/** @type {typeof EXAMPLES[number]} */ ex) => setCalc(fromRecipe(game, ex.recipe, { count: ex.count }))} />`}
+            : html`<${EmptyState} hasBuilding=${Boolean(calc.building)} onExample=${(/** @type {typeof EXAMPLES[number]} */ ex) => update(() => fromRecipe(game, ex.recipe, { count: ex.count }))} />`}
         </div>
       </main>
     <//>`;

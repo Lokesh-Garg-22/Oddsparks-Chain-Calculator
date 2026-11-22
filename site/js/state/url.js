@@ -9,18 +9,18 @@
  * server. Ids are resolved through renamedIds on the way in, so old links survive a rename; anything
  * that no longer exists is dropped and reported.
  */
-import { fromRecipe } from './calc.js';
+import { cleanCalc } from './calc.js';
 
 /** @typedef {import('./calc.js').TabCalc} TabCalc */
 
 /** @param {Record<string, string>} map */
-const pairs = (map) => Object.entries(map).map(([k, v]) => `${k}:${v}`).join(',');
+const joinPairs = (map) => Object.entries(map).map(([k, v]) => `${k}:${v}`).join(',');
 
 /** @param {TabCalc} calc @returns {string} the fragment, with its '#' */
 export function toShareHash(calc) {
   const parts = [`r=${calc.recipe}`, `n=${calc.count}`];
-  if (Object.keys(calc.crews).length) parts.push(`c=${pairs(calc.crews)}`);
-  if (Object.keys(calc.recipeChoice).length) parts.push(`p=${pairs(calc.recipeChoice)}`);
+  if (Object.keys(calc.crews).length) parts.push(`c=${joinPairs(calc.crews)}`);
+  if (Object.keys(calc.recipeChoice).length) parts.push(`p=${joinPairs(calc.recipeChoice)}`);
   if (calc.supplied.length) parts.push(`s=${calc.supplied.join(',')}`);
   if (calc.view === 'list') parts.push('v=list');
   return `#${parts.join('&')}`;
@@ -34,48 +34,17 @@ export function toShareHash(calc) {
  */
 export function fromShareHash(game, hash, resolve) {
   const params = new URLSearchParams(hash.replace(/^#/, ''));
-  const target = params.get('r');
-  if (!target) return null;
-  /** @type {string[]} */
-  const missing = [];
-  /** @param {'recipes' | 'items' | 'crews'} kind @param {string} id */
-  const id = (kind, id) => {
-    const found = resolve(game, kind, id);
-    if (!found) missing.push(id);
-    return found;
-  };
-  const recipe = id('recipes', target);
-  if (!recipe) return { calc: null, missing };
-
-  /** @param {string | null} text @returns {[string, string][]} */
-  const split = (text) => (text ? text.split(',').map((p) => /** @type {[string, string]} */ (p.split(':'))).filter((p) => p.length === 2) : []);
-  /** @type {Record<string, string>} */
-  const crews = {};
-  for (const [r, c] of split(params.get('c'))) {
-    const rr = id('recipes', r);
-    const cc = id('crews', c);
-    if (rr && cc) crews[rr] = cc;
-  }
-  /** @type {Record<string, string>} */
-  const recipeChoice = {};
-  for (const [i, r] of split(params.get('p'))) {
-    const ii = id('items', i);
-    const rr = id('recipes', r);
-    if (ii && rr) recipeChoice[ii] = rr;
-  }
-  const supplied = (params.get('s')?.split(',') ?? []).map((i) => id('items', i)).filter((i) => i != null);
-  const count = Number(params.get('n'));
-
-  return {
-    calc: fromRecipe(game, recipe, {
-      count: Number.isFinite(count) && count >= 0 ? count : 1,
-      crews,
-      recipeChoice,
-      supplied: /** @type {string[]} */ (supplied),
-      ...(params.get('v') === 'list' ? { view: /** @type {const} */ ('list') } : {}),
-    }),
-    missing,
-  };
+  if (!params.get('r')) return null;
+  /** @param {string | null} text @returns {Record<string, string>} */
+  const pairs = (text) => Object.fromEntries((text ? text.split(',') : []).map((p) => p.split(':')).filter((p) => p.length === 2));
+  return cleanCalc(game, {
+    recipe: params.get('r'),
+    count: params.has('n') ? Number(params.get('n')) : 1,
+    crews: pairs(params.get('c')),
+    recipeChoice: pairs(params.get('p')),
+    supplied: params.get('s')?.split(',') ?? [],
+    view: params.get('v'),
+  }, resolve);
 }
 
 /**
